@@ -2166,6 +2166,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .add-btn:hover { background: var(--forest-deep); }
 .add-btn svg { width: 16px; height: 16px; }
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 6px var(--s-3);
+  background: var(--bg-elev);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background var(--d-fast), border-color var(--d-fast);
+  cursor: pointer;
+}
+.upload-btn:hover { background: #fff; border-color: var(--ink); }
+.upload-btn:disabled { opacity: 0.5; cursor: wait; }
 
 .req-card {
   background: var(--bg-card);
@@ -2236,6 +2252,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .btn-confirm:hover { background: var(--forest-deep); }
 .btn-reject { background: var(--red); color: #fff; }
 .btn-reject:hover { background: #8a2f23; }
+.btn-mail { background: var(--bg-elev); color: var(--ink); border: 1px solid var(--line); }
+.btn-mail:hover { background: #fff; border-color: var(--ink); }
+.btn-delete { background: transparent; color: var(--ink-mute); border: 1px solid var(--line); }
+.btn-delete:hover { background: var(--red-soft); color: var(--red); border-color: var(--red); }
 
 .admin-empty {
   padding: var(--s-7);
@@ -2650,13 +2670,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="summary-empty">Wählen Sie Anreise und Abreise im Kalender.</div>
         </div>
         <div class="summary-actions" id="summaryActions" style="display:none;">
-          <button class="btn btn-gold" id="btnInstantBook">Sofort buchen
+          <button class="btn btn-gold" id="btnInstantBook">Buchung anfragen
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </button>
-          <button class="btn btn-ghost" id="btnInquire">Unverbindlich anfragen</button>
           <div class="summary-mode-note">
-            <strong>Sofort buchen:</strong> Tage werden sofort für Sie reserviert, wir bestätigen binnen 24 h.<br>
-            <strong>Anfragen:</strong> unverbindlich, Tage bleiben buchbar, persönliche Rücksprache.
+            Verbindliche Buchungsanfrage — die Tage werden sofort für Sie reserviert. Wir bestätigen binnen 24 Stunden per E-Mail. Verträge entstehen erst durch unsere schriftliche Bestätigung.
           </div>
         </div>
       </div>
@@ -2939,7 +2957,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         </div>
         <div class="admin-field">
           <label>Hero-Bild URL</label>
-          <input type="url" data-set="hero_image" />
+          <input type="url" data-set="hero_image" id="heroImgUrlInput" />
+          <div style="display:flex;gap:var(--s-2);align-items:center;margin-top:var(--s-2);">
+            <input type="file" accept="image/*" style="display:none" id="heroImgFileInput" onchange="handleHeroImageUpload(this)" />
+            <button type="button" class="upload-btn" onclick="document.getElementById('heroImgFileInput').click()">📷 Hero-Bild hochladen</button>
+          </div>
         </div>
         <div class="admin-grid">
           <div class="admin-field">
@@ -3349,9 +3371,9 @@ const DEFAULTS = {
   maps_url: 'https://www.google.com/maps/search/?api=1&query=Mateinaweg+8%2C+6781+Bartholom%C3%A4berg%2C+%C3%96sterreich',
   checkin: '14:00 Uhr',
   checkout: '10:00 Uhr',
-  contact_email: 'info@sonnenblick-montafon.at',
-  contact_phone: '+43 664 123 45 67',
-  contact_whatsapp: '436641234567',
+  contact_email: 'taumberger.m@gmx.at',
+  contact_phone: '',
+  contact_whatsapp: '',
 
   // Texts
   about_title: '78 m² stille Eleganz, eingebettet in das Panorama des Montafon.',
@@ -3516,7 +3538,7 @@ Es gilt österreichisches Recht. Gerichtsstand ist Bludenz.`,
     service_id: 'service_7q8se1a',
     template_id_owner: 'template_dq64arp',
     template_id_customer: 'template_fdnoxps',
-    recipient: 'mariotaumberger@outlook.com'
+    recipient: 'taumberger.m@gmx.at'
   },
 
   // Admin login is now via Supabase Auth (email + password set in dashboard)
@@ -3688,6 +3710,73 @@ async function adminCheckSession() {
   adminSession = data?.session || null;
   return !!adminSession;
 }
+/* ---------- Image upload (Supabase Storage) ---------- */
+async function uploadImage(file, folder = 'gallery') {
+  if (!sb || !adminSession) { showToast('Bitte zuerst einloggen.'); return null; }
+  if (!file || !file.type || !file.type.startsWith('image/')) {
+    showToast('Nur Bilder erlaubt.'); return null;
+  }
+  if (file.size > 8 * 1024 * 1024) {
+    showToast('Bild zu groß (max. 8 MB).'); return null;
+  }
+  const ext = (file.name.split('.').pop() || 'jpg').toLowerCase();
+  const safeExt = ['jpg','jpeg','png','webp','gif'].includes(ext) ? ext : 'jpg';
+  const filename = `${folder}/${Date.now()}-${Math.floor(Math.random()*1e6)}.${safeExt}`;
+  try {
+    const { data, error } = await sb.storage.from('media').upload(filename, file, {
+      cacheControl: '3600',
+      upsert: false,
+      contentType: file.type
+    });
+    if (error) throw error;
+    const { data: pub } = sb.storage.from('media').getPublicUrl(data.path);
+    return pub.publicUrl;
+  } catch (e) {
+    console.error('uploadImage:', e);
+    showToast('Upload fehlgeschlagen: ' + (e.message || 'unbekannt'));
+    return null;
+  }
+}
+
+// Generic helper: triggered by a file input. Updates the URL input + image preview in the same row.
+async function handleHeroImageUpload(fileInput) {
+  const file = fileInput.files[0];
+  if (!file) return;
+  const btn = fileInput.nextElementSibling;
+  const originalText = btn ? btn.textContent : '';
+  if (btn) { btn.textContent = '⏳ wird hochgeladen…'; btn.disabled = true; }
+  const url = await uploadImage(file, 'hero');
+  if (btn) { btn.textContent = originalText; btn.disabled = false; }
+  if (!url) return;
+  const input = document.getElementById('heroImgUrlInput');
+  if (input) input.value = url;
+  fileInput.value = '';
+  showToast('✓ Hero-Bild hochgeladen.');
+}
+
+async function handleFileToInput(fileInput, urlInputClass, folder) {
+  const file = fileInput.files[0];
+  if (!file) return;
+  const btn = fileInput.parentElement.querySelector('.upload-btn');
+  const originalText = btn ? btn.textContent : '';
+  if (btn) { btn.textContent = '⏳ wird hochgeladen…'; btn.disabled = true; }
+  const url = await uploadImage(file, folder);
+  if (btn) { btn.textContent = originalText; btn.disabled = false; }
+  if (!url) return;
+  const row = fileInput.closest('.admin-row') || fileInput.closest('.admin-field') || fileInput.parentElement;
+  const urlInput = row.querySelector(urlInputClass);
+  if (urlInput) {
+    urlInput.value = url;
+    // Update preview image if there is one in the row
+    const img = row.querySelector('img');
+    if (img) img.src = url;
+    // Bubble an input event so previews bound via oninput pick it up
+    urlInput.dispatchEvent(new Event('input'));
+  }
+  fileInput.value = '';
+  showToast('✓ Bild hochgeladen.');
+}
+
 async function adminChangePasswordSb(newPassword) {
   if (!sb || !adminSession) return false;
   try {
@@ -3829,10 +3918,23 @@ function applyTexts() {
   document.getElementById('rowSummerPeriod').textContent = formatPeriod(state.summer_start, state.summer_end);
   document.getElementById('rowWinterPeriod').textContent = formatPeriod(state.winter_start, state.winter_end);
 
-  // Contact links
-  document.getElementById('contactMailLine').href = 'mailto:' + state.contact_email;
-  document.getElementById('contactTelLine').href = 'tel:' + state.contact_phone.replace(/\s/g, '');
-  document.getElementById('contactWhatsLine').href = 'https://wa.me/' + state.contact_whatsapp.replace(/[^0-9]/g, '');
+  // Contact links — hide lines whose data is missing so we never expose placeholder numbers
+  const mailLine = document.getElementById('contactMailLine');
+  const telLine = document.getElementById('contactTelLine');
+  const whatsLine = document.getElementById('contactWhatsLine');
+  if (state.contact_email) {
+    mailLine.href = 'mailto:' + state.contact_email;
+    mailLine.style.display = '';
+  } else { mailLine.style.display = 'none'; }
+  if (state.contact_phone) {
+    telLine.href = 'tel:' + state.contact_phone.replace(/\s/g, '');
+    telLine.style.display = '';
+  } else { telLine.style.display = 'none'; }
+  const wa = (state.contact_whatsapp || '').replace(/[^0-9]/g, '');
+  if (wa && wa.length >= 8) {
+    whatsLine.href = 'https://wa.me/' + wa;
+    whatsLine.style.display = '';
+  } else { whatsLine.style.display = 'none'; }
 
   // Maps link
   document.getElementById('mapsLink').href = state.maps_url;
@@ -4215,18 +4317,16 @@ function formatDate(d) {
    ============================================================ */
 let bookingMode = 'inquiry';
 function openBookingDialog(mode) {
-  bookingMode = mode;
+  bookingMode = 'instant'; // single binding flow
   const calc = calcStay(selection.start, selection.end, selection.persons);
-  document.getElementById('bookingModalTitle').textContent = mode === 'instant' ? 'Verbindlich buchen' : 'Unverbindlich anfragen';
-  const note = mode === 'instant'
-    ? '<div style="background:var(--gold-tint);color:var(--wood);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);line-height:1.5;"><strong>Verbindliche Reservierung.</strong> Der Zeitraum wird sofort für Sie reserviert. Wir bestätigen binnen 24 Stunden.</div>'
-    : '<div style="background:var(--bg-elev);color:var(--ink-soft);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);line-height:1.5;border:1px solid var(--line);"><strong>Unverbindliche Anfrage.</strong> Der Zeitraum bleibt buchbar — wir besprechen Details persönlich mit Ihnen.</div>';
+  document.getElementById('bookingModalTitle').textContent = 'Buchung anfragen';
+  const note = '<div style="background:var(--gold-tint);color:var(--wood);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);line-height:1.55;"><strong>Verbindliche Buchungsanfrage.</strong> Der Zeitraum wird sofort für Sie reserviert. Sie erhalten binnen 24 Stunden eine schriftliche Bestätigung — erst diese ist rechtsverbindlich.</div>';
   document.getElementById('bookingFormSummary').innerHTML = note + `
     <div style="display:flex;justify-content:space-between;margin-bottom:var(--s-2);"><span>${formatDate(selection.start)} → ${formatDate(selection.end)}</span><span>${calc.nights} Nächte</span></div>
     <div style="display:flex;justify-content:space-between;font-weight:600;font-family:var(--font-serif);font-size:1.1rem;"><span>${selection.persons} Gäste</span><span>€${calc.total.toFixed(0)}</span></div>
   `;
   const submitBtn = document.querySelector('#bookingForm button[type="submit"]');
-  submitBtn.textContent = mode === 'instant' ? 'Verbindlich reservieren' : 'Anfrage abschicken';
+  submitBtn.textContent = 'Verbindlich anfragen';
   openModal('bookingModal');
 }
 
@@ -4403,7 +4503,11 @@ function activityRow(a, season) {
         <select class="act-icon">${iconOptions}</select>
         <input type="text" class="act-title" value="${escapeHtml(a.title)}" placeholder="Titel" />
       </div>
-      <input type="url" class="act-image" value="${escapeHtml(a.image || '')}" placeholder="Bild URL" oninput="this.closest('.admin-row').querySelector('img').src=this.value" />
+      <input type="url" class="act-image" value="${escapeHtml(a.image || '')}" placeholder="Bild URL oder hochladen ↓" oninput="this.closest('.admin-row').querySelector('img').src=this.value" />
+      <div style="display:flex;gap:var(--s-2);align-items:center;">
+        <input type="file" accept="image/*" style="display:none" onchange="handleFileToInput(this, '.act-image', 'activities')" />
+        <button type="button" class="upload-btn" onclick="this.previousElementSibling.click()">📷 Bild hochladen</button>
+      </div>
       <textarea class="act-desc" placeholder="Beschreibung" style="min-height:60px;">${escapeHtml(a.desc)}</textarea>
       <input type="text" class="act-meta" value="${escapeHtml(a.meta)}" placeholder="Distanz/Info, z.B. 'Ab Haustür'" />
     </div>
@@ -4607,12 +4711,12 @@ function renderRequests() {
         ${r.phone ? `<div class="req-meta-item"><label>Telefon</label><span><a href="tel:${escapeHtml(r.phone)}" style="color:var(--gold);">${escapeHtml(r.phone)}</a></span></div>` : ''}
       </div>
       ${r.message ? `<div class="req-msg">„${escapeHtml(r.message)}"</div>` : ''}
-      ${r.status === 'pending' ? `
-        <div class="req-actions">
-          ${!isContact ? `<button class="btn-confirm" onclick="confirmRequest(${idx})">Bestätigen</button>` : ''}
-          <button class="btn-reject" onclick="rejectRequest(${idx})">${isContact ? 'Erledigt' : 'Ablehnen'}</button>
-        </div>
-      ` : ''}
+      <div class="req-actions">
+        ${r.status === 'pending' && !isContact ? `<button class="btn-confirm" onclick="confirmRequest(${idx})">Bestätigen</button>` : ''}
+        ${r.status === 'pending' ? `<button class="btn-reject" onclick="rejectRequest(${idx})">${isContact ? 'Erledigt' : 'Ablehnen'}</button>` : ''}
+        ${r.email ? `<button class="btn-mail" onclick="mailtoGuest(${idx})">Antwort schreiben</button>` : ''}
+        <button class="btn-delete" onclick="deleteRequest(${idx})">Löschen</button>
+      </div>
     `;
     list.appendChild(card);
   });
@@ -4638,6 +4742,44 @@ async function rejectRequest(idx) {
   renderCalendar();
   showToast('Anfrage abgelehnt.');
 }
+async function deleteRequest(idx) {
+  const r = state.requests[idx];
+  const wasConfirmed = r.status === 'confirmed';
+  const msg = wasConfirmed
+    ? `Bestätigte Buchung von "${r.name}" wirklich stornieren?\n\nDer Zeitraum wird im Kalender wieder freigegeben. Bitte informieren Sie den Gast separat per Mail.`
+    : `Anfrage von "${r.name}" wirklich löschen?\n\nDas kann nicht rückgängig gemacht werden.`;
+  if (!confirm(msg)) return;
+  if (!sb || !adminSession) { showToast('Nicht eingeloggt.'); return; }
+  try {
+    await sb.from('blocked_dates').delete().eq('request_id', r.id);
+    const { error } = await sb.from('requests').delete().eq('id', r.id);
+    if (error) throw error;
+  } catch (e) { console.error('deleteRequest:', e); showToast('✗ Fehler beim Löschen.'); return; }
+  state.requests.splice(idx, 1);
+  state.blocked = await loadBlockedFromDB();
+  renderRequests();
+  renderCalendar();
+  showToast(wasConfirmed ? 'Buchung storniert · Kalender freigegeben.' : 'Gelöscht.');
+}
+
+function mailtoGuest(idx) {
+  const r = state.requests[idx];
+  if (!r.email) return;
+  const periodStr = r.start && r.end ? `${formatDate(fromISO(r.start))} – ${formatDate(fromISO(r.end))}` : '';
+  let subject = '';
+  let body = '';
+  if (r.status === 'confirmed') {
+    subject = `Buchungsbestätigung Sonnenblick Montafon · ${periodStr}`;
+    body = `Sehr geehrte/r ${r.name},\n\nvielen Dank für Ihre Buchung im Sonnenblick Montafon.\n\nWir bestätigen Ihren Aufenthalt:\nZeitraum: ${periodStr}\nPersonen: ${r.persons}\nGesamt: €${Math.round(r.total)}\n\nWeitere Details zur Anreise, Zahlung und Schlüsselübergabe folgen.\n\nHerzliche Grüße\nSonnenblick Montafon`;
+  } else if (r.status === 'rejected') {
+    subject = `Ihre Buchungsanfrage Sonnenblick Montafon · ${periodStr}`;
+    body = `Sehr geehrte/r ${r.name},\n\nvielen Dank für Ihre Anfrage. Leider können wir Ihren gewünschten Zeitraum (${periodStr}) nicht bestätigen.\n\nGerne unterbreiten wir Ihnen einen alternativen Vorschlag — sprechen Sie uns einfach an.\n\nHerzliche Grüße\nSonnenblick Montafon`;
+  } else {
+    subject = `Ihre Buchungsanfrage Sonnenblick Montafon · ${periodStr}`;
+    body = `Sehr geehrte/r ${r.name},\n\nvielen Dank für Ihre Anfrage.\n\n[Ihre Antwort hier]\n\nHerzliche Grüße\nSonnenblick Montafon`;
+  }
+  window.location.href = `mailto:${encodeURIComponent(r.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 function renderGalleryAdmin() {
   const list = document.getElementById('galleryAdminList');
@@ -4654,7 +4796,13 @@ function galleryRow(g, idx) {
     <div style="width:80px;height:80px;border-radius:var(--r-sm);overflow:hidden;background:var(--line);">
       <img src="${escapeHtml(g.url)}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.opacity=0.2" />
     </div>
-    <input type="url" class="g-url" value="${escapeHtml(g.url)}" placeholder="Bild URL" oninput="this.closest('.admin-row').querySelector('img').src=this.value" />
+    <div style="display:flex;flex-direction:column;gap:var(--s-2);">
+      <input type="url" class="g-url" value="${escapeHtml(g.url)}" placeholder="Bild URL oder hochladen ↓" oninput="this.closest('.admin-row').querySelector('img').src=this.value" />
+      <div style="display:flex;gap:var(--s-2);align-items:center;">
+        <input type="file" accept="image/*" style="display:none" onchange="handleFileToInput(this, '.g-url', 'gallery')" />
+        <button type="button" class="upload-btn" onclick="this.previousElementSibling.click()">📷 Bild hochladen</button>
+      </div>
+    </div>
     <input type="text" class="g-caption" value="${escapeHtml(g.caption)}" placeholder="Beschriftung" />
     <button class="icon-btn danger" onclick="this.closest('.admin-row').remove()" aria-label="Entfernen">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 14a2 2 0 002 2h8a2 2 0 002-2l1-14"/></svg>
@@ -4844,9 +4992,8 @@ function bindEvents() {
     if (selection.persons < 6) { selection.persons++; renderSummary(); }
   };
 
-  // Booking buttons
+  // Booking button (single binding request)
   document.getElementById('btnInstantBook').onclick = () => openBookingDialog('instant');
-  document.getElementById('btnInquire').onclick = () => openBookingDialog('inquiry');
 
   // Admin dot
   document.getElementById('adminDot').onclick = openAdmin;
