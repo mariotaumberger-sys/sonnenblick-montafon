@@ -24,6 +24,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Supabase SDK (backend für Buchungen + Content) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
 /* ============================================================
    SONNENBLICK MONTAFON — Design Tokens
@@ -2871,6 +2874,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="admin-header">
     <h2>Sonnenblick · Verwaltung</h2>
     <div class="admin-header-actions">
+      <button class="admin-close" onclick="adminLogout()">Abmelden</button>
       <button class="admin-close" onclick="closeAdmin()">Schließen</button>
     </div>
   </div>
@@ -2879,13 +2883,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   <div class="admin-login" id="adminLogin">
     <div class="admin-login-card">
       <h3>Anmelden</h3>
-      <p>Bitte geben Sie das Verwaltungs-Passwort ein.</p>
+      <p>Mit dem Supabase-Login eingeben.</p>
+      <div class="admin-field">
+        <label>E-Mail</label>
+        <input type="email" id="adminEmailInput" autocomplete="username" />
+      </div>
       <div class="admin-field">
         <label>Passwort</label>
         <input type="password" id="adminPwInput" autocomplete="current-password" onkeypress="if(event.key==='Enter')adminLogin()" />
       </div>
       <button class="btn btn-primary" onclick="adminLogin()">Anmelden</button>
-      <div class="admin-login-err" id="adminLoginErr">Falsches Passwort.</div>
+      <div class="admin-login-err" id="adminLoginErr">Login fehlgeschlagen.</div>
     </div>
   </div>
 
@@ -3305,6 +3313,24 @@ Im Admin-Panel ansehen: https://deine-domain.at/#</pre>
      ============================================================ -->
 <script>
 /* ============================================================
+   SUPABASE — Backend client
+   ============================================================ */
+const SUPABASE_URL = 'https://ncjpfzdkwqvwodxevrqo.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_2j5cBVoBF8LyrUsNFCG3qw_AaMlC5VZ';
+let sb = null;
+let adminSession = null;
+function initSupabase() {
+  if (typeof window.supabase === 'undefined') {
+    console.warn('Supabase SDK nicht geladen — Offline-Modus');
+    return false;
+  }
+  sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: { persistSession: true, autoRefreshToken: true, storage: window.localStorage }
+  });
+  return true;
+}
+
+/* ============================================================
    STATE & DEFAULTS
    ============================================================ */
 const STORAGE_KEY = 'sonnenblick_montafon_v1';
@@ -3493,11 +3519,10 @@ Es gilt österreichisches Recht. Gerichtsstand ist Bludenz.`,
     recipient: 'mariotaumberger@outlook.com'
   },
 
-  // Admin
-  password: 'sonnenblick2026'
+  // Admin login is now via Supabase Auth (email + password set in dashboard)
 };
 
-let state = loadState();
+let state = loadStateLocal();
 let selection = { start: null, end: null, persons: 4 };
 let viewMonth = new Date();
 viewMonth.setDate(1);
@@ -3506,26 +3531,179 @@ viewMonth.setHours(0, 0, 0, 0);
 let lightboxIndex = 0;
 
 /* ============================================================
-   STORAGE
+   STORAGE — Supabase first, localStorage as cache
    ============================================================ */
-function loadState() {
+function loadStateLocal() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return { ...DEFAULTS };
     const parsed = JSON.parse(raw);
     return { ...DEFAULTS, ...parsed };
-  } catch (e) {
-    return { ...DEFAULTS };
-  }
+  } catch (e) { return { ...DEFAULTS }; }
 }
-function saveState() {
+function saveStateLocal() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+function saveState() { saveStateLocal(); }
+
+/* ---------- Site content ---------- */
+async function loadContentFromDB() {
+  if (!sb) return null;
+  try {
+    const { data, error } = await sb.from('site_content').select('data').eq('id', 1).single();
+    if (error) throw error;
+    return data?.data && Object.keys(data.data).length ? data.data : null;
+  } catch (e) { console.warn('loadContent:', e.message); return null; }
+}
+async function saveContentToDB() {
+  if (!sb || !adminSession) return false;
+  const content = { ...state };
+  delete content.requests;
+  delete content.blocked;
+  try {
+    const { error } = await sb.from('site_content')
+      .update({ data: content, updated_at: new Date().toISOString() })
+      .eq('id', 1);
+    if (error) throw error;
+    return true;
+  } catch (e) { console.error('saveContent:', e); return false; }
+}
+
+/* ---------- Blocked dates (public read) ---------- */
+async function loadBlockedFromDB() {
+  if (!sb) return [];
+  try {
+    const { data, error } = await sb.from('blocked_dates').select('*');
+    if (error) throw error;
+    return (data || []).map(b => ({
+      id: b.id,
+      start: b.start_date,
+      end: b.end_date,
+      note: b.note,
+      type: b.type || 'manual',
+      request_id: b.request_id
+    }));
+  } catch (e) { console.warn('loadBlocked:', e.message); return []; }
+}
+async function addBlockedToDB(start, end, note, type='manual', request_id=null) {
+  if (!sb) return null;
+  try {
+    const { data, error } = await sb.from('blocked_dates').insert({
+      start_date: start, end_date: end, note, type, request_id
+    }).select().single();
+    if (error) throw error;
+    return data;
+  } catch (e) { console.error('addBlocked:', e); return null; }
+}
+async function removeBlockedFromDB(id) {
+  if (!sb) return false;
+  try {
+    const { error } = await sb.from('blocked_dates').delete().eq('id', id);
+    if (error) throw error;
+    return true;
+  } catch (e) { console.error('removeBlocked:', e); return false; }
+}
+
+/* ---------- Requests (admin read) ---------- */
+async function loadRequestsFromDB() {
+  if (!sb || !adminSession) return [];
+  try {
+    const { data, error } = await sb.from('requests').select('*').order('created_at', { ascending: false });
+    if (error) throw error;
+    return (data || []).map(r => ({
+      id: r.id,
+      name: r.name,
+      email: r.email,
+      phone: r.phone,
+      start: r.start_date,
+      end: r.end_date,
+      persons: r.persons,
+      nights: r.nights,
+      total: r.total,
+      message: r.message,
+      mode: r.mode,
+      status: r.status,
+      created_at: r.created_at
+    }));
+  } catch (e) { console.warn('loadRequests:', e.message); return []; }
+}
+async function createRequestInDB(req) {
+  if (!sb) return null;
+  try {
+    const { data, error } = await sb.from('requests').insert({
+      name: req.name,
+      email: req.email,
+      phone: req.phone || '',
+      start_date: req.start || null,
+      end_date: req.end || null,
+      persons: req.persons || 0,
+      nights: req.nights || 0,
+      total: req.total || 0,
+      message: req.message || '',
+      mode: req.mode,
+      status: 'pending'
+    }).select().single();
+    if (error) throw error;
+
+    // For booking/inquiry: also add a blocked_dates entry so calendar reflects it
+    if ((req.mode === 'instant' || req.mode === 'inquiry') && req.start && req.end) {
+      const type = req.mode === 'instant' ? 'pending_instant' : 'pending_inquiry';
+      await addBlockedToDB(req.start, req.end, req.name, type, data.id);
+    }
+    return data;
+  } catch (e) { console.error('createRequest:', e); return null; }
+}
+async function updateRequestStatusInDB(id, status) {
+  if (!sb || !adminSession) return false;
+  try {
+    const { error } = await sb.from('requests').update({ status }).eq('id', id);
+    if (error) throw error;
+    if (status === 'confirmed') {
+      await sb.from('blocked_dates').update({ type: 'confirmed' }).eq('request_id', id);
+    } else if (status === 'rejected') {
+      await sb.from('blocked_dates').delete().eq('request_id', id);
+    }
+    return true;
+  } catch (e) { console.error('updateRequestStatus:', e); return false; }
+}
+
+/* ---------- Admin auth via Supabase ---------- */
+async function adminSignIn(email, password) {
+  if (!sb) return { ok: false, error: 'Supabase nicht verfügbar' };
+  try {
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) throw error;
+    adminSession = data.session;
+    return { ok: true };
+  } catch (e) { return { ok: false, error: e.message }; }
+}
+async function adminSignOut() {
+  if (!sb) return;
+  await sb.auth.signOut();
+  adminSession = null;
+}
+async function adminCheckSession() {
+  if (!sb) return false;
+  const { data } = await sb.auth.getSession();
+  adminSession = data?.session || null;
+  return !!adminSession;
+}
+async function adminChangePasswordSb(newPassword) {
+  if (!sb || !adminSession) return false;
+  try {
+    const { error } = await sb.auth.updateUser({ password: newPassword });
+    if (error) throw error;
+    return true;
+  } catch (e) { console.error('updatePassword:', e); return false; }
 }
 
 /* ============================================================
    INIT
    ============================================================ */
-function init() {
+async function init() {
+  initSupabase();
+
+  // First render with whatever is cached locally so the page paints immediately
   applyTexts();
   applyImages();
   buildGallery();
@@ -3539,6 +3717,31 @@ function init() {
   setupNavScroll();
   setupParallax();
   document.getElementById('copyYear').textContent = new Date().getFullYear();
+
+  // Then hydrate from Supabase in background
+  try {
+    const [remoteContent, remoteBlocked, hasSession] = await Promise.all([
+      loadContentFromDB(),
+      loadBlockedFromDB(),
+      adminCheckSession()
+    ]);
+    if (remoteContent) state = { ...DEFAULTS, ...remoteContent };
+    state.blocked = remoteBlocked;
+    if (hasSession) state.requests = await loadRequestsFromDB();
+    saveStateLocal();
+    // Re-render with fresh data
+    applyTexts();
+    applyImages();
+    buildGallery();
+    const activePane = document.querySelector('.activity-tab.active')?.getAttribute('data-pane') || 'winter';
+    buildActivities(activePane);
+    buildService();
+    buildFAQ();
+    renderCalendar();
+    renderSummary();
+  } catch (e) {
+    console.warn('Hydration failed, running offline with cached data:', e);
+  }
 }
 
 /* ============================================================
@@ -3849,37 +4052,32 @@ function onDayClick(date) {
   renderSummary();
 }
 
-function _dateInReqRange(date, r) {
-  if (!r.start || !r.end) return false;
-  const s = new Date(r.start); const e = new Date(r.end);
+function _dateInRange(date, start, end) {
+  if (!start || !end) return false;
+  const s = new Date(start); const e = new Date(end);
   s.setHours(0,0,0,0); e.setHours(0,0,0,0);
   return date >= s && date < e;
 }
 function isHardBlocked(date) {
-  return (state.blocked || []).some(b => {
-    const s = new Date(b.start); const e = new Date(b.end);
-    s.setHours(0,0,0,0); e.setHours(0,0,0,0);
-    return date >= s && date < e;
-  });
-}
-function isConfirmedBooked(date) {
-  return (state.requests || []).some(r =>
-    r.status === 'confirmed' && r.mode !== 'contact' && _dateInReqRange(date, r)
+  // manual blocks + confirmed bookings — both fully block selection
+  return (state.blocked || []).some(b =>
+    (!b.type || b.type === 'manual' || b.type === 'confirmed') && _dateInRange(date, b.start, b.end)
   );
 }
 function isPendingInstant(date) {
-  return (state.requests || []).some(r =>
-    r.status === 'pending' && r.mode === 'instant' && _dateInReqRange(date, r)
+  return (state.blocked || []).some(b =>
+    b.type === 'pending_instant' && _dateInRange(date, b.start, b.end)
   );
 }
 function isPendingInquiry(date) {
-  return (state.requests || []).some(r =>
-    r.status === 'pending' && r.mode === 'inquiry' && _dateInReqRange(date, r)
+  return (state.blocked || []).some(b =>
+    b.type === 'pending_inquiry' && _dateInRange(date, b.start, b.end)
   );
 }
+function isConfirmedBooked(date) { return false; /* deprecated — folded into isHardBlocked */ }
 function isDateBlocked(date) {
   // Inquiries are visible but selectable — they don't block selection
-  return isHardBlocked(date) || isConfirmedBooked(date) || isPendingInstant(date);
+  return isHardBlocked(date) || isPendingInstant(date);
 }
 function isInSelection(date) {
   if (!selection.start || !selection.end) return false;
@@ -4032,11 +4230,10 @@ function openBookingDialog(mode) {
   openModal('bookingModal');
 }
 
-function submitBooking(e) {
+async function submitBooking(e) {
   e.preventDefault();
   const calc = calcStay(selection.start, selection.end, selection.persons);
   const req = {
-    id: 'req-' + Date.now(),
     name: document.getElementById('bf-first').value.trim() + ' ' + document.getElementById('bf-last').value.trim(),
     email: document.getElementById('bf-email').value.trim(),
     phone: document.getElementById('bf-phone').value.trim(),
@@ -4050,14 +4247,19 @@ function submitBooking(e) {
     status: 'pending',
     created_at: new Date().toISOString()
   };
-  state.requests = state.requests || [];
-  state.requests.unshift(req);
-  saveState();
+
+  // Persist to Supabase (creates request + pending block in calendar)
+  const saved = await createRequestInDB(req);
+  if (saved) req.id = saved.id;
+
+  // Fire-and-forget email
+  sendEmailNotification(req);
+
   closeModal('bookingModal');
   document.getElementById('bookingForm').reset();
 
-  // Fire-and-forget email notification
-  sendEmailNotification(req);
+  // Refresh local blocked-list so calendar updates immediately
+  state.blocked = await loadBlockedFromDB();
 
   document.getElementById('confirmTitle').textContent = bookingMode === 'instant' ? 'Buchung eingegangen' : 'Anfrage gesendet';
   document.getElementById('confirmText').textContent = bookingMode === 'instant'
@@ -4065,21 +4267,19 @@ function submitBooking(e) {
     : `Vielen Dank, ${req.name.split(' ')[0]}. Wir melden uns binnen 24 Stunden bei Ihnen.`;
   openModal('confirmModal');
 
-  // Reset selection
   selection = { start: null, end: null, persons: selection.persons };
   renderCalendar();
   renderSummary();
 }
 
-function submitContact(e) {
+async function submitContact(e) {
   e.preventDefault();
   const req = {
-    id: 'msg-' + Date.now(),
     name: document.getElementById('cf-name').value.trim(),
     email: document.getElementById('cf-email').value.trim(),
     phone: '',
-    start: '',
-    end: '',
+    start: null,
+    end: null,
     persons: 0,
     nights: 0,
     total: 0,
@@ -4088,9 +4288,7 @@ function submitContact(e) {
     status: 'pending',
     created_at: new Date().toISOString()
   };
-  state.requests = state.requests || [];
-  state.requests.unshift(req);
-  saveState();
+  await createRequestInDB(req);
   document.getElementById('contactForm').reset();
   sendEmailNotification(req);
   showToast('Nachricht gesendet — wir melden uns bald.');
@@ -4129,35 +4327,56 @@ function showToast(msg) {
 /* ============================================================
    ADMIN
    ============================================================ */
-function openAdmin() {
+async function openAdmin() {
   document.getElementById('adminPanel').classList.add('open');
-  document.getElementById('adminLogin').style.display = 'flex';
-  document.getElementById('adminBody').style.display = 'none';
   document.body.style.overflow = 'hidden';
-  setTimeout(() => document.getElementById('adminPwInput').focus(), 100);
+  // If already signed in (persisted session), skip login screen
+  if (await adminCheckSession()) {
+    await enterAdminDashboard();
+  } else {
+    document.getElementById('adminLogin').style.display = 'flex';
+    document.getElementById('adminBody').style.display = 'none';
+    setTimeout(() => document.getElementById('adminEmailInput').focus(), 100);
+  }
 }
-function closeAdmin() {
+async function closeAdmin() {
   document.getElementById('adminPanel').classList.remove('open');
   document.body.style.overflow = '';
 }
-function adminLogin() {
+async function adminLogout() {
+  await adminSignOut();
+  document.getElementById('adminPanel').classList.remove('open');
+  document.body.style.overflow = '';
+  showToast('Abgemeldet.');
+}
+async function adminLogin() {
+  const email = document.getElementById('adminEmailInput').value.trim();
   const pw = document.getElementById('adminPwInput').value;
-  if (pw === state.password) {
-    document.getElementById('adminLogin').style.display = 'none';
-    document.getElementById('adminBody').style.display = 'grid';
+  const err = document.getElementById('adminLoginErr');
+  err.classList.remove('show');
+  const res = await adminSignIn(email, pw);
+  if (res.ok) {
+    document.getElementById('adminEmailInput').value = '';
     document.getElementById('adminPwInput').value = '';
-    document.getElementById('adminLoginErr').classList.remove('show');
-    fillAdminFields();
-    fillEmailFields();
-    renderBlocked();
-    renderRequests();
-    renderGalleryAdmin();
-    renderActivitiesAdmin();
-    renderServiceAdmin();
-    renderFaqAdmin();
+    await enterAdminDashboard();
   } else {
-    document.getElementById('adminLoginErr').classList.add('show');
+    err.textContent = 'Login fehlgeschlagen: ' + (res.error || 'unbekannter Fehler');
+    err.classList.add('show');
   }
+}
+async function enterAdminDashboard() {
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('adminBody').style.display = 'grid';
+  // Refresh requests with admin access
+  state.requests = await loadRequestsFromDB();
+  fillAdminFields();
+  fillEmailFields();
+  renderBlocked();
+  renderRequests();
+  renderGalleryAdmin();
+  renderActivitiesAdmin();
+  renderServiceAdmin();
+  renderFaqAdmin();
 }
 
 function renderActivitiesAdmin() {
@@ -4240,7 +4459,7 @@ function fillAdminFields() {
     if (state[key] !== undefined) input.value = state[key];
   });
 }
-function saveAdmin() {
+async function saveAdmin() {
   document.querySelectorAll('[data-set]').forEach(input => {
     const key = input.getAttribute('data-set');
     let val = input.value;
@@ -4248,7 +4467,6 @@ function saveAdmin() {
     state[key] = val;
   });
 
-  // Pull gallery items
   state.gallery = [];
   document.querySelectorAll('#galleryAdminList .admin-gallery-row').forEach(row => {
     const url = row.querySelector('.g-url').value.trim();
@@ -4256,7 +4474,6 @@ function saveAdmin() {
     if (url) state.gallery.push({ url, caption });
   });
 
-  // Pull FAQ items
   state.faqs = [];
   document.querySelectorAll('#faqAdminList .admin-faq-row').forEach(row => {
     const q = row.querySelector('.faq-q-input').value.trim();
@@ -4264,7 +4481,6 @@ function saveAdmin() {
     if (q && a) state.faqs.push({ q, a });
   });
 
-  // Pull Service Links
   state.service_links = [];
   document.querySelectorAll('#serviceAdminList .admin-service-row').forEach(row => {
     const icon = row.querySelector('.svc-icon').value;
@@ -4275,7 +4491,6 @@ function saveAdmin() {
     if (title && url) state.service_links.push({ icon, title, desc, url, cta });
   });
 
-  // Pull Activities
   ['winter', 'summer'].forEach(season => {
     const arr = [];
     document.querySelectorAll(`#${season}ActList .admin-activity-row`).forEach(row => {
@@ -4289,7 +4504,8 @@ function saveAdmin() {
     state['activities_' + season] = arr;
   });
 
-  saveState();
+  // Persist locally first (instant feedback), then push to Supabase
+  saveStateLocal();
   applyTexts();
   applyImages();
   buildGallery();
@@ -4298,17 +4514,21 @@ function saveAdmin() {
   buildFAQ();
   renderCalendar();
   renderSummary();
-  showToast('Änderungen gespeichert.');
+
+  const ok = await saveContentToDB();
+  showToast(ok ? '✓ Änderungen für alle Gäste gespeichert.' : '✗ Cloud-Sync fehlgeschlagen — nur lokal.');
 }
 
 function renderBlocked() {
   const list = document.getElementById('blockedList');
-  if (!state.blocked || !state.blocked.length) {
-    list.innerHTML = '<div class="admin-empty">Noch keine belegten Zeiträume.</div>';
+  // Only show manually entered blocks here (pending/confirmed bookings are managed via Requests tab)
+  const manual = (state.blocked || []).filter(b => !b.type || b.type === 'manual');
+  if (!manual.length) {
+    list.innerHTML = '<div class="admin-empty">Noch keine manuell belegten Zeiträume.</div>';
     return;
   }
   list.innerHTML = '';
-  state.blocked.forEach((b, idx) => {
+  manual.forEach((b, idx) => {
     const row = document.createElement('div');
     row.className = 'admin-row';
     const start = fromISO(b.start);
@@ -4327,15 +4547,15 @@ function renderBlocked() {
     list.appendChild(row);
   });
 }
-function addBlocked() {
+async function addBlocked() {
   const start = document.getElementById('newBlockStart').value;
   const end = document.getElementById('newBlockEnd').value;
   const note = document.getElementById('newBlockNote').value;
   if (!start || !end) { showToast('Bitte beide Daten angeben.'); return; }
   if (end <= start) { showToast('Abreise muss nach Anreise liegen.'); return; }
-  state.blocked = state.blocked || [];
-  state.blocked.push({ start, end, note });
-  saveState();
+  const created = await addBlockedToDB(start, end, note, 'manual');
+  if (!created) { showToast('✗ Fehler beim Speichern.'); return; }
+  state.blocked = await loadBlockedFromDB();
   renderBlocked();
   renderCalendar();
   document.getElementById('newBlockStart').value = '';
@@ -4343,9 +4563,12 @@ function addBlocked() {
   document.getElementById('newBlockNote').value = '';
   showToast('Zeitraum hinzugefügt.');
 }
-function removeBlocked(idx) {
-  state.blocked.splice(idx, 1);
-  saveState();
+async function removeBlocked(idx) {
+  const b = state.blocked.filter(x => x.type === 'manual' || !x.type)[idx];
+  if (!b) return;
+  const ok = await removeBlockedFromDB(b.id);
+  if (!ok) { showToast('✗ Fehler.'); return; }
+  state.blocked = await loadBlockedFromDB();
   renderBlocked();
   renderCalendar();
 }
@@ -4395,18 +4618,22 @@ function renderRequests() {
   });
 }
 
-function confirmRequest(idx) {
+async function confirmRequest(idx) {
   const r = state.requests[idx];
+  const ok = await updateRequestStatusInDB(r.id, 'confirmed');
+  if (!ok) { showToast('✗ Fehler — bitte erneut versuchen.'); return; }
   r.status = 'confirmed';
-  saveState();
+  state.blocked = await loadBlockedFromDB();
   renderRequests();
   renderCalendar();
   showToast('Buchung bestätigt und im Kalender als belegt eingetragen.');
 }
-function rejectRequest(idx) {
+async function rejectRequest(idx) {
   const r = state.requests[idx];
+  const ok = await updateRequestStatusInDB(r.id, 'rejected');
+  if (!ok) { showToast('✗ Fehler — bitte erneut versuchen.'); return; }
   r.status = 'rejected';
-  saveState();
+  state.blocked = await loadBlockedFromDB();
   renderRequests();
   renderCalendar();
   showToast('Anfrage abgelehnt.');
@@ -4583,16 +4810,16 @@ async function testEmailSend() {
   showToast(ok ? '✓ Test-E-Mails versendet — Inbox prüfen!' : '✗ Fehler — Konsole prüfen.');
 }
 
-function changePassword() {
+async function changePassword() {
   const a = document.getElementById('newPw1').value;
   const b = document.getElementById('newPw2').value;
   if (!a || a.length < 6) { showToast('Mindestens 6 Zeichen.'); return; }
   if (a !== b) { showToast('Passwörter stimmen nicht überein.'); return; }
-  state.password = a;
-  saveState();
+  const ok = await adminChangePasswordSb(a);
+  if (!ok) { showToast('✗ Fehler beim Ändern.'); return; }
   document.getElementById('newPw1').value = '';
   document.getElementById('newPw2').value = '';
-  showToast('Passwort gespeichert.');
+  showToast('Passwort geändert (auf allen Geräten).');
 }
 
 /* ============================================================
