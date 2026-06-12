@@ -1441,6 +1441,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   cursor: not-allowed;
 }
 .calendar-day.pending-instant .calendar-day-price { color: var(--wood); opacity: 0.6; }
+.calendar-day.pending-inquiry {
+  border: 1px dotted var(--gold);
+  color: var(--wood);
+}
+.calendar-day.pending-inquiry .calendar-day-price { color: var(--wood); opacity: 0.75; }
+.calendar-day.pending-inquiry::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.7;
+}
 .calendar-day.selected-start, .calendar-day.selected-end {
   background: var(--gold);
   color: #fff;
@@ -1482,6 +1498,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .legend-dot.selected { background: var(--gold); }
 .legend-dot.blocked { background: var(--red-soft); border: 1px solid var(--red); }
 .legend-dot.requested { background: var(--gold-tint); border: 1px dashed var(--gold); }
+.legend-dot.inquiry { background: transparent; border: 1px dotted var(--gold); position: relative; }
+.legend-dot.inquiry::after { content: ""; position: absolute; top: 1px; right: 1px; width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
 
 @media (max-width: 720px) {
   /* On mobile show only one month at a time — bigger touch targets */
@@ -2602,6 +2620,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="legend-item"><span class="legend-dot selected"></span>Ausgewählt</div>
           <div class="legend-item"><span class="legend-dot blocked"></span>Belegt</div>
           <div class="legend-item"><span class="legend-dot requested"></span>Reserviert (in Bestätigung)</div>
+          <div class="legend-item"><span class="legend-dot inquiry"></span>In Anfrage (frei wählbar)</div>
         </div>
       </div>
       <div class="summary-card" id="summaryCard">
@@ -3767,6 +3786,7 @@ function renderMonth(date) {
     const isPast = cellDate < today;
     const hardBlocked = isHardBlocked(cellDate) || isConfirmedBooked(cellDate);
     const pendingInst = isPendingInstant(cellDate);
+    const pendingInq = isPendingInquiry(cellDate);
     const inRange = isInSelection(cellDate);
     const isStart = selection.start && sameDay(cellDate, selection.start);
     const isEnd = selection.end && sameDay(cellDate, selection.end);
@@ -3775,6 +3795,7 @@ function renderMonth(date) {
     if (isPast) cell.classList.add('past');
     if (hardBlocked) cell.classList.add('blocked');
     else if (pendingInst) cell.classList.add('pending-instant');
+    else if (pendingInq) cell.classList.add('pending-inquiry');
     if (isStart) cell.classList.add('selected-start');
     else if (isEnd) cell.classList.add('selected-end');
     else if (inRange && !hardBlocked && !pendingInst) cell.classList.add('in-range');
@@ -3851,7 +3872,13 @@ function isPendingInstant(date) {
     r.status === 'pending' && r.mode === 'instant' && _dateInReqRange(date, r)
   );
 }
+function isPendingInquiry(date) {
+  return (state.requests || []).some(r =>
+    r.status === 'pending' && r.mode === 'inquiry' && _dateInReqRange(date, r)
+  );
+}
 function isDateBlocked(date) {
+  // Inquiries are visible but selectable — they don't block selection
   return isHardBlocked(date) || isConfirmedBooked(date) || isPendingInstant(date);
 }
 function isInSelection(date) {
