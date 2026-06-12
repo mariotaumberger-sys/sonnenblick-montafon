@@ -1,0 +1,4634 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C2419" />
+<meta name="description" content="Sonnenblick Montafon — Luxus-Ferienwohnung in Bartholomäberg, Vorarlberg. 78 m², 2 Schlafzimmer, Bergblick und Südlage im Herzen des Montafon." />
+<title>Sonnenblick Montafon · Luxus-Ferienwohnung in Bartholomäberg</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_AT" />
+<meta property="og:title" content="Sonnenblick Montafon · Luxus-Ferienwohnung in Bartholomäberg" />
+<meta property="og:description" content="78 m², 2 Schlafzimmer, Südlage und Panoramablick. Eine neue Luxus-Ferienwohnung im Herzen des Montafon." />
+<meta property="og:site_name" content="Sonnenblick Montafon" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sonnenblick Montafon · Luxus-Ferienwohnung" />
+<meta name="twitter:description" content="78 m², 2 Schlafzimmer, Bergblick und Südlage. Bartholomäberg, Vorarlberg." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   SONNENBLICK MONTAFON — Design Tokens
+   Alpine Luxury / Editorial
+   ============================================================ */
+:root {
+  /* Palette */
+  --bg: #F5F1EA;
+  --bg-elev: #FBF8F2;
+  --bg-card: #FFFFFF;
+  --ink: #1C2419;
+  --ink-soft: #3A4339;
+  --ink-mute: #6B7163;
+  --line: #E5DDD0;
+  --line-soft: #EFE9DD;
+  --forest: #2D4A3E;
+  --forest-deep: #1F362D;
+  --wood: #6B5840;
+  --gold: #B8893A;
+  --gold-soft: #D4AC6A;
+  --gold-tint: rgba(184, 137, 58, 0.12);
+  --red: #A53A2A;
+  --red-soft: rgba(165, 58, 42, 0.10);
+  --shadow-sm: 0 1px 2px rgba(28, 36, 25, 0.04), 0 1px 3px rgba(28, 36, 25, 0.06);
+  --shadow-md: 0 4px 12px rgba(28, 36, 25, 0.06), 0 2px 4px rgba(28, 36, 25, 0.04);
+  --shadow-lg: 0 16px 40px rgba(28, 36, 25, 0.10), 0 4px 12px rgba(28, 36, 25, 0.06);
+  --shadow-xl: 0 32px 80px rgba(28, 36, 25, 0.16);
+
+  /* Typography */
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Spacing */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* Radius */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-full: 999px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-fast: 200ms;
+  --d-med: 400ms;
+  --d-slow: 700ms;
+}
+
+/* ============================================================
+   Reset / Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.15;
+}
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--wood);
+  margin-bottom: var(--s-4);
+}
+.lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--s-5);
+}
+.container-narrow {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 var(--s-5);
+}
+section {
+  padding: var(--s-9) 0;
+}
+.section-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--s-8);
+}
+.section-head p {
+  margin-top: var(--s-4);
+  color: var(--ink-mute);
+  font-size: 1.05rem;
+}
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto var(--s-4);
+}
+
+/* ============================================================
+   Reveal animation
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* Global focus — visible only for keyboard users */
+:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--s-4);
+  background: var(--ink);
+  color: var(--bg);
+  padding: var(--s-3) var(--s-5);
+  border-radius: var(--r-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 1000;
+  transition: top var(--d-fast) var(--ease-out);
+}
+.skip-link:focus { top: var(--s-4); }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: var(--s-4) var(--s-6);
+  border-radius: var(--r-full);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: transform var(--d-fast) var(--ease-out),
+              background-color var(--d-fast) var(--ease-out),
+              color var(--d-fast) var(--ease-out),
+              box-shadow var(--d-fast) var(--ease-out);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg-elev);
+}
+.btn-primary:hover {
+  background: var(--forest-deep);
+  box-shadow: 0 8px 24px rgba(28, 36, 25, 0.18);
+}
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+}
+.btn-gold:hover {
+  background: #A37A30;
+  box-shadow: 0 8px 24px rgba(184, 137, 58, 0.32);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--bg-elev);
+}
+.btn-light {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  backdrop-filter: blur(10px);
+}
+.btn-light:hover {
+  background: #fff;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: var(--s-4);
+  left: var(--s-4);
+  right: var(--s-4);
+  z-index: 100;
+  background: rgba(245, 241, 234, 0.78);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border: 1px solid rgba(229, 221, 208, 0.6);
+  border-radius: var(--r-full);
+  padding: var(--s-3) var(--s-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--d-med) var(--ease-out),
+              box-shadow var(--d-med) var(--ease-out),
+              padding var(--d-med) var(--ease-out);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nav.scrolled {
+  background: rgba(251, 248, 242, 0.95);
+  box-shadow: var(--shadow-md);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.nav-logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--gold-soft), var(--gold) 70%, var(--wood));
+  position: relative;
+  flex-shrink: 0;
+}
+.nav-logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--gold) 8deg, transparent 16deg,
+                                          transparent 40deg, var(--gold) 48deg, transparent 56deg,
+                                          transparent 80deg, var(--gold) 88deg, transparent 96deg,
+                                          transparent 120deg, var(--gold) 128deg, transparent 136deg,
+                                          transparent 160deg, var(--gold) 168deg, transparent 176deg,
+                                          transparent 200deg, var(--gold) 208deg, transparent 216deg,
+                                          transparent 240deg, var(--gold) 248deg, transparent 256deg,
+                                          transparent 280deg, var(--gold) 288deg, transparent 296deg,
+                                          transparent 320deg, var(--gold) 328deg, transparent 336deg);
+  opacity: 0.5;
+  z-index: -1;
+}
+.nav-links {
+  display: flex;
+  gap: var(--s-6);
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  position: relative;
+  transition: color var(--d-fast) var(--ease-out);
+}
+.nav-links a:hover {
+  color: var(--ink);
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--d-fast) var(--ease-out);
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+.nav-cta {
+  font-size: 0.875rem;
+  padding: var(--s-2) var(--s-5);
+}
+.nav-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--ink);
+  position: relative;
+}
+.nav-toggle span::before, .nav-toggle span::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1.5px;
+  background: var(--ink);
+  left: 0;
+}
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+@media (max-width: 880px) {
+  .nav-links, .nav .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-mobile-open .nav-links {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+    box-shadow: var(--shadow-lg);
+    gap: var(--s-4);
+  }
+  .nav-mobile-open .nav-cta {
+    display: inline-flex;
+    margin-top: var(--s-2);
+  }
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  max-height: 980px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  isolation: isolate;
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-media img {
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateY(0);
+  will-change: transform;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(28, 36, 25, 0.45) 0%, rgba(28, 36, 25, 0.15) 35%, rgba(28, 36, 25, 0.65) 100%),
+    radial-gradient(ellipse at 50% 65%, rgba(28, 36, 25, 0) 40%, rgba(28, 36, 25, 0.35) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 0 var(--s-5);
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: var(--s-5);
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.hero h1 {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--s-5);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-soft);
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto var(--s-7);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.6;
+}
+.hero-ctas {
+  display: flex;
+  gap: var(--s-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-meta {
+  position: absolute;
+  bottom: var(--s-6);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--s-7);
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.hero-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+.hero-scroll-line::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: #fff;
+  animation: scrollDown 2.4s var(--ease-in-out) infinite;
+}
+@keyframes scrollDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(64px); }
+}
+@media (max-width: 720px) {
+  .hero-meta { padding: 0 var(--s-4); flex-direction: column; gap: var(--s-3); }
+  .hero-meta-item:nth-child(2) { display: none; }
+}
+
+/* ============================================================
+   About / Apartment specs
+   ============================================================ */
+.about {
+  background: var(--bg);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--s-9);
+  align-items: center;
+}
+.about-text h2 { margin-bottom: var(--s-4); }
+.about-text .lead { margin-bottom: var(--s-5); }
+.about-text p { color: var(--ink-soft); margin-bottom: var(--s-4); }
+.about-image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s var(--ease-out);
+}
+.about-image:hover img { transform: scale(1.04); }
+.about-image-badge {
+  position: absolute;
+  bottom: var(--s-5);
+  left: var(--s-5);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  padding: var(--s-3) var(--s-5);
+  border-radius: var(--r-full);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+  padding-top: var(--s-7);
+  border-top: 1px solid var(--line);
+}
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+.spec-val {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+.spec-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.amenities {
+  margin-top: var(--s-9);
+}
+.amenities-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: var(--s-6);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+.amenities-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--s-3);
+}
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--bg-elev);
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-soft);
+  transition: background var(--d-fast) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out),
+              transform var(--d-fast) var(--ease-out);
+}
+.amenity:hover {
+  background: #fff;
+  border-color: var(--gold);
+}
+.amenity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.amenity-icon svg { width: 18px; height: 18px; }
+.amenity-text {
+  font-size: 0.92rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@media (max-width: 880px) {
+  .about-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+  .specs { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   Gallery
+   ============================================================ */
+.gallery {
+  background: var(--bg-elev);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 140px;
+  gap: var(--s-3);
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  background: var(--line);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out), filter 0.6s var(--ease-out);
+}
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(28, 36, 25, 0.55) 100%);
+  opacity: 0;
+  transition: opacity var(--d-fast) var(--ease-out);
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item:hover::after { opacity: 1; }
+.gallery-item .gallery-caption {
+  position: absolute;
+  bottom: var(--s-3);
+  left: var(--s-4);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--d-fast) var(--ease-out), transform var(--d-fast) var(--ease-out);
+}
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+  transform: none;
+}
+/* Masonry pattern - first item large */
+.gallery-item:nth-child(1) { grid-column: span 6; grid-row: span 3; }
+.gallery-item:nth-child(2) { grid-column: span 6; grid-row: span 2; }
+.gallery-item:nth-child(3) { grid-column: span 3; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 3; grid-row: span 2; }
+.gallery-item:nth-child(5) { grid-column: span 4; grid-row: span 2; }
+.gallery-item:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+.gallery-item:nth-child(7) { grid-column: span 4; grid-row: span 2; }
+.gallery-item:nth-child(8) { grid-column: span 12; grid-row: span 2; }
+
+@media (max-width: 720px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; }
+  .gallery-item:nth-child(n) { grid-column: span 1; grid-row: span 2; }
+  .gallery-item:nth-child(1), .gallery-item:nth-child(8) { grid-column: span 2; grid-row: span 2; }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 20, 14, 0.94);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-7);
+}
+.lightbox.open { display: flex; animation: fadeIn 300ms var(--ease-out); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-xl);
+  animation: zoomIn 400ms var(--ease-out);
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--d-fast) var(--ease-out);
+}
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+.lightbox-close { top: var(--s-5); right: var(--s-5); }
+.lightbox-prev { left: var(--s-5); top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: var(--s-5); top: 50%; transform: translateY(-50%); }
+.lightbox-caption {
+  position: absolute;
+  bottom: var(--s-5);
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  background: rgba(0, 0, 0, 0.4);
+  padding: var(--s-2) var(--s-5);
+  border-radius: var(--r-full);
+}
+
+/* ============================================================
+   Location
+   ============================================================ */
+.location {
+  background: var(--bg);
+}
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-9);
+  align-items: center;
+}
+.location-text h2 { margin-bottom: var(--s-4); }
+.location-text p {
+  color: var(--ink-soft);
+  margin-bottom: var(--s-4);
+}
+.location-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-3);
+  margin: var(--s-6) 0;
+}
+.loc-feature {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+}
+.loc-feature-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.loc-feature-text {
+  font-size: 0.95rem;
+}
+.loc-feature-text strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.loc-feature-text span {
+  color: var(--ink-mute);
+  font-size: 0.85rem;
+}
+.location-map {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, #c5d2c1, #8aa294);
+}
+.location-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.location-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+  z-index: 2;
+}
+.location-pin-label {
+  background: rgba(255, 255, 255, 0.96);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+}
+.location-pin-marker {
+  width: 24px;
+  height: 24px;
+  background: var(--gold);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid #fff;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.location-pin-marker::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.3;
+  animation: ping 2s var(--ease-out) infinite;
+}
+@keyframes ping {
+  0% { transform: scale(0.6); opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.location-map-cta {
+  position: absolute;
+  bottom: var(--s-5);
+  left: var(--s-5);
+  right: var(--s-5);
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 880px) {
+  .location-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+}
+
+/* ============================================================
+   Activities
+   ============================================================ */
+.activities {
+  background: var(--bg-elev);
+  position: relative;
+  overflow: hidden;
+}
+.activities-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-2);
+  margin-bottom: var(--s-8);
+}
+.activity-tab {
+  padding: var(--s-3) var(--s-6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--r-full);
+  color: var(--ink-mute);
+  transition: background var(--d-fast) var(--ease-out), color var(--d-fast) var(--ease-out);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.activity-tab svg { width: 14px; height: 14px; }
+.activity-tab:hover { color: var(--ink); }
+.activity-tab.active {
+  background: var(--ink);
+  color: var(--bg);
+}
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-4);
+}
+.activity-pane { display: none; }
+.activity-pane.active {
+  display: contents;
+  animation: actFade 500ms var(--ease-out);
+}
+@keyframes actFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.activity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform var(--d-med) var(--ease-out),
+              box-shadow var(--d-med) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out);
+  position: relative;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+.activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+.activity-image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--line-soft), var(--line));
+}
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out);
+}
+.activity-card:hover .activity-image img { transform: scale(1.06); }
+.activity-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28,36,25,0) 60%, rgba(28,36,25,0.18) 100%);
+  pointer-events: none;
+}
+.activity-icon-badge {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background var(--d-fast) var(--ease-out), color var(--d-fast) var(--ease-out);
+}
+.activity-card:hover .activity-icon-badge {
+  background: var(--gold);
+  color: #fff;
+}
+.activity-icon-badge svg { width: 18px; height: 18px; }
+.activity-body {
+  padding: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.activity-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: var(--s-2);
+  letter-spacing: 0;
+}
+.activity-card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin-bottom: var(--s-4);
+  flex: 1;
+}
+.activity-meta {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line-soft);
+}
+.activity-meta::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+@media (max-width: 1024px) {
+  .activities-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .activities-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-3); }
+  .activity-card { padding: var(--s-4); }
+}
+@media (max-width: 420px) {
+  .activities-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Service Links (Wetter, Ausflüge, Webcams)
+   ============================================================ */
+.service {
+  background: var(--bg);
+  padding: var(--s-9) 0;
+  border-top: 1px solid var(--line-soft);
+}
+.service-head {
+  text-align: center;
+  margin-bottom: var(--s-7);
+}
+.service-head .eyebrow { margin-bottom: var(--s-2); }
+.service-head h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-6);
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  transition: transform var(--d-med) var(--ease-out),
+              box-shadow var(--d-med) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--d-med) var(--ease-out);
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+.service-card:hover::after { transform: scaleX(1); }
+.service-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--gold-tint);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-icon svg { width: 22px; height: 22px; }
+.service-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line-soft);
+}
+.service-link svg {
+  width: 14px; height: 14px;
+  transition: transform var(--d-fast) var(--ease-out);
+}
+.service-card:hover .service-link svg { transform: translateX(3px); }
+@media (max-width: 880px) {
+  .service-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Prices
+   ============================================================ */
+.prices {
+  background: var(--forest-deep);
+  color: var(--bg);
+}
+.prices h2 { color: var(--bg); }
+.prices .section-head p { color: rgba(245, 241, 234, 0.7); }
+.prices-table {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 880px;
+  margin: 0 auto;
+}
+.price-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--s-5);
+  padding: var(--s-5) var(--s-7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: center;
+}
+.price-row:last-child { border-bottom: none; }
+.price-row.header {
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 234, 0.55);
+}
+.price-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.price-row.header .price-name { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; }
+.price-period {
+  font-size: 0.85rem;
+  color: rgba(245, 241, 234, 0.6);
+  text-align: right;
+}
+.price-amount {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--gold-soft);
+  text-align: right;
+  white-space: nowrap;
+}
+.price-row.header .price-amount { font-family: var(--font-sans); font-size: 0.78rem; color: rgba(245, 241, 234, 0.55); font-weight: 500; }
+.price-fine {
+  max-width: 880px;
+  margin: var(--s-6) auto 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(245, 241, 234, 0.55);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .price-row { grid-template-columns: 1fr auto; padding: var(--s-4) var(--s-5); gap: var(--s-3); }
+  .price-period { grid-column: 1 / -1; text-align: left; font-size: 0.78rem; margin-top: -4px; }
+  .price-row.header .price-period { display: none; }
+}
+
+/* ============================================================
+   Booking / Calendar
+   ============================================================ */
+.booking {
+  background: var(--bg);
+}
+.booking-wrap {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--s-7);
+  align-items: start;
+}
+.calendar-card {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: var(--s-6);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-5);
+}
+.calendar-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.calendar-nav {
+  display: flex;
+  gap: var(--s-2);
+}
+.calendar-nav button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: background var(--d-fast) var(--ease-out), border-color var(--d-fast) var(--ease-out);
+}
+.calendar-nav button:hover {
+  background: var(--bg);
+  border-color: var(--ink);
+}
+.calendar-nav button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.calendar-months {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-6);
+}
+.calendar-month-label {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: var(--s-3);
+  font-weight: 500;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.calendar-weekday {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ink-mute);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: var(--s-2) 0;
+}
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  position: relative;
+  font-size: 0.78rem;
+  transition: background var(--d-fast) var(--ease-out), color var(--d-fast) var(--ease-out);
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid transparent;
+  user-select: none;
+}
+.calendar-day.empty { cursor: default; }
+.calendar-day-num { font-weight: 500; line-height: 1; }
+.calendar-day-price {
+  font-size: 0.6rem;
+  color: var(--ink-mute);
+  margin-top: 2px;
+  font-feature-settings: "tnum";
+  letter-spacing: 0;
+}
+.calendar-day:hover:not(.empty):not(.disabled):not(.blocked) {
+  background: var(--bg);
+}
+.calendar-day.past, .calendar-day.disabled {
+  color: var(--line);
+  cursor: not-allowed;
+}
+.calendar-day.past .calendar-day-price, .calendar-day.disabled .calendar-day-price { color: var(--line); }
+.calendar-day.blocked {
+  background: var(--red-soft);
+  color: var(--red);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+.calendar-day.blocked .calendar-day-price { color: var(--red); opacity: 0.6; }
+.calendar-day.requested {
+  border: 1px dashed var(--gold);
+  color: var(--wood);
+}
+.calendar-day.pending-instant {
+  background: var(--gold-tint);
+  color: var(--wood);
+  border: 1px dashed var(--gold);
+  cursor: not-allowed;
+}
+.calendar-day.pending-instant .calendar-day-price { color: var(--wood); opacity: 0.6; }
+.calendar-day.selected-start, .calendar-day.selected-end {
+  background: var(--gold);
+  color: #fff;
+  font-weight: 600;
+}
+.calendar-day.selected-start .calendar-day-price,
+.calendar-day.selected-end .calendar-day-price {
+  color: rgba(255, 255, 255, 0.85);
+}
+.calendar-day.in-range {
+  background: var(--gold-tint);
+  color: var(--ink);
+}
+.calendar-day.today::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.calendar-day.selected-start.today::after,
+.calendar-day.selected-end.today::after { background: #fff; }
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+}
+.legend-item { display: flex; align-items: center; gap: var(--s-2); }
+.legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.legend-dot.free { background: var(--bg); border: 1px solid var(--line); }
+.legend-dot.selected { background: var(--gold); }
+.legend-dot.blocked { background: var(--red-soft); border: 1px solid var(--red); }
+.legend-dot.requested { background: var(--gold-tint); border: 1px dashed var(--gold); }
+
+@media (max-width: 720px) {
+  /* On mobile show only one month at a time — bigger touch targets */
+  .calendar-months { grid-template-columns: 1fr; gap: var(--s-4); }
+  .calendar-months > div:nth-child(2) { display: none; }
+  .calendar-day { font-size: 0.9rem; min-height: 48px; aspect-ratio: auto; padding: 4px; }
+  .calendar-day-num { font-size: 0.95rem; }
+  .calendar-day-price { font-size: 0.7rem; margin-top: 3px; }
+  .calendar-weekday { font-size: 0.75rem; }
+  .calendar-card { padding: var(--s-4); }
+  .calendar-title { font-size: 1.15rem; }
+  .calendar-month-label { font-size: 1.25rem; }
+}
+
+/* Booking summary card */
+.summary-card {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  padding: var(--s-6);
+  position: sticky;
+  top: 100px;
+}
+.summary-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: var(--s-5);
+}
+.summary-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+.summary-date-box {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--s-3) var(--s-4);
+}
+.summary-date-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: var(--s-1);
+}
+.summary-date-value {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.summary-date-value.empty { color: var(--ink-mute); font-style: italic; font-weight: 400; }
+.summary-persons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--s-4);
+}
+.summary-persons-label { font-size: 0.92rem; }
+.persons-stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.persons-stepper button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--ink);
+  transition: background var(--d-fast), border-color var(--d-fast);
+}
+.persons-stepper button:hover { background: var(--bg); border-color: var(--ink); }
+.persons-stepper button:disabled { opacity: 0.3; cursor: not-allowed; }
+.persons-stepper-val {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-width: 20px;
+  text-align: center;
+}
+.summary-breakdown {
+  margin-bottom: var(--s-5);
+}
+.breakdown-line {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--s-2) 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.breakdown-line.total {
+  border-top: 1px solid var(--line);
+  margin-top: var(--s-2);
+  padding-top: var(--s-3);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.summary-empty {
+  text-align: center;
+  padding: var(--s-7) var(--s-4);
+  color: var(--ink-mute);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+}
+.summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.summary-actions .btn { width: 100%; padding: var(--s-4); }
+.summary-mode-note {
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  text-align: center;
+  margin-top: var(--s-2);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .booking-wrap { grid-template-columns: 1fr; }
+  .summary-card { position: static; }
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  background: var(--bg-elev);
+}
+.faq-list { max-width: 820px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-q {
+  width: 100%;
+  text-align: left;
+  padding: var(--s-5) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+}
+.faq-q-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ink);
+  transition: transform var(--d-med) var(--ease-out), background var(--d-fast) var(--ease-out), border-color var(--d-fast) var(--ease-out);
+}
+.faq-q:hover .faq-q-icon { background: var(--bg-card); border-color: var(--ink); }
+.faq-item.open .faq-q-icon {
+  transform: rotate(45deg);
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--d-med) var(--ease-out);
+}
+.faq-a-inner {
+  padding: 0 0 var(--s-5);
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact {
+  background: var(--bg);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--s-9);
+  align-items: start;
+}
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  margin-top: var(--s-6);
+}
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-line:last-child { border-bottom: none; }
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-elev);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.contact-icon svg { width: 20px; height: 20px; }
+.contact-line-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: 2px;
+}
+.contact-line-value {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.contact-line-value:hover { color: var(--gold); }
+
+.contact-form {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: var(--s-7);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+}
+.form-group {
+  margin-bottom: var(--s-4);
+}
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: var(--s-2);
+  font-weight: 500;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: var(--s-3) var(--s-4);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  transition: border-color var(--d-fast) var(--ease-out), background var(--d-fast) var(--ease-out);
+  font-family: var(--font-sans);
+}
+.form-group textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: #fff;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--ink-mute);
+  opacity: 0.6;
+}
+.contact-form .btn { width: 100%; padding: var(--s-4); }
+
+@media (max-width: 880px) {
+  .contact-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form { padding: var(--s-5); }
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background: var(--ink);
+  color: rgba(245, 241, 234, 0.7);
+  padding: var(--s-9) 0 var(--s-5);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--s-7);
+  margin-bottom: var(--s-7);
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--bg);
+  margin-bottom: var(--s-3);
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.footer-tagline {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--bg);
+  margin-bottom: var(--s-4);
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  font-size: 0.92rem;
+}
+.footer-col a {
+  transition: color var(--d-fast) var(--ease-out);
+}
+.footer-col a:hover { color: var(--gold-soft); }
+.footer-bottom {
+  border-top: 1px solid rgba(245, 241, 234, 0.12);
+  padding-top: var(--s-5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+.footer-bottom a { transition: color var(--d-fast); }
+.footer-bottom a:hover { color: var(--gold-soft); }
+
+@media (max-width: 720px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--s-5); }
+}
+
+/* ============================================================
+   Hidden Admin Dot
+   ============================================================ */
+.admin-dot {
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(245, 241, 234, 0.3);
+  z-index: 80;
+  cursor: pointer;
+  transition: background var(--d-fast), transform var(--d-fast);
+}
+.admin-dot:hover {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+/* ============================================================
+   Modal (generic)
+   ============================================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 20, 14, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-5);
+  animation: fadeIn 280ms var(--ease-out);
+}
+.modal-backdrop.open { display: flex; }
+.modal {
+  background: var(--bg);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-xl);
+  max-width: 960px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: modalIn 380ms var(--ease-out);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-5) var(--s-6);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-elev);
+}
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  transition: background var(--d-fast);
+}
+.modal-close:hover { background: var(--line); color: var(--ink); }
+.modal-body {
+  padding: var(--s-6);
+  overflow-y: auto;
+  flex: 1;
+}
+.modal-narrow { max-width: 540px; }
+
+/* Legal modals — preserve formatted text */
+.legal-content {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+/* Booking confirmation modal */
+.booking-confirm {
+  text-align: center;
+  padding: var(--s-7) var(--s-5);
+}
+.booking-confirm-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--s-5);
+}
+.booking-confirm-icon svg { width: 36px; height: 36px; }
+.booking-confirm h3 {
+  margin-bottom: var(--s-3);
+}
+.booking-confirm p {
+  color: var(--ink-soft);
+  margin-bottom: var(--s-5);
+}
+
+/* ============================================================
+   Admin Panel
+   ============================================================ */
+.admin-panel {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 400;
+  display: none;
+  flex-direction: column;
+}
+.admin-panel.open { display: flex; }
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-4) var(--s-6);
+  background: var(--ink);
+  color: var(--bg);
+}
+.admin-header h2 {
+  font-size: 1.2rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--bg);
+}
+.admin-header-actions { display: flex; gap: var(--s-3); align-items: center; }
+.admin-close {
+  color: var(--bg);
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-full);
+  font-size: 0.85rem;
+}
+.admin-close:hover { background: rgba(255, 255, 255, 0.2); }
+
+.admin-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+.admin-tabs {
+  background: var(--bg-elev);
+  border-right: 1px solid var(--line);
+  padding: var(--s-5) var(--s-3);
+  overflow-y: auto;
+}
+.admin-tab {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-md);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  transition: background var(--d-fast), color var(--d-fast);
+  margin-bottom: 2px;
+}
+.admin-tab:hover { background: var(--line-soft); color: var(--ink); }
+.admin-tab.active {
+  background: var(--ink);
+  color: var(--bg);
+}
+.admin-content {
+  overflow-y: auto;
+  padding: var(--s-7);
+}
+.admin-section { display: none; max-width: 880px; }
+.admin-section.active { display: block; }
+.admin-section h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  margin-bottom: var(--s-2);
+}
+.admin-section > p.section-desc {
+  color: var(--ink-mute);
+  font-size: 0.95rem;
+  margin-bottom: var(--s-6);
+}
+.admin-field {
+  margin-bottom: var(--s-4);
+}
+.admin-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: var(--s-2);
+}
+.admin-field input,
+.admin-field textarea,
+.admin-field select {
+  width: 100%;
+  padding: var(--s-3) var(--s-4);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+}
+.admin-field textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+.admin-field input:focus,
+.admin-field textarea:focus,
+.admin-field select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+}
+.admin-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--s-4);
+}
+.admin-actions {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line);
+}
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+.admin-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-3);
+  align-items: center;
+  padding: var(--s-4);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.admin-row .row-actions {
+  display: flex;
+  gap: var(--s-2);
+}
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--ink-soft);
+  transition: background var(--d-fast), color var(--d-fast);
+}
+.icon-btn:hover { background: var(--line); color: var(--ink); }
+.icon-btn.danger:hover { background: var(--red-soft); color: var(--red); }
+.icon-btn svg { width: 16px; height: 16px; }
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-5);
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: var(--r-md);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background var(--d-fast);
+}
+.add-btn:hover { background: var(--forest-deep); }
+.add-btn svg { width: 16px; height: 16px; }
+
+.req-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+  margin-bottom: var(--s-3);
+}
+.req-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--s-4);
+  margin-bottom: var(--s-3);
+  flex-wrap: wrap;
+}
+.req-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.req-status {
+  display: inline-block;
+  padding: 4px var(--s-3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--r-full);
+}
+.req-status.pending { background: var(--gold-tint); color: var(--wood); }
+.req-status.confirmed { background: rgba(45, 74, 62, 0.12); color: var(--forest); }
+.req-status.rejected { background: var(--red-soft); color: var(--red); }
+.req-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+  font-size: 0.85rem;
+}
+.req-meta-item label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+  margin-bottom: 2px;
+}
+.req-meta-item span { font-weight: 500; color: var(--ink); }
+.req-msg {
+  background: var(--bg-elev);
+  border-radius: var(--r-sm);
+  padding: var(--s-3) var(--s-4);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: var(--s-4);
+}
+.req-actions { display: flex; gap: var(--s-3); }
+.req-actions button {
+  padding: var(--s-2) var(--s-5);
+  border-radius: var(--r-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background var(--d-fast);
+}
+.btn-confirm { background: var(--forest); color: #fff; }
+.btn-confirm:hover { background: var(--forest-deep); }
+.btn-reject { background: var(--red); color: #fff; }
+.btn-reject:hover { background: #8a2f23; }
+
+.admin-empty {
+  padding: var(--s-7);
+  text-align: center;
+  color: var(--ink-mute);
+  background: var(--bg-elev);
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  font-style: italic;
+}
+
+/* Login screen */
+.admin-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: var(--s-7);
+}
+.admin-login-card {
+  max-width: 380px;
+  width: 100%;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: var(--s-7);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+}
+.admin-login-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: var(--s-2);
+}
+.admin-login-card p {
+  text-align: center;
+  color: var(--ink-mute);
+  margin-bottom: var(--s-5);
+  font-size: 0.9rem;
+}
+.admin-login-card .btn { width: 100%; margin-top: var(--s-3); }
+.admin-login-err {
+  color: var(--red);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: var(--s-3);
+  display: none;
+}
+.admin-login-err.show { display: block; }
+
+@media (max-width: 880px) {
+  .admin-body { grid-template-columns: 1fr; }
+  .admin-tabs {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: var(--s-2);
+    padding: var(--s-3);
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .admin-tab {
+    flex-shrink: 0;
+    padding: var(--s-2) var(--s-4);
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .admin-content { padding: var(--s-5); }
+  .admin-grid, .admin-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Toast
+   ============================================================ */
+.toast {
+  position: fixed;
+  bottom: var(--s-6);
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: var(--ink);
+  color: var(--bg);
+  padding: var(--s-3) var(--s-6);
+  border-radius: var(--r-full);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 500;
+  opacity: 0;
+  transition: transform var(--d-med) var(--ease-out), opacity var(--d-med) var(--ease-out);
+  pointer-events: none;
+}
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   Hero bg gradient fallback before image loads
+   ============================================================ */
+.hero-media {
+  background: linear-gradient(135deg, #2d4a3e 0%, #1c2419 100%);
+}
+</style>
+</head>
+<body>
+
+<a href="#about" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    <span data-text="brand">Sonnenblick</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">Wohnung</a>
+    <a href="#gallery">Galerie</a>
+    <a href="#location">Lage</a>
+    <a href="#activities">Aktivitäten</a>
+    <a href="#prices">Preise</a>
+    <a href="#booking">Buchung</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+  <a href="#booking" class="btn btn-primary nav-cta">Jetzt buchen</a>
+  <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <img id="heroImg" alt="Alpenpanorama Bartholomäberg im Montafon" loading="eager" />
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal" data-text="hero_eyebrow">Bartholomäberg · Montafon · Vorarlberg</div>
+    <h1 class="reveal reveal-delay-1" id="heroTitle"></h1>
+    <p class="hero-sub reveal reveal-delay-2" data-text="hero_subtitle"></p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="#booking" class="btn btn-gold">Verfügbarkeit prüfen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#gallery" class="btn btn-light">Galerie ansehen</a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+      <span>78 m² · 2 Schlafzimmer</span>
+    </div>
+    <div class="hero-scroll">
+      <span>Entdecken</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+    <div class="hero-meta-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a7 7 0 017 7c0 5-7 13-7 13S5 13 5 8a7 7 0 017-7z"/><circle cx="12" cy="8" r="2.5"/></svg>
+      <span>1.087 m über dem Meer</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="eyebrow">Die Wohnung</div>
+        <h2 data-text="about_title"></h2>
+        <p class="lead" data-text="about_lead"></p>
+        <p data-text="about_p1"></p>
+        <p data-text="about_p2"></p>
+        <a href="#booking" class="btn btn-ghost" style="margin-top: var(--s-4);">Termin auswählen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="about-image reveal reveal-delay-2">
+        <img id="aboutImg" alt="Wohnbereich der Ferienwohnung" loading="lazy" />
+        <div class="about-image-badge">
+          <span style="width:6px;height:6px;background:var(--gold);border-radius:50%;"></span>
+          <span>Neubau 2025</span>
+        </div>
+      </div>
+    </div>
+    <div class="specs reveal">
+      <div class="spec"><div class="spec-val">78</div><div class="spec-label">m² Wohnfläche</div></div>
+      <div class="spec"><div class="spec-val">2</div><div class="spec-label">Schlafzimmer</div></div>
+      <div class="spec"><div class="spec-val">4–6</div><div class="spec-label">Gäste</div></div>
+      <div class="spec"><div class="spec-val">1.087</div><div class="spec-label">Höhenmeter</div></div>
+    </div>
+    <div class="amenities reveal">
+      <div class="amenities-title">Ausstattung</div>
+      <div class="amenities-grid">
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13M9 21V12h6v9"/></svg></div><div class="amenity-text">Bergblick · Südlage</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="9" rx="1"/><path d="M7 11V6a5 5 0 0110 0v5"/></svg></div><div class="amenity-text">Privater Parkplatz</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0M12 19.5h.01"/></svg></div><div class="amenity-text">WLAN 200 Mbit/s</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="amenity-text">Vollausgestattete Küche</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="6"/><path d="M9 3h6v3H9z"/><circle cx="12" cy="13" r="2"/></svg></div><div class="amenity-text">Waschmaschine</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 22h18M5 22V11a3 3 0 013-3h8a3 3 0 013 3v11M9 22V14h6v8"/></svg></div><div class="amenity-text">Modernes Badezimmer</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M3 17l9-9 9 9M5 21V9M19 21V9"/></svg></div><div class="amenity-text">Großer Balkon</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M4.5 4.5l15 15"/></svg></div><div class="amenity-text">Nichtraucher</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow">Galerie</div>
+      <h2 data-text="gallery_title"></h2>
+      <p data-text="gallery_subtitle"></p>
+    </div>
+    <div class="gallery-grid reveal" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildergalerie">
+  <button class="lightbox-close" aria-label="Schließen" onclick="closeLightbox()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <button class="lightbox-prev" aria-label="Vorheriges Bild" onclick="lightboxNav(-1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <img class="lightbox-img" id="lightboxImg" alt="" />
+  <button class="lightbox-next" aria-label="Nächstes Bild" onclick="lightboxNav(1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- ============================================================
+     LOCATION
+     ============================================================ -->
+<section class="location" id="location">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-text reveal">
+        <div class="eyebrow">Die Lage</div>
+        <h2 data-text="location_title"></h2>
+        <p class="lead" data-text="location_lead"></p>
+        <p data-text="location_p1"></p>
+        <div class="location-features">
+          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Hochjoch Bahn</strong><span>5 km · 8 Min · direkt nebenan in Schruns</span></div></div>
+          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Golm Bergbahnen</strong><span>10 km · 15 Min · Sommer & Winter</span></div></div>
+          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Silvretta Montafon</strong><span>140 km Pisten · in 12 Min erreichbar</span></div></div>
+          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Wanderwege</strong><span>direkt ab Haustür</span></div></div>
+        </div>
+        <a class="btn btn-primary" id="mapsLink" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a7 7 0 017 7c0 5-7 13-7 13S5 13 5 8a7 7 0 017-7z"/><circle cx="12" cy="8" r="2.5"/></svg>
+          In Google Maps öffnen
+        </a>
+      </div>
+      <div class="location-map reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80" alt="Alpenlandschaft Montafon" loading="lazy" />
+        <div class="location-pin">
+          <div class="location-pin-label">Sonnenblick</div>
+          <div class="location-pin-marker"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ACTIVITIES
+     ============================================================ -->
+<section class="activities" id="activities">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow">Aktivitäten</div>
+      <h2 data-text="activities_title"></h2>
+      <p data-text="activities_subtitle"></p>
+    </div>
+    <div class="activities-tabs reveal">
+      <button class="activity-tab active" data-pane="winter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4 4l16 16M20 4L4 20"/></svg>
+        Winter
+      </button>
+      <button class="activity-tab" data-pane="summer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        Sommer
+      </button>
+    </div>
+    <div class="activities-grid reveal" id="activitiesGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE LINKS
+     ============================================================ -->
+<section class="service" id="service">
+  <div class="container">
+    <div class="service-head reveal">
+      <div class="eyebrow">Vor der Anreise</div>
+      <h3>Nützliches für Ihre Planung</h3>
+    </div>
+    <div class="service-grid reveal" id="serviceGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICES
+     ============================================================ -->
+<section class="prices" id="prices">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow" style="color: var(--gold-soft);">Transparente Preise</div>
+      <h2>Was Ihr Aufenthalt kostet</h2>
+      <p>Klar kalkuliert · keine versteckten Gebühren · nur das Datum bestimmt den Preis.</p>
+    </div>
+    <div class="prices-table reveal">
+      <div class="price-row header">
+        <div class="price-name">Zeitraum</div>
+        <div class="price-period">Multiplikator</div>
+        <div class="price-amount">Pro Nacht (4 Pers.)</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Nebensaison</div>
+        <div class="price-period" id="rowLowPeriod">Außerhalb Sommer & Winter</div>
+        <div class="price-amount" id="rowLowAmount">€400</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Sommer</div>
+        <div class="price-period" id="rowSummerPeriod">15. Juni – 15. September</div>
+        <div class="price-amount" id="rowSummerAmount">€480</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Winter</div>
+        <div class="price-period" id="rowWinterPeriod">1. Dezember – 15. April</div>
+        <div class="price-amount" id="rowWinterAmount">€520</div>
+      </div>
+      <div class="price-row" style="background: rgba(255,255,255,0.02);">
+        <div class="price-name">Person 5</div>
+        <div class="price-period">Aufpreis pro Nacht</div>
+        <div class="price-amount" id="rowP5">+€100</div>
+      </div>
+      <div class="price-row" style="background: rgba(255,255,255,0.02);">
+        <div class="price-name">Person 6</div>
+        <div class="price-period">Aufpreis pro Nacht</div>
+        <div class="price-amount" id="rowP6">+€100</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Endreinigung</div>
+        <div class="price-period">einmalig</div>
+        <div class="price-amount" id="rowClean">€90</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Kurtaxe</div>
+        <div class="price-period">pro Person & Nacht</div>
+        <div class="price-amount" id="rowTax">€2,20</div>
+      </div>
+    </div>
+    <p class="price-fine">Der Grundpreis von €400/Nacht gilt für 4 Personen. Person 5 und 6 jeweils mit Aufpreis. Die Saison wird pro Nacht abgerechnet — der Kalender unten zeigt Ihnen den exakten Preis für jedes Datum.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOKING / CALENDAR
+     ============================================================ -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow">Verfügbarkeit & Buchung</div>
+      <h2>Wann möchten Sie kommen?</h2>
+      <p>Wählen Sie Anreise und Abreise direkt im Kalender. Der Preis berechnet sich automatisch nach Saison und Personenzahl.</p>
+    </div>
+    <div class="booking-wrap reveal">
+      <div class="calendar-card">
+        <div class="calendar-header">
+          <div class="calendar-title">Verfügbarer Zeitraum</div>
+          <div class="calendar-nav">
+            <button id="calPrev" aria-label="Vorheriger Monat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button id="calNext" aria-label="Nächster Monat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="calendar-months" id="calendarMonths"></div>
+        <div class="calendar-legend">
+          <div class="legend-item"><span class="legend-dot free"></span>Verfügbar</div>
+          <div class="legend-item"><span class="legend-dot selected"></span>Ausgewählt</div>
+          <div class="legend-item"><span class="legend-dot blocked"></span>Belegt</div>
+          <div class="legend-item"><span class="legend-dot requested"></span>Reserviert (in Bestätigung)</div>
+        </div>
+      </div>
+      <div class="summary-card" id="summaryCard">
+        <div class="summary-title">Ihr Aufenthalt</div>
+        <div class="summary-dates">
+          <div class="summary-date-box">
+            <div class="summary-date-label">Anreise · ab 14:00</div>
+            <div class="summary-date-value empty" id="sumStart">Datum wählen</div>
+          </div>
+          <div class="summary-date-box">
+            <div class="summary-date-label">Abreise · bis 10:00</div>
+            <div class="summary-date-value empty" id="sumEnd">Datum wählen</div>
+          </div>
+        </div>
+        <div class="summary-persons">
+          <div class="summary-persons-label">Gäste</div>
+          <div class="persons-stepper">
+            <button id="personsMinus" aria-label="Weniger Gäste">−</button>
+            <div class="persons-stepper-val" id="personsVal">4</div>
+            <button id="personsPlus" aria-label="Mehr Gäste">+</button>
+          </div>
+        </div>
+        <div id="summaryContent">
+          <div class="summary-empty">Wählen Sie Anreise und Abreise im Kalender.</div>
+        </div>
+        <div class="summary-actions" id="summaryActions" style="display:none;">
+          <button class="btn btn-gold" id="btnInstantBook">Sofort buchen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn btn-ghost" id="btnInquire">Unverbindlich anfragen</button>
+          <div class="summary-mode-note">
+            <strong>Sofort buchen:</strong> Tage werden sofort für Sie reserviert, wir bestätigen binnen 24 h.<br>
+            <strong>Anfragen:</strong> unverbindlich, Tage bleiben buchbar, persönliche Rücksprache.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="divider"></div>
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>Gut zu wissen</h2>
+      <p>Antworten auf die häufigsten Fragen zu Anreise, Ausstattung und Buchung.</p>
+    </div>
+    <div class="faq-list reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Kontakt</div>
+        <h2>Wir freuen uns auf Ihre Nachricht</h2>
+        <p style="margin-top: var(--s-4); color: var(--ink-soft);">Persönliche Beratung, individuelle Wünsche, längere Aufenthalte — sprechen Sie uns gerne direkt an.</p>
+        <div class="contact-info-list">
+          <a class="contact-line" id="contactMailLine" href="#">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></div>
+            <div><div class="contact-line-label">E-Mail</div><div class="contact-line-value" data-text="contact_email"></div></div>
+          </a>
+          <a class="contact-line" id="contactTelLine" href="#">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><div class="contact-line-label">Telefon</div><div class="contact-line-value" data-text="contact_phone"></div></div>
+          </a>
+          <a class="contact-line" id="contactWhatsLine" href="#" target="_blank" rel="noopener">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+            <div><div class="contact-line-label">WhatsApp</div><div class="contact-line-value" data-text="contact_whatsapp"></div></div>
+          </a>
+          <div class="contact-line">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a7 7 0 017 7c0 5-7 13-7 13S5 13 5 8a7 7 0 017-7z"/><circle cx="12" cy="8" r="2.5"/></svg></div>
+            <div><div class="contact-line-label">Adresse</div><div class="contact-line-value" data-text="address"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" type="text" required placeholder="Ihr Name" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">E-Mail</label>
+              <input id="cf-email" type="email" required placeholder="ihre@email.at" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Betreff</label>
+            <input id="cf-subject" type="text" placeholder="Z. B. Anfrage Sommer 2026" />
+          </div>
+          <div class="form-group">
+            <label for="cf-msg">Nachricht</label>
+            <textarea id="cf-msg" required placeholder="Wie können wir Ihnen helfen?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Nachricht senden
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-logo-mark"></span>
+          <span data-text="brand">Sonnenblick</span>
+        </div>
+        <p class="footer-tagline" data-text="footer_tagline"></p>
+      </div>
+      <div class="footer-col">
+        <h4>Entdecken</h4>
+        <ul>
+          <li><a href="#about">Die Wohnung</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#location">Lage</a></li>
+          <li><a href="#prices">Preise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Buchen</h4>
+        <ul>
+          <li><a href="#booking">Verfügbarkeit</a></li>
+          <li><a href="#booking">Sofort buchen</a></li>
+          <li><a href="#contact">Anfrage</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#" onclick="openLegal('impressum');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a></li>
+          <li><a href="#" onclick="openLegal('agb');return false;">AGB</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="copyYear"></span> <span data-text="brand">Sonnenblick</span> Montafon. Alle Rechte vorbehalten.</span>
+      <span>Bartholomäberg · Vorarlberg · Österreich</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Hidden admin dot -->
+<div class="admin-dot" id="adminDot" title=""></div>
+
+<!-- ============================================================
+     LEGAL MODAL
+     ============================================================ -->
+<div class="modal-backdrop" id="legalModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="legalTitle"></h3>
+      <button class="modal-close" onclick="closeModal('legalModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="legal-content" id="legalContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BOOKING DIALOG (instant book / inquiry form)
+     ============================================================ -->
+<div class="modal-backdrop" id="bookingModal">
+  <div class="modal modal-narrow">
+    <div class="modal-header">
+      <h3 class="modal-title" id="bookingModalTitle">Buchung abschließen</h3>
+      <button class="modal-close" onclick="closeModal('bookingModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div id="bookingFormSummary" style="background: var(--bg-elev); padding: var(--s-4); border-radius: var(--r-md); margin-bottom: var(--s-5); font-size: 0.9rem;"></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vorname</label>
+            <input id="bf-first" type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Nachname</label>
+            <input id="bf-last" type="text" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>E-Mail</label>
+            <input id="bf-email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input id="bf-phone" type="tel" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nachricht (optional)</label>
+          <textarea id="bf-msg" placeholder="Besondere Wünsche, Ankunftszeit, …"></textarea>
+        </div>
+        <div class="form-group" style="display:flex;gap:var(--s-2);align-items:flex-start;font-size:0.85rem;color:var(--ink-soft);">
+          <input type="checkbox" id="bf-agree" required style="width:auto;margin-top:4px;" />
+          <label for="bf-agree" style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-soft);font-size:0.85rem;">
+            Ich akzeptiere die <a href="#" onclick="event.preventDefault();openLegal('agb');" style="text-decoration:underline;color:var(--ink);">AGB</a> und die <a href="#" onclick="event.preventDefault();openLegal('datenschutz');" style="text-decoration:underline;color:var(--ink);">Datenschutzerklärung</a>.
+          </label>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%; padding: var(--s-4);">Anfrage abschicken</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Booking confirmation modal -->
+<div class="modal-backdrop" id="confirmModal">
+  <div class="modal modal-narrow">
+    <div class="modal-body">
+      <div class="booking-confirm">
+        <div class="booking-confirm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 id="confirmTitle">Anfrage gesendet</h3>
+        <p id="confirmText"></p>
+        <button class="btn btn-primary" onclick="closeModal('confirmModal')">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ADMIN PANEL
+     ============================================================ -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-header">
+    <h2>Sonnenblick · Verwaltung</h2>
+    <div class="admin-header-actions">
+      <button class="admin-close" onclick="closeAdmin()">Schließen</button>
+    </div>
+  </div>
+
+  <!-- Login -->
+  <div class="admin-login" id="adminLogin">
+    <div class="admin-login-card">
+      <h3>Anmelden</h3>
+      <p>Bitte geben Sie das Verwaltungs-Passwort ein.</p>
+      <div class="admin-field">
+        <label>Passwort</label>
+        <input type="password" id="adminPwInput" autocomplete="current-password" onkeypress="if(event.key==='Enter')adminLogin()" />
+      </div>
+      <button class="btn btn-primary" onclick="adminLogin()">Anmelden</button>
+      <div class="admin-login-err" id="adminLoginErr">Falsches Passwort.</div>
+    </div>
+  </div>
+
+  <!-- Admin body -->
+  <div class="admin-body" id="adminBody" style="display:none;">
+    <aside class="admin-tabs">
+      <button class="admin-tab active" data-tab="general">Allgemein</button>
+      <button class="admin-tab" data-tab="prices">Preise & Saisons</button>
+      <button class="admin-tab" data-tab="blocked">Belegte Tage</button>
+      <button class="admin-tab" data-tab="requests">Anfragen</button>
+      <button class="admin-tab" data-tab="gallery">Bilder</button>
+      <button class="admin-tab" data-tab="activities">Aktivitäten</button>
+      <button class="admin-tab" data-tab="service">Service-Links</button>
+      <button class="admin-tab" data-tab="email">E-Mail</button>
+      <button class="admin-tab" data-tab="texts">Texte</button>
+      <button class="admin-tab" data-tab="faq">FAQ</button>
+      <button class="admin-tab" data-tab="legal">Rechtstexte</button>
+      <button class="admin-tab" data-tab="password">Passwort</button>
+    </aside>
+    <main class="admin-content">
+
+      <!-- Allgemein -->
+      <section class="admin-section active" data-section="general">
+        <h3>Allgemein</h3>
+        <p class="section-desc">Basisinfos, Hero-Bild und Kontaktdaten.</p>
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Name / Markenname</label>
+            <input type="text" data-set="brand" />
+          </div>
+          <div class="admin-field">
+            <label>Slogan (Hero-Eyebrow)</label>
+            <input type="text" data-set="hero_eyebrow" />
+          </div>
+        </div>
+        <div class="admin-field">
+          <label>Hero-Titel (HTML erlaubt: &lt;em&gt; für Akzent)</label>
+          <textarea data-set="hero_title" style="min-height:60px;"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Hero-Untertitel</label>
+          <textarea data-set="hero_subtitle"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Hero-Bild URL</label>
+          <input type="url" data-set="hero_image" />
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Adresse</label>
+            <input type="text" data-set="address" />
+          </div>
+          <div class="admin-field">
+            <label>Google Maps Link</label>
+            <input type="url" data-set="maps_url" />
+          </div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field">
+            <label>Check-in Zeit</label>
+            <input type="text" data-set="checkin" />
+          </div>
+          <div class="admin-field">
+            <label>Check-out Zeit</label>
+            <input type="text" data-set="checkout" />
+          </div>
+          <div class="admin-field">
+            <label>Footer-Untertitel</label>
+            <input type="text" data-set="footer_tagline" />
+          </div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field">
+            <label>E-Mail</label>
+            <input type="email" data-set="contact_email" />
+          </div>
+          <div class="admin-field">
+            <label>Telefon</label>
+            <input type="tel" data-set="contact_phone" />
+          </div>
+          <div class="admin-field">
+            <label>WhatsApp (Nummer ohne +)</label>
+            <input type="tel" data-set="contact_whatsapp" />
+          </div>
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- Preise & Saisons -->
+      <section class="admin-section" data-section="prices">
+        <h3>Preise & Saisons</h3>
+        <p class="section-desc">Grundpreis, Aufpreise, Saisonzeiten und Multiplikatoren.</p>
+
+        <div class="admin-grid-3">
+          <div class="admin-field">
+            <label>Grundpreis (4 Pers.) €/Nacht</label>
+            <input type="number" data-set="base_price" min="0" step="10" />
+          </div>
+          <div class="admin-field">
+            <label>Aufpreis Person 5 €/Nacht</label>
+            <input type="number" data-set="person5_surcharge" min="0" step="5" />
+          </div>
+          <div class="admin-field">
+            <label>Aufpreis Person 6 €/Nacht</label>
+            <input type="number" data-set="person6_surcharge" min="0" step="5" />
+          </div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field">
+            <label>Multiplikator Nebensaison</label>
+            <input type="number" data-set="mult_low" min="0" step="0.05" />
+          </div>
+          <div class="admin-field">
+            <label>Multiplikator Sommer</label>
+            <input type="number" data-set="mult_summer" min="0" step="0.05" />
+          </div>
+          <div class="admin-field">
+            <label>Multiplikator Winter</label>
+            <input type="number" data-set="mult_winter" min="0" step="0.05" />
+          </div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Endreinigung € (einmalig)</label>
+            <input type="number" data-set="cleaning_fee" min="0" step="5" />
+          </div>
+          <div class="admin-field">
+            <label>Kurtaxe €/Person/Nacht</label>
+            <input type="number" data-set="tourism_tax" min="0" step="0.10" />
+          </div>
+        </div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;margin:var(--s-6) 0 var(--s-3);">Saisonzeiten</h4>
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Sommer Start (TT-MM)</label>
+            <input type="text" data-set="summer_start" placeholder="15-06" />
+          </div>
+          <div class="admin-field">
+            <label>Sommer Ende (TT-MM)</label>
+            <input type="text" data-set="summer_end" placeholder="15-09" />
+          </div>
+          <div class="admin-field">
+            <label>Winter Start (TT-MM)</label>
+            <input type="text" data-set="winter_start" placeholder="01-12" />
+          </div>
+          <div class="admin-field">
+            <label>Winter Ende (TT-MM)</label>
+            <input type="text" data-set="winter_end" placeholder="15-04" />
+          </div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Mindest-Nächte</label>
+            <input type="number" data-set="min_nights" min="1" step="1" />
+          </div>
+          <div class="admin-field">
+            <label>Höchst-Nächte</label>
+            <input type="number" data-set="max_nights" min="1" step="1" />
+          </div>
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- Belegte Tage -->
+      <section class="admin-section" data-section="blocked">
+        <h3>Belegte Zeiträume</h3>
+        <p class="section-desc">Manuell eingetragene Belegungen erscheinen rot im Kalender und blockieren die Buchung.</p>
+        <div id="blockedList" class="admin-list"></div>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin-bottom:var(--s-3);">Neuen Zeitraum hinzufügen</h4>
+        <div class="admin-grid-3">
+          <div class="admin-field">
+            <label>Von</label>
+            <input type="date" id="newBlockStart" />
+          </div>
+          <div class="admin-field">
+            <label>Bis (Abreise)</label>
+            <input type="date" id="newBlockEnd" />
+          </div>
+          <div class="admin-field">
+            <label>Notiz</label>
+            <input type="text" id="newBlockNote" placeholder="z.B. Eigennutzung" />
+          </div>
+        </div>
+        <button class="add-btn" onclick="addBlocked()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Zeitraum hinzufügen
+        </button>
+      </section>
+
+      <!-- Anfragen -->
+      <section class="admin-section" data-section="requests">
+        <h3>Anfragen & Buchungen</h3>
+        <p class="section-desc">Alle Gäste-Anfragen. Bestätigte Buchungen werden automatisch im Kalender als belegt markiert.</p>
+        <div id="requestsList"></div>
+      </section>
+
+      <!-- Bilder -->
+      <section class="admin-section" data-section="gallery">
+        <h3>Galerie-Bilder</h3>
+        <p class="section-desc">URL und Beschriftung jedes Galerie-Bildes. Optimal sind 8 Bilder.</p>
+        <div id="galleryAdminList" class="admin-list"></div>
+        <button class="add-btn" onclick="addGalleryItem()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Bild hinzufügen
+        </button>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- Aktivitäten -->
+      <section class="admin-section" data-section="activities">
+        <h3>Aktivitäten</h3>
+        <p class="section-desc">Winter- und Sommer-Aktivitäten im Montafon, frei editierbar.</p>
+
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-4) 0 var(--s-3);">Winter</h4>
+        <div id="winterActList" class="admin-list"></div>
+        <button class="add-btn" onclick="addActivity('winter')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Winter-Aktivität hinzufügen
+        </button>
+
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-7) 0 var(--s-3);">Sommer</h4>
+        <div id="summerActList" class="admin-list"></div>
+        <button class="add-btn" onclick="addActivity('summer')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Sommer-Aktivität hinzufügen
+        </button>
+
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- E-Mail-Benachrichtigung -->
+      <section class="admin-section" data-section="email">
+        <h3>E-Mail-Benachrichtigung</h3>
+        <p class="section-desc">Wenn ein Gast bucht oder anfragt, bekommst du sofort eine E-Mail. Verwendet EmailJS (kostenlos bis 200 E-Mails/Monat).</p>
+
+        <div style="background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5);margin-bottom:var(--s-5);font-size:0.9rem;line-height:1.6;">
+          <strong style="display:block;margin-bottom:var(--s-3);font-family:var(--font-serif);font-size:1.1rem;">Setup in 4 Minuten:</strong>
+          <ol style="margin:0;padding-left:var(--s-5);color:var(--ink-soft);">
+            <li>Auf <a href="https://www.emailjs.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">emailjs.com</a> kostenlos registrieren.</li>
+            <li>Unter <em>Email Services</em> deinen Mail-Anbieter verbinden (Gmail, Outlook, etc.).</li>
+            <li>Unter <em>Email Templates</em> eine Vorlage anlegen — siehe Vorlage unten zum Kopieren.</li>
+            <li>Unter <em>Account</em> findest du den <em>Public Key</em>. Service ID + Template ID sind in den jeweiligen Tabs.</li>
+            <li>Diese drei Werte hier unten eintragen und speichern.</li>
+          </ol>
+        </div>
+
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Public Key</label>
+            <input type="text" id="emailPublicKey" placeholder="z.B. AbCdEfGhIjKlMnOp" />
+          </div>
+          <div class="admin-field">
+            <label>Empfänger-E-Mail (an wen?)</label>
+            <input type="email" id="emailRecipient" placeholder="info@sonnenblick-montafon.at" />
+          </div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field">
+            <label>Service ID</label>
+            <input type="text" id="emailServiceId" placeholder="z.B. service_abc123" />
+          </div>
+          <div class="admin-field">
+            <label>Template ID</label>
+            <input type="text" id="emailTemplateId" placeholder="z.B. template_xyz789" />
+          </div>
+        </div>
+
+        <details style="margin-top:var(--s-5);background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-4) var(--s-5);">
+          <summary style="cursor:pointer;font-weight:600;font-size:0.95rem;">📋 E-Mail Template Vorlage (in EmailJS einfügen)</summary>
+          <p style="margin:var(--s-4) 0 var(--s-3);font-size:0.85rem;color:var(--ink-mute);">In EmailJS unter "Templates" → "Create New Template" → in den "Content"-Bereich diese Variablen verwenden:</p>
+          <pre style="background:var(--ink);color:var(--bg);padding:var(--s-4);border-radius:var(--r-sm);font-size:0.78rem;overflow-x:auto;line-height:1.6;font-family:ui-monospace,Menlo,Consolas,monospace;">Betreff: Neue {{mode}} von {{from_name}} — Sonnenblick
+
+Hallo,
+
+eine neue {{mode}} ist eingegangen:
+
+Name:     {{from_name}}
+E-Mail:   {{from_email}}
+Telefon:  {{phone}}
+
+Zeitraum: {{start}} bis {{end}}
+Nächte:   {{nights}}
+Personen: {{persons}}
+Gesamt:   €{{total}}
+
+Nachricht:
+{{message}}
+
+Eingegangen: {{created_at}}
+
+Im Admin-Panel ansehen: https://deine-domain.at/#</pre>
+          <p style="margin:var(--s-3) 0 0;font-size:0.85rem;color:var(--ink-mute);">Unter <em>Settings</em> im Template das Feld <strong>To Email</strong> auf <code>{{to_email}}</code> setzen.</p>
+        </details>
+
+        <div class="admin-actions">
+          <button class="btn btn-ghost" onclick="testEmailSend()">Test-E-Mail senden</button>
+          <button class="btn btn-primary" onclick="saveEmailConfig()">Speichern</button>
+        </div>
+      </section>
+
+      <!-- Service Links -->
+      <section class="admin-section" data-section="service">
+        <h3>Service-Links</h3>
+        <p class="section-desc">Externe Links (Wetter, Ausflugstipps, Webcams). Erscheinen als Karten zwischen Aktivitäten und Preisen.</p>
+        <div id="serviceAdminList" class="admin-list"></div>
+        <button class="add-btn" onclick="addServiceLink()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Link hinzufügen
+        </button>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- Texte -->
+      <section class="admin-section" data-section="texts">
+        <h3>Seitentexte</h3>
+        <p class="section-desc">Alle Headlines und Beschreibungstexte der Webseite.</p>
+
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-4) 0 var(--s-3);">Über die Wohnung</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="about_title" /></div>
+        <div class="admin-field"><label>Lead (kursiv)</label><textarea data-set="about_lead"></textarea></div>
+        <div class="admin-field"><label>Absatz 1</label><textarea data-set="about_p1"></textarea></div>
+        <div class="admin-field"><label>Absatz 2</label><textarea data-set="about_p2"></textarea></div>
+
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-6) 0 var(--s-3);">Galerie</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="gallery_title" /></div>
+        <div class="admin-field"><label>Untertitel</label><input type="text" data-set="gallery_subtitle" /></div>
+
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-6) 0 var(--s-3);">Lage</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="location_title" /></div>
+        <div class="admin-field"><label>Lead (kursiv)</label><textarea data-set="location_lead"></textarea></div>
+        <div class="admin-field"><label>Absatz</label><textarea data-set="location_p1"></textarea></div>
+
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-6) 0 var(--s-3);">Aktivitäten</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="activities_title" /></div>
+        <div class="admin-field"><label>Untertitel</label><textarea data-set="activities_subtitle"></textarea></div>
+
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="admin-section" data-section="faq">
+        <h3>FAQ</h3>
+        <p class="section-desc">Häufige Fragen und Antworten. Reihenfolge entspricht Anzeige.</p>
+        <div id="faqAdminList" class="admin-list"></div>
+        <button class="add-btn" onclick="addFaqItem()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Frage hinzufügen
+        </button>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- Rechtstexte -->
+      <section class="admin-section" data-section="legal">
+        <h3>Rechtstexte</h3>
+        <p class="section-desc">Impressum, Datenschutzerklärung und AGB. Leerzeilen werden im Frontend übernommen.</p>
+        <div class="admin-field">
+          <label>Impressum</label>
+          <textarea data-set="impressum" style="min-height:200px;font-family:var(--font-sans);"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Datenschutzerklärung</label>
+          <textarea data-set="datenschutz" style="min-height:200px;font-family:var(--font-sans);"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>AGB / Stornobedingungen</label>
+          <textarea data-set="agb" style="min-height:200px;font-family:var(--font-sans);"></textarea>
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <!-- Passwort -->
+      <section class="admin-section" data-section="password">
+        <h3>Passwort ändern</h3>
+        <p class="section-desc">Neues Verwaltungs-Passwort festlegen.</p>
+        <div class="admin-field">
+          <label>Neues Passwort</label>
+          <input type="password" id="newPw1" />
+        </div>
+        <div class="admin-field">
+          <label>Passwort wiederholen</label>
+          <input type="password" id="newPw2" />
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="changePassword()">Passwort speichern</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+<script>
+/* ============================================================
+   STATE & DEFAULTS
+   ============================================================ */
+const STORAGE_KEY = 'sonnenblick_montafon_v1';
+
+const DEFAULTS = {
+  // Branding
+  brand: 'Sonnenblick',
+  hero_eyebrow: 'Bartholomäberg · Montafon · Vorarlberg',
+  hero_title: 'Wo die Berge<br><em>still werden.</em>',
+  hero_subtitle: 'Eine neue Luxus-Ferienwohnung mit Südlage, Panoramablick und der ruhigen Eleganz, die das Montafon so besonders macht.',
+  hero_image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=85',
+  about_img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',
+
+  // Address & contact
+  address: 'Mateinaweg 8, 6781 Bartholomäberg, Österreich',
+  maps_url: 'https://www.google.com/maps/search/?api=1&query=Mateinaweg+8%2C+6781+Bartholom%C3%A4berg%2C+%C3%96sterreich',
+  checkin: '14:00 Uhr',
+  checkout: '10:00 Uhr',
+  contact_email: 'info@sonnenblick-montafon.at',
+  contact_phone: '+43 664 123 45 67',
+  contact_whatsapp: '436641234567',
+
+  // Texts
+  about_title: '78 m² stille Eleganz, eingebettet in das Panorama des Montafon.',
+  about_lead: 'Zwei Schlafzimmer, ein großzügiges Bad und ein offener Wohnbereich mit Südfront — alles in warmen Naturmaterialien gestaltet.',
+  about_p1: 'Sonnenblick ist eine neu erbaute Ferienwohnung im Herzen von Bartholomäberg, einem der höchstgelegenen ganzjährig bewohnten Dörfer Österreichs. Vom großzügigen Balkon blicken Sie direkt auf die Rätikon-Gipfel — vom Sonnenaufgang über der Zimba bis zum Alpenglühen am Abend.',
+  about_p2: 'Im Inneren erwartet Sie ruhige, durchdachte Gestaltung: helles Eichenholz, Naturstein, hochwertige Textilien. Eine vollausgestattete Küche, ein modernes Badezimmer und schnelles WLAN machen den Aufenthalt zur stilvollen Auszeit — ob für eine Skiwoche oder einen Wandersommer.',
+  gallery_title: 'Räume zum Ankommen',
+  gallery_subtitle: 'Ein erster Blick in die Wohnung, die Aussicht und den Charakter der Lage.',
+  activities_title: 'Berge, die zu allem einladen.',
+  activities_subtitle: 'Das Montafon bietet zu jeder Jahreszeit mehr als Sie unterbringen können — eine Auswahl direkt vor Ihrer Haustür.',
+  location_title: 'Bartholomäberg — der Sonnenbalkon des Montafon.',
+  location_lead: 'Höher als das Tal, ruhiger als die Liftstationen, sonniger als fast jeder andere Ort der Region.',
+  location_p1: 'Bartholomäberg liegt auf 1.087 m und ist berühmt für seine Südlage — das Tal liegt morgens noch im Schatten, während hier oben die Sonne schon den Frühstückstisch wärmt. Die Hochjoch Bahn in Schruns ist nur 5 km entfernt, die Golm Bergbahnen 10 km, die Silvretta Montafon mit 140 Pistenkilometern in 12 Minuten erreichbar. Im Sommer beginnen die schönsten Wanderungen direkt vor der Haustür.',
+  footer_tagline: 'Luxus-Ferienwohnung in Bartholomäberg. Neu erbaut, persönlich geführt, mit dem schönsten Blick des Tals.',
+
+  // Pricing
+  base_price: 400,
+  person5_surcharge: 100,
+  person6_surcharge: 100,
+  mult_low: 1.0,
+  mult_summer: 1.2,
+  mult_winter: 1.3,
+  cleaning_fee: 90,
+  tourism_tax: 2.20,
+  min_nights: 3,
+  max_nights: 21,
+
+  // Seasons (DD-MM)
+  summer_start: '15-06',
+  summer_end: '15-09',
+  winter_start: '01-12',
+  winter_end: '15-04',
+
+  // Blocked dates
+  blocked: [],
+  requests: [],
+
+  // Gallery
+  gallery: [
+    { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85', caption: 'Offener Wohnbereich mit Südfront' },
+    { url: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=85', caption: 'Schlafzimmer mit Bergblick' },
+    { url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=85', caption: 'Küche aus Eichenholz' },
+    { url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=85', caption: 'Modernes Badezimmer' },
+    { url: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=85', caption: 'Zweites Schlafzimmer' },
+    { url: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=900&q=85', caption: 'Aussicht vom Balkon' },
+    { url: 'https://images.unsplash.com/photo-1571055107559-3e67626fa8be?auto=format&fit=crop&w=900&q=85', caption: 'Esstisch am Fenster' },
+    { url: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1600&q=85', caption: 'Winterstimmung über dem Tal' }
+  ],
+
+  // Activities
+  activities_winter: [
+    { icon: 'ski', title: 'Skifahren & Snowboarden', desc: 'Drei große Skigebiete: Hochjoch direkt in Schruns, Silvretta Montafon mit 140 km Pisten und die Golm Bergbahnen.', meta: 'Ab 5 km · 8 Min', image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'touring', title: 'Skitouren', desc: 'Die klassischen Touren auf Itonskopf, Zamangspitze und Geißspitze starten praktisch vor der Haustür.', meta: 'Ab Haustür', image: 'https://images.unsplash.com/photo-1604881744146-da92cd1edfaa?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'crosscountry', title: 'Langlaufen', desc: 'Gespurte Loipen in Gauenstein und am Kristberg — klassisch und Skating, mit Talblick.', meta: 'Ab 3 km · 5 Min', image: 'https://images.unsplash.com/photo-1612878010854-1250dfc5000a?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'snowshoe', title: 'Schneeschuhwandern', desc: 'Geführte Touren oder eigenständig durch verschneite Lärchenwälder am Kristberg.', meta: 'Ab Haustür', image: 'https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'sled', title: 'Rodeln', desc: 'Naturrodelbahn am Hochjoch, beleuchtete Nachtrodelbahn am Golm — Familienspaß garantiert.', meta: 'Ab 5 km', image: 'https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'boot', title: 'Winterwandern', desc: 'Über 100 km gespurte Winterwanderwege — vom gemütlichen Talweg bis zur Panoramatour.', meta: 'Ab Haustür', image: 'https://images.unsplash.com/photo-1542485770-c238fc8f0eba?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'skate', title: 'Eislaufen', desc: 'Natureisplatz in Schruns und Kunsteisbahn in Bludenz — beide bestens für Familien geeignet.', meta: '6 km · 10 Min', image: 'https://images.unsplash.com/photo-1610126252569-9bf2b3a3afe3?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'iceaxe', title: 'Eisklettern', desc: 'Gefrorene Wasserfälle in Gargellen und im Silbertal — Touren mit Bergführer buchbar.', meta: 'Auf Anfrage', image: 'https://images.unsplash.com/photo-1551582045-6ec9c11d8697?auto=format&fit=crop&w=900&q=80' }
+  ],
+  activities_summer: [
+    { icon: 'hiker', title: 'Wandern', desc: 'Von gemütlichen Familienrouten bis zum Drei-Türme-Klassiker — über 1.000 km markierte Wege.', meta: 'Ab Haustür', image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'bike', title: 'Mountainbiken & E-Bike', desc: '400 km MTB-Trails, Bike-Park Schruns mit Flowtrails, E-Bike-Verleih am Berg.', meta: 'Ab Haustür', image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'climb', title: 'Klettersteige & Klettergarten', desc: 'Klettersteige am Kristberg und Rätikon, Naturklettergarten in Vandans für Anfänger und Profis.', meta: 'Ab 8 km', image: 'https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'paraglide', title: 'Paragleiten', desc: 'Tandemflüge ab Golm und Hochjoch — der spektakulärste Blick auf das Montafon, den es gibt.', meta: 'Tandem buchbar', image: 'https://images.unsplash.com/photo-1601024445121-e5b82f020549?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'coaster', title: 'Alpine Coaster', desc: 'Alpine-Coaster-Golm: 2,6 km Schienenrutsche bergab mit Tempo bis 40 km/h.', meta: '10 km · Golm', image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'zipline', title: 'Flying Fox XXL', desc: 'Die längste Flying-Fox-Anlage Vorarlbergs am Golm — 565 m mit bis zu 70 km/h.', meta: '10 km · Golm', image: 'https://images.unsplash.com/photo-1622060033919-3d1a39be9ec6?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'tree', title: 'Aktivpark & Hochseilgarten', desc: 'Hochseilgarten, Riesentrampolin und Wasserspielplatz am Golm — perfekt für Kinder.', meta: '10 km · Golm', image: 'https://images.unsplash.com/photo-1568346676543-1ad4d0bce5f5?auto=format&fit=crop&w=900&q=80' },
+    { icon: 'raft', title: 'Rafting & Canyoning', desc: 'Wildwasser auf der Ill, Canyoning durch die Litz-Schlucht — geführte Touren mit Profis.', meta: 'Tagesausflug', image: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?auto=format&fit=crop&w=900&q=80' }
+  ],
+
+  // Service Links
+  service_links: [
+    { icon: 'cloud', title: 'Wetter & Schneebericht', desc: 'Aktuelle Wettervorhersage und Schneehöhen für Bartholomäberg, von Bergfex.', url: 'https://www.bergfex.at/sommer/bartholomaeberg/wetter/', cta: 'Wetter ansehen' },
+    { icon: 'compass', title: 'Ausflugstipps', desc: 'Die schönsten Plätze, Restaurants und Geheimtipps im Montafon — direkt vom Tourismusverband.', url: 'https://www.montafon.at/de/weitere-erlebnisse/ausflugstipps', cta: 'Ausflugstipps' },
+    { icon: 'webcam', title: 'Live-Webcams', desc: 'Schauen Sie schon vor der Anreise auf die Berge — Live-Bilder aus dem Montafon.', url: 'https://www.montafon.at/de/service/webcams', cta: 'Webcams öffnen' }
+  ],
+
+  // FAQ
+  faqs: [
+    { q: 'Wie läuft der Check-in ab?', a: 'Check-in ist ab 14:00 Uhr. Sie erhalten 48 Stunden vor Anreise eine Begrüßungs-E-Mail mit allen Details zum Schlüsselübergang. Auf Wunsch ist auch ein persönlicher Empfang vor Ort möglich — schreiben Sie uns einfach.' },
+    { q: 'Gibt es einen Parkplatz?', a: 'Ja, ein privater Parkplatz direkt am Haus ist im Mietpreis inbegriffen. Auch für ein zweites Fahrzeug ist Platz vorhanden.' },
+    { q: 'Was ist im Preis inbegriffen?', a: 'Im Übernachtungspreis enthalten sind WLAN, Bettwäsche, Handtücher, Strom, Heizung und Wasser. Endreinigung und Kurtaxe werden separat ausgewiesen.' },
+    { q: 'Wie viele Personen können übernachten?', a: 'Die Wohnung ist für 4 bis 6 Personen ausgelegt. Bis 4 Personen gilt der Grundpreis, ab Person 5 und 6 fällt jeweils ein Aufpreis von €100 pro Nacht an.' },
+    { q: 'Sind Haustiere erlaubt?', a: 'Aus Rücksicht auf Allergiker ist die Wohnung haustierfrei und Nichtraucher.' },
+    { q: 'Wie storniere ich eine Buchung?', a: 'Eine kostenfreie Stornierung ist bis 30 Tage vor Anreise möglich. Details finden Sie in unseren AGB. Bei Fragen kontaktieren Sie uns gerne direkt.' },
+    { q: 'Wie weit sind die Skigebiete entfernt?', a: 'Die Hochjoch Bahn in Schruns ist nur 5 km (8 Min) entfernt — direkt nebenan. Die Golm Bergbahnen erreichen Sie in 15 Min, die Silvretta Montafon mit 140 km Pisten in rund 12 Min. Im Winter fahren regelmäßig Skibusse vom Ort.' },
+    { q: 'Welche Zahlungsmöglichkeiten gibt es?', a: 'Wir akzeptieren Banküberweisung sowie Kreditkarte (Visa, Mastercard). Eine Anzahlung von 30 % ist bei verbindlicher Reservierung fällig, der Restbetrag spätestens 14 Tage vor Anreise.' }
+  ],
+
+  // Legal
+  impressum: `Sonnenblick Montafon
+Inhaber: Max Mustermann
+Mateinaweg 8
+6781 Bartholomäberg, Österreich
+
+Tel: +43 664 123 45 67
+E-Mail: info@sonnenblick-montafon.at
+
+UID-Nummer: ATU12345678
+Mitglied der WKÖ, Fachgruppe Privatzimmervermietung
+
+Aufsichtsbehörde: Bezirkshauptmannschaft Bludenz
+Berufsrecht: Gewerbeordnung 1994, www.ris.bka.gv.at
+
+Verbraucherstreitbeilegung: Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.`,
+
+  datenschutz: `Datenschutzerklärung
+
+1. Verantwortlicher
+Sonnenblick Montafon, Max Mustermann, Mateinaweg 8, 6781 Bartholomäberg, Österreich. E-Mail: info@sonnenblick-montafon.at
+
+2. Erhebung und Verarbeitung von Daten
+Wir verarbeiten Ihre personenbezogenen Daten (Name, Kontaktdaten, Reisedaten) ausschließlich zum Zweck der Buchungsabwicklung und Kommunikation mit Ihnen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+
+3. Speicherdauer
+Buchungsdaten werden für die Dauer der gesetzlichen Aufbewahrungsfristen (7 Jahre nach BAO) gespeichert und anschließend gelöscht.
+
+4. Weitergabe
+Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, soweit dies zur Vertragsabwicklung erforderlich ist (z. B. Tourismusverband zur Meldung der Kurtaxe).
+
+5. Ihre Rechte
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Beschwerden können bei der österreichischen Datenschutzbehörde eingebracht werden.
+
+6. Cookies und lokale Speicherung
+Diese Webseite verwendet ausschließlich technisch notwendige lokale Speicherung (localStorage) für die Funktion des Buchungssystems. Es werden keine Tracking-Cookies oder Analyse-Tools eingesetzt.`,
+
+  agb: `Allgemeine Geschäftsbedingungen
+
+1. Geltungsbereich
+Diese AGB gelten für alle Buchungen der Ferienwohnung Sonnenblick Montafon.
+
+2. Buchung und Vertragsabschluss
+Der Mietvertrag kommt mit Bestätigung Ihrer Buchung durch uns zustande. Sofortbuchungen gelten als verbindliche Reservierung und werden binnen 24 Stunden bestätigt.
+
+3. Zahlung
+30 % Anzahlung sind binnen 7 Tagen nach Buchungsbestätigung zu leisten. Der Restbetrag ist spätestens 14 Tage vor Anreise fällig.
+
+4. Stornobedingungen
+- Bis 30 Tage vor Anreise: kostenlose Stornierung
+- 29 bis 14 Tage vor Anreise: 50 % des Gesamtpreises
+- 13 bis 7 Tage vor Anreise: 80 % des Gesamtpreises
+- Weniger als 7 Tage oder No-Show: 100 % des Gesamtpreises
+
+Eine Reiserücktrittsversicherung wird empfohlen.
+
+5. An- und Abreise
+Check-in ab 14:00 Uhr, Check-out bis 10:00 Uhr. Abweichende Zeiten nach Absprache.
+
+6. Hausordnung
+Die Wohnung ist haustierfrei und Nichtraucher. Übernachtungen mit mehr als 6 Personen sind nicht gestattet. Bitte respektieren Sie die Ruhezeit von 22:00 bis 7:00 Uhr.
+
+7. Haftung
+Der Vermieter haftet nicht für Wertsachen der Gäste. Schäden an Inventar sind unverzüglich zu melden und vom Mieter zu ersetzen.
+
+8. Anwendbares Recht
+Es gilt österreichisches Recht. Gerichtsstand ist Bludenz.`,
+
+  // Email notification (EmailJS)
+  email_config: {
+    public_key: '',
+    service_id: '',
+    template_id: '',
+    recipient: ''
+  },
+
+  // Admin
+  password: 'sonnenblick2026'
+};
+
+let state = loadState();
+let selection = { start: null, end: null, persons: 4 };
+let viewMonth = new Date();
+viewMonth.setDate(1);
+viewMonth.setHours(0, 0, 0, 0);
+
+let lightboxIndex = 0;
+
+/* ============================================================
+   STORAGE
+   ============================================================ */
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { ...DEFAULTS };
+    const parsed = JSON.parse(raw);
+    return { ...DEFAULTS, ...parsed };
+  } catch (e) {
+    return { ...DEFAULTS };
+  }
+}
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init() {
+  applyTexts();
+  applyImages();
+  buildGallery();
+  buildActivities('winter');
+  buildService();
+  buildFAQ();
+  renderCalendar();
+  renderSummary();
+  bindEvents();
+  setupReveal();
+  setupNavScroll();
+  setupParallax();
+  document.getElementById('copyYear').textContent = new Date().getFullYear();
+}
+
+/* ============================================================
+   ACTIVITY ICONS
+   ============================================================ */
+const ACTIVITY_ICONS = {
+  ski: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 3v18M17 3v18"/><path d="M5 16h14"/><path d="M9 8h6"/></svg>',
+  touring: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.4"/><path d="M13 6l-1 4 3 2v6"/><path d="M12 10l-3 1 2 4"/><path d="M3 18l4-2 3 4"/><path d="M16 7l4-3M18 4l2 0 0 2"/></svg>',
+  crosscountry: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1.4"/><path d="M12 6v6l-3 4 4 2"/><path d="M12 12l4-2 2 4"/><path d="M3 19l18-4"/></svg>',
+  snowshoe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>',
+  sled: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18"/><path d="M5 13h14l-1 4H6z"/><path d="M7 9l2 4M17 9l-2 4"/></svg>',
+  boot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19V7h5l1 4h6a3 3 0 013 3v5z"/><path d="M3 19h18"/><path d="M10 11V7"/></svg>',
+  skate: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17V9c0-1 1-2 2-2h3l2 4h6"/><path d="M3 20h18"/><path d="M5 17l-2 3M17 13l-2 4"/></svg>',
+  iceaxe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L21 3"/><path d="M16 3h5v5"/><path d="M14 6l4 4"/></svg>',
+  hiker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="4" r="1.5"/><path d="M14 6l-1 5 3 3v6"/><path d="M13 11l-3-1-3 5"/><path d="M7 21l-1-6 4-5"/></svg>',
+  bike: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-7h4l4 7M14 10V6h2"/></svg>',
+  climb: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l7-12 4 7 3-5 6 10z"/><circle cx="9" cy="5" r="1.4"/></svg>',
+  paraglide: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a10 10 0 0120 0H2z"/><path d="M2 9l10 10L22 9M9 9l3 10M15 9l-3 10"/></svg>',
+  coaster: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c4-12 6-4 10-4s6-8 10 4"/><circle cx="6" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>',
+  zipline: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5l18 5"/><path d="M11 7l1 4"/><circle cx="12" cy="14" r="2"/><path d="M12 16v5M9 21h6"/></svg>',
+  tree: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L6 10h3l-3 5h3l-3 5h12l-3-5h3l-3-5h3z"/><path d="M12 20v3"/></svg>',
+  raft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c2-2 4 0 6 0s4-2 6 0 4 0 6-2"/><path d="M2 20c2-2 4 0 6 0s4-2 6 0 4 0 6-2"/><path d="M8 13V7h8v6"/></svg>'
+};
+
+const SERVICE_ICONS = {
+  cloud: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10a5 5 0 00-9.5-1.5A4 4 0 005 16h13a4 4 0 000-6z"/><path d="M12 6V3M8 4l1.5 2M16 4l-1.5 2"/></svg>',
+  compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6z"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>',
+  webcam: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><circle cx="12" cy="10" r="2"/><path d="M8 19h8M10 16l-1 3M14 16l1 3"/></svg>',
+  link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.5.5l3-3a5 5 0 00-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 00-7.5-.5l-3 3a5 5 0 007 7l1.5-1.5"/></svg>'
+};
+
+function buildService() {
+  const grid = document.getElementById('serviceGrid');
+  const links = state.service_links || [];
+  grid.innerHTML = links.map(s => `
+    <a class="service-card" href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">
+      <div class="service-icon">${SERVICE_ICONS[s.icon] || SERVICE_ICONS.link}</div>
+      <h4>${escapeHtml(s.title)}</h4>
+      <p>${escapeHtml(s.desc)}</p>
+      <span class="service-link">${escapeHtml(s.cta || 'Öffnen')}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </span>
+    </a>
+  `).join('');
+}
+
+function buildActivities(pane) {
+  const grid = document.getElementById('activitiesGrid');
+  const items = state['activities_' + pane] || [];
+  grid.innerHTML = items.map(a => `
+    <div class="activity-card">
+      <div class="activity-image">
+        ${a.image ? `<img src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}" loading="lazy" onerror="this.style.display='none'" />` : ''}
+        <div class="activity-icon-badge">${ACTIVITY_ICONS[a.icon] || ACTIVITY_ICONS.hiker}</div>
+      </div>
+      <div class="activity-body">
+        <h3>${escapeHtml(a.title)}</h3>
+        <p>${escapeHtml(a.desc)}</p>
+        <div class="activity-meta">${escapeHtml(a.meta)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function applyTexts() {
+  document.querySelectorAll('[data-text]').forEach(el => {
+    const key = el.getAttribute('data-text');
+    if (state[key] !== undefined) {
+      if (key === 'hero_title') el.innerHTML = state[key];
+      else el.textContent = state[key];
+    }
+  });
+  // Hero title
+  document.getElementById('heroTitle').innerHTML = state.hero_title;
+
+  // Update price table preview
+  const base = parseFloat(state.base_price) || 0;
+  document.getElementById('rowLowAmount').textContent = '€' + Math.round(base * state.mult_low);
+  document.getElementById('rowSummerAmount').textContent = '€' + Math.round(base * state.mult_summer);
+  document.getElementById('rowWinterAmount').textContent = '€' + Math.round(base * state.mult_winter);
+  document.getElementById('rowP5').textContent = '+€' + state.person5_surcharge;
+  document.getElementById('rowP6').textContent = '+€' + state.person6_surcharge;
+  document.getElementById('rowClean').textContent = '€' + state.cleaning_fee;
+  document.getElementById('rowTax').textContent = '€' + parseFloat(state.tourism_tax).toFixed(2).replace('.', ',');
+  document.getElementById('rowSummerPeriod').textContent = formatPeriod(state.summer_start, state.summer_end);
+  document.getElementById('rowWinterPeriod').textContent = formatPeriod(state.winter_start, state.winter_end);
+
+  // Contact links
+  document.getElementById('contactMailLine').href = 'mailto:' + state.contact_email;
+  document.getElementById('contactTelLine').href = 'tel:' + state.contact_phone.replace(/\s/g, '');
+  document.getElementById('contactWhatsLine').href = 'https://wa.me/' + state.contact_whatsapp.replace(/[^0-9]/g, '');
+
+  // Maps link
+  document.getElementById('mapsLink').href = state.maps_url;
+
+  // Summary date labels
+  document.querySelector('#sumStart').parentElement.querySelector('.summary-date-label').textContent = 'Anreise · ab ' + state.checkin;
+  document.querySelector('#sumEnd').parentElement.querySelector('.summary-date-label').textContent = 'Abreise · bis ' + state.checkout;
+}
+
+function formatPeriod(start, end) {
+  const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+  const [sd, sm] = start.split('-').map(Number);
+  const [ed, em] = end.split('-').map(Number);
+  if (!sd || !sm || !ed || !em) return '';
+  return `${sd}. ${months[sm-1]} – ${ed}. ${months[em-1]}`;
+}
+
+function applyImages() {
+  document.getElementById('heroImg').src = state.hero_image;
+  document.getElementById('aboutImg').src = state.about_img || state.gallery[0]?.url || state.hero_image;
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+function buildGallery() {
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = '';
+  state.gallery.slice(0, 8).forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    div.onclick = () => openLightbox(idx);
+    div.innerHTML = `
+      <img src="${item.url}" alt="${escapeHtml(item.caption)}" loading="lazy" />
+      <div class="gallery-caption">${escapeHtml(item.caption)}</div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function openLightbox(idx) {
+  lightboxIndex = idx;
+  const item = state.gallery[idx];
+  if (!item) return;
+  document.getElementById('lightboxImg').src = item.url;
+  document.getElementById('lightboxImg').alt = item.caption;
+  document.getElementById('lightboxCaption').textContent = item.caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lightboxNav(delta) {
+  const total = Math.min(state.gallery.length, 8);
+  lightboxIndex = (lightboxIndex + delta + total) % total;
+  openLightbox(lightboxIndex);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+function buildFAQ() {
+  const list = document.getElementById('faqList');
+  list.innerHTML = '';
+  state.faqs.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'faq-item';
+    div.innerHTML = `
+      <button class="faq-q" onclick="toggleFaq(${idx})">
+        <span>${escapeHtml(item.q)}</span>
+        <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">${escapeHtml(item.a)}</div></div>
+    `;
+    list.appendChild(div);
+  });
+}
+function toggleFaq(idx) {
+  const items = document.querySelectorAll('#faqList .faq-item');
+  items.forEach((el, i) => {
+    if (i === idx) {
+      const isOpen = el.classList.contains('open');
+      el.classList.toggle('open');
+      const ans = el.querySelector('.faq-a');
+      if (!isOpen) {
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      } else {
+        ans.style.maxHeight = '0';
+      }
+    } else {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = '0';
+    }
+  });
+}
+
+/* ============================================================
+   CALENDAR
+   ============================================================ */
+function renderCalendar() {
+  const wrap = document.getElementById('calendarMonths');
+  wrap.innerHTML = '';
+  const m1 = new Date(viewMonth);
+  const m2 = new Date(viewMonth);
+  m2.setMonth(m2.getMonth() + 1);
+  wrap.appendChild(renderMonth(m1));
+  wrap.appendChild(renderMonth(m2));
+
+  // Disable prev if we're at this month
+  const today = new Date();
+  today.setDate(1); today.setHours(0,0,0,0);
+  document.getElementById('calPrev').disabled = viewMonth <= today;
+}
+
+function renderMonth(date) {
+  const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+  const weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+  const wrap = document.createElement('div');
+  const label = document.createElement('div');
+  label.className = 'calendar-month-label';
+  label.textContent = months[date.getMonth()] + ' ' + date.getFullYear();
+  wrap.appendChild(label);
+
+  const grid = document.createElement('div');
+  grid.className = 'calendar-grid';
+  weekdays.forEach(d => {
+    const cell = document.createElement('div');
+    cell.className = 'calendar-weekday';
+    cell.textContent = d;
+    grid.appendChild(cell);
+  });
+
+  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const startWeekday = (firstDay.getDay() + 6) % 7; // Mon = 0
+
+  for (let i = 0; i < startWeekday; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'calendar-day empty';
+    grid.appendChild(empty);
+  }
+
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  for (let d = 1; d <= lastDay.getDate(); d++) {
+    const cellDate = new Date(date.getFullYear(), date.getMonth(), d);
+    const cell = document.createElement('div');
+    cell.className = 'calendar-day';
+
+    const isoDate = toISO(cellDate);
+    const isPast = cellDate < today;
+    const hardBlocked = isHardBlocked(cellDate) || isConfirmedBooked(cellDate);
+    const pendingInst = isPendingInstant(cellDate);
+    const inRange = isInSelection(cellDate);
+    const isStart = selection.start && sameDay(cellDate, selection.start);
+    const isEnd = selection.end && sameDay(cellDate, selection.end);
+    const isToday = sameDay(cellDate, today);
+
+    if (isPast) cell.classList.add('past');
+    if (hardBlocked) cell.classList.add('blocked');
+    else if (pendingInst) cell.classList.add('pending-instant');
+    if (isStart) cell.classList.add('selected-start');
+    else if (isEnd) cell.classList.add('selected-end');
+    else if (inRange && !hardBlocked && !pendingInst) cell.classList.add('in-range');
+    if (isToday) cell.classList.add('today');
+
+    const isUnavail = hardBlocked || pendingInst;
+
+    const dayNum = document.createElement('div');
+    dayNum.className = 'calendar-day-num';
+    dayNum.textContent = d;
+    cell.appendChild(dayNum);
+
+    if (!isPast) {
+      const price = calcDayPrice(cellDate);
+      const pe = document.createElement('div');
+      pe.className = 'calendar-day-price';
+      pe.textContent = '€' + Math.round(price);
+      cell.appendChild(pe);
+      if (!isUnavail) cell.onclick = () => onDayClick(cellDate);
+    }
+
+    grid.appendChild(cell);
+  }
+
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+function onDayClick(date) {
+  if (!selection.start || (selection.start && selection.end)) {
+    selection.start = date;
+    selection.end = null;
+  } else {
+    if (date <= selection.start) {
+      selection.start = date;
+      selection.end = null;
+    } else {
+      // Check that no day in range is blocked
+      const range = datesBetween(selection.start, date);
+      const conflict = range.some(d => isDateBlocked(d));
+      if (conflict) {
+        showToast('Im gewählten Zeitraum sind belegte Tage. Bitte anderen Zeitraum wählen.');
+        selection.start = date;
+        selection.end = null;
+      } else {
+        selection.end = date;
+      }
+    }
+  }
+  renderCalendar();
+  renderSummary();
+}
+
+function _dateInReqRange(date, r) {
+  if (!r.start || !r.end) return false;
+  const s = new Date(r.start); const e = new Date(r.end);
+  s.setHours(0,0,0,0); e.setHours(0,0,0,0);
+  return date >= s && date < e;
+}
+function isHardBlocked(date) {
+  return (state.blocked || []).some(b => {
+    const s = new Date(b.start); const e = new Date(b.end);
+    s.setHours(0,0,0,0); e.setHours(0,0,0,0);
+    return date >= s && date < e;
+  });
+}
+function isConfirmedBooked(date) {
+  return (state.requests || []).some(r =>
+    r.status === 'confirmed' && r.mode !== 'contact' && _dateInReqRange(date, r)
+  );
+}
+function isPendingInstant(date) {
+  return (state.requests || []).some(r =>
+    r.status === 'pending' && r.mode === 'instant' && _dateInReqRange(date, r)
+  );
+}
+function isDateBlocked(date) {
+  return isHardBlocked(date) || isConfirmedBooked(date) || isPendingInstant(date);
+}
+function isInSelection(date) {
+  if (!selection.start || !selection.end) return false;
+  return date > selection.start && date < selection.end;
+}
+function sameDay(a, b) {
+  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+}
+function toISO(d) {
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+function fromISO(s) {
+  const [y,m,d] = s.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function datesBetween(start, end) {
+  const out = [];
+  const d = new Date(start); d.setHours(0,0,0,0);
+  const stop = new Date(end); stop.setHours(0,0,0,0);
+  while (d < stop) {
+    out.push(new Date(d));
+    d.setDate(d.getDate() + 1);
+  }
+  return out;
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+function getSeasonMultiplier(date) {
+  const dm = String(date.getDate()).padStart(2,'0') + '-' + String(date.getMonth()+1).padStart(2,'0');
+  if (isInDateRange(dm, state.winter_start, state.winter_end)) return parseFloat(state.mult_winter);
+  if (isInDateRange(dm, state.summer_start, state.summer_end)) return parseFloat(state.mult_summer);
+  return parseFloat(state.mult_low);
+}
+function isInDateRange(dm, start, end) {
+  // dm, start, end in DD-MM format
+  const [sd, sm] = start.split('-').map(Number);
+  const [ed, em] = end.split('-').map(Number);
+  const [d, m] = dm.split('-').map(Number);
+  const dayOfYear = m * 100 + d;
+  const startDoy = sm * 100 + sd;
+  const endDoy = em * 100 + ed;
+  if (startDoy <= endDoy) {
+    return dayOfYear >= startDoy && dayOfYear <= endDoy;
+  } else {
+    // Wraps around year (e.g. Winter 01-12 to 15-04)
+    return dayOfYear >= startDoy || dayOfYear <= endDoy;
+  }
+}
+function calcDayPrice(date) {
+  return parseFloat(state.base_price) * getSeasonMultiplier(date);
+}
+function calcStay(start, end, persons) {
+  const nights = datesBetween(start, end);
+  let nightlyTotal = 0;
+  nights.forEach(d => { nightlyTotal += calcDayPrice(d); });
+
+  const p5 = persons >= 5 ? parseFloat(state.person5_surcharge) * nights.length : 0;
+  const p6 = persons >= 6 ? parseFloat(state.person6_surcharge) * nights.length : 0;
+  const cleaning = parseFloat(state.cleaning_fee);
+  const tax = parseFloat(state.tourism_tax) * persons * nights.length;
+  const total = nightlyTotal + p5 + p6 + cleaning + tax;
+  return {
+    nights: nights.length,
+    nightlyTotal,
+    p5, p6, cleaning, tax, total
+  };
+}
+
+/* ============================================================
+   SUMMARY
+   ============================================================ */
+function renderSummary() {
+  const sumStart = document.getElementById('sumStart');
+  const sumEnd = document.getElementById('sumEnd');
+  const summaryContent = document.getElementById('summaryContent');
+  const actions = document.getElementById('summaryActions');
+
+  const personsVal = document.getElementById('personsVal');
+  personsVal.textContent = selection.persons;
+  document.getElementById('personsMinus').disabled = selection.persons <= 1;
+  document.getElementById('personsPlus').disabled = selection.persons >= 6;
+
+  if (selection.start) {
+    sumStart.textContent = formatDate(selection.start);
+    sumStart.classList.remove('empty');
+  } else {
+    sumStart.textContent = 'Datum wählen';
+    sumStart.classList.add('empty');
+  }
+  if (selection.end) {
+    sumEnd.textContent = formatDate(selection.end);
+    sumEnd.classList.remove('empty');
+  } else {
+    sumEnd.textContent = 'Datum wählen';
+    sumEnd.classList.add('empty');
+  }
+
+  if (selection.start && selection.end) {
+    const calc = calcStay(selection.start, selection.end, selection.persons);
+    const min = parseInt(state.min_nights) || 1;
+    const max = parseInt(state.max_nights) || 365;
+    let validationMsg = '';
+    if (calc.nights < min) {
+      validationMsg = `<div style="background:var(--red-soft);color:var(--red);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);">Mindestaufenthalt: ${min} Nächte. Bitte verlängern Sie Ihren Aufenthalt.</div>`;
+    } else if (calc.nights > max) {
+      validationMsg = `<div style="background:var(--red-soft);color:var(--red);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);">Höchstaufenthalt: ${max} Nächte. Bitte kontaktieren Sie uns für längere Aufenthalte.</div>`;
+    }
+
+    summaryContent.innerHTML = validationMsg + `
+      <div class="summary-breakdown">
+        <div class="breakdown-line"><span>${calc.nights} Nächte × Übernachtung</span><span>€${calc.nightlyTotal.toFixed(0)}</span></div>
+        ${calc.p5 ? `<div class="breakdown-line"><span>Person 5 (${calc.nights}×)</span><span>€${calc.p5.toFixed(0)}</span></div>` : ''}
+        ${calc.p6 ? `<div class="breakdown-line"><span>Person 6 (${calc.nights}×)</span><span>€${calc.p6.toFixed(0)}</span></div>` : ''}
+        <div class="breakdown-line"><span>Endreinigung</span><span>€${calc.cleaning.toFixed(0)}</span></div>
+        <div class="breakdown-line"><span>Kurtaxe (${selection.persons} × ${calc.nights} Nächte)</span><span>€${calc.tax.toFixed(2)}</span></div>
+        <div class="breakdown-line total"><span>Gesamt</span><span>€${calc.total.toFixed(0)}</span></div>
+      </div>
+    `;
+    const valid = calc.nights >= min && calc.nights <= max;
+    actions.style.display = valid ? 'flex' : 'none';
+  } else {
+    summaryContent.innerHTML = '<div class="summary-empty">Wählen Sie Anreise und Abreise im Kalender.</div>';
+    actions.style.display = 'none';
+  }
+}
+function formatDate(d) {
+  const months = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+  return d.getDate() + '. ' + months[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+/* ============================================================
+   BOOKING SUBMIT
+   ============================================================ */
+let bookingMode = 'inquiry';
+function openBookingDialog(mode) {
+  bookingMode = mode;
+  const calc = calcStay(selection.start, selection.end, selection.persons);
+  document.getElementById('bookingModalTitle').textContent = mode === 'instant' ? 'Verbindlich buchen' : 'Unverbindlich anfragen';
+  const note = mode === 'instant'
+    ? '<div style="background:var(--gold-tint);color:var(--wood);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);line-height:1.5;"><strong>Verbindliche Reservierung.</strong> Der Zeitraum wird sofort für Sie reserviert. Wir bestätigen binnen 24 Stunden.</div>'
+    : '<div style="background:var(--bg-elev);color:var(--ink-soft);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);font-size:0.85rem;margin-bottom:var(--s-4);line-height:1.5;border:1px solid var(--line);"><strong>Unverbindliche Anfrage.</strong> Der Zeitraum bleibt buchbar — wir besprechen Details persönlich mit Ihnen.</div>';
+  document.getElementById('bookingFormSummary').innerHTML = note + `
+    <div style="display:flex;justify-content:space-between;margin-bottom:var(--s-2);"><span>${formatDate(selection.start)} → ${formatDate(selection.end)}</span><span>${calc.nights} Nächte</span></div>
+    <div style="display:flex;justify-content:space-between;font-weight:600;font-family:var(--font-serif);font-size:1.1rem;"><span>${selection.persons} Gäste</span><span>€${calc.total.toFixed(0)}</span></div>
+  `;
+  const submitBtn = document.querySelector('#bookingForm button[type="submit"]');
+  submitBtn.textContent = mode === 'instant' ? 'Verbindlich reservieren' : 'Anfrage abschicken';
+  openModal('bookingModal');
+}
+
+function submitBooking(e) {
+  e.preventDefault();
+  const calc = calcStay(selection.start, selection.end, selection.persons);
+  const req = {
+    id: 'req-' + Date.now(),
+    name: document.getElementById('bf-first').value.trim() + ' ' + document.getElementById('bf-last').value.trim(),
+    email: document.getElementById('bf-email').value.trim(),
+    phone: document.getElementById('bf-phone').value.trim(),
+    start: toISO(selection.start),
+    end: toISO(selection.end),
+    persons: selection.persons,
+    nights: calc.nights,
+    total: calc.total,
+    message: document.getElementById('bf-msg').value.trim(),
+    mode: bookingMode,
+    status: 'pending',
+    created_at: new Date().toISOString()
+  };
+  state.requests = state.requests || [];
+  state.requests.unshift(req);
+  saveState();
+  closeModal('bookingModal');
+  document.getElementById('bookingForm').reset();
+
+  // Fire-and-forget email notification
+  sendEmailNotification(req);
+
+  document.getElementById('confirmTitle').textContent = bookingMode === 'instant' ? 'Buchung eingegangen' : 'Anfrage gesendet';
+  document.getElementById('confirmText').textContent = bookingMode === 'instant'
+    ? `Vielen Dank, ${req.name.split(' ')[0]}. Wir bestätigen Ihre Buchung binnen 24 Stunden per E-Mail.`
+    : `Vielen Dank, ${req.name.split(' ')[0]}. Wir melden uns binnen 24 Stunden bei Ihnen.`;
+  openModal('confirmModal');
+
+  // Reset selection
+  selection = { start: null, end: null, persons: selection.persons };
+  renderCalendar();
+  renderSummary();
+}
+
+function submitContact(e) {
+  e.preventDefault();
+  const req = {
+    id: 'msg-' + Date.now(),
+    name: document.getElementById('cf-name').value.trim(),
+    email: document.getElementById('cf-email').value.trim(),
+    phone: '',
+    start: '',
+    end: '',
+    persons: 0,
+    nights: 0,
+    total: 0,
+    message: '[Kontaktformular] ' + (document.getElementById('cf-subject').value ? '(' + document.getElementById('cf-subject').value + ') ' : '') + document.getElementById('cf-msg').value.trim(),
+    mode: 'contact',
+    status: 'pending',
+    created_at: new Date().toISOString()
+  };
+  state.requests = state.requests || [];
+  state.requests.unshift(req);
+  saveState();
+  document.getElementById('contactForm').reset();
+  sendEmailNotification(req);
+  showToast('Nachricht gesendet — wir melden uns bald.');
+}
+
+/* ============================================================
+   MODAL HELPERS
+   ============================================================ */
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openLegal(type) {
+  const titles = { impressum: 'Impressum', datenschutz: 'Datenschutzerklärung', agb: 'AGB & Stornobedingungen' };
+  document.getElementById('legalTitle').textContent = titles[type];
+  document.getElementById('legalContent').textContent = state[type] || '';
+  openModal('legalModal');
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ============================================================
+   ADMIN
+   ============================================================ */
+function openAdmin() {
+  document.getElementById('adminPanel').classList.add('open');
+  document.getElementById('adminLogin').style.display = 'flex';
+  document.getElementById('adminBody').style.display = 'none';
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('adminPwInput').focus(), 100);
+}
+function closeAdmin() {
+  document.getElementById('adminPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function adminLogin() {
+  const pw = document.getElementById('adminPwInput').value;
+  if (pw === state.password) {
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('adminBody').style.display = 'grid';
+    document.getElementById('adminPwInput').value = '';
+    document.getElementById('adminLoginErr').classList.remove('show');
+    fillAdminFields();
+    fillEmailFields();
+    renderBlocked();
+    renderRequests();
+    renderGalleryAdmin();
+    renderActivitiesAdmin();
+    renderServiceAdmin();
+    renderFaqAdmin();
+  } else {
+    document.getElementById('adminLoginErr').classList.add('show');
+  }
+}
+
+function renderActivitiesAdmin() {
+  ['winter', 'summer'].forEach(season => {
+    const list = document.getElementById(season + 'ActList');
+    list.innerHTML = '';
+    (state['activities_' + season] || []).forEach(a => list.appendChild(activityRow(a, season)));
+  });
+}
+function activityRow(a, season) {
+  const row = document.createElement('div');
+  row.className = 'admin-row admin-activity-row';
+  row.setAttribute('data-season', season);
+  row.style.gridTemplateColumns = '80px 1fr auto';
+  row.style.alignItems = 'start';
+  const iconOptions = Object.keys(ACTIVITY_ICONS).map(k =>
+    `<option value="${k}"${k === a.icon ? ' selected' : ''}>${k}</option>`).join('');
+  row.innerHTML = `
+    <div style="width:80px;height:80px;border-radius:var(--r-sm);overflow:hidden;background:var(--line);">
+      <img src="${escapeHtml(a.image || '')}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.opacity=0.15" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--s-2);">
+      <div style="display:grid;grid-template-columns:140px 1fr;gap:var(--s-2);">
+        <select class="act-icon">${iconOptions}</select>
+        <input type="text" class="act-title" value="${escapeHtml(a.title)}" placeholder="Titel" />
+      </div>
+      <input type="url" class="act-image" value="${escapeHtml(a.image || '')}" placeholder="Bild URL" oninput="this.closest('.admin-row').querySelector('img').src=this.value" />
+      <textarea class="act-desc" placeholder="Beschreibung" style="min-height:60px;">${escapeHtml(a.desc)}</textarea>
+      <input type="text" class="act-meta" value="${escapeHtml(a.meta)}" placeholder="Distanz/Info, z.B. 'Ab Haustür'" />
+    </div>
+    <button class="icon-btn danger" onclick="this.closest('.admin-row').remove()" aria-label="Entfernen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 14a2 2 0 002 2h8a2 2 0 002-2l1-14"/></svg>
+    </button>
+  `;
+  return row;
+}
+function addActivity(season) {
+  document.getElementById(season + 'ActList').appendChild(
+    activityRow({ icon: 'hiker', title: '', desc: '', meta: '', image: '' }, season)
+  );
+}
+
+function renderServiceAdmin() {
+  const list = document.getElementById('serviceAdminList');
+  list.innerHTML = '';
+  (state.service_links || []).forEach(s => list.appendChild(serviceRow(s)));
+}
+function serviceRow(s) {
+  const row = document.createElement('div');
+  row.className = 'admin-row admin-service-row';
+  row.style.gridTemplateColumns = '1fr auto';
+  row.style.alignItems = 'start';
+  const iconOptions = Object.keys(SERVICE_ICONS).map(k =>
+    `<option value="${k}"${k === s.icon ? ' selected' : ''}>${k}</option>`).join('');
+  row.innerHTML = `
+    <div style="display:flex;flex-direction:column;gap:var(--s-2);">
+      <div style="display:grid;grid-template-columns:140px 1fr;gap:var(--s-2);">
+        <select class="svc-icon">${iconOptions}</select>
+        <input type="text" class="svc-title" value="${escapeHtml(s.title)}" placeholder="Titel (z.B. Wetter)" />
+      </div>
+      <textarea class="svc-desc" placeholder="Beschreibung" style="min-height:60px;">${escapeHtml(s.desc)}</textarea>
+      <input type="url" class="svc-url" value="${escapeHtml(s.url)}" placeholder="https://..." />
+      <input type="text" class="svc-cta" value="${escapeHtml(s.cta || '')}" placeholder="CTA-Text (z.B. 'Wetter ansehen')" />
+    </div>
+    <button class="icon-btn danger" onclick="this.closest('.admin-row').remove()" aria-label="Entfernen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 14a2 2 0 002 2h8a2 2 0 002-2l1-14"/></svg>
+    </button>
+  `;
+  return row;
+}
+function addServiceLink() {
+  document.getElementById('serviceAdminList').appendChild(
+    serviceRow({ icon: 'link', title: '', desc: '', url: '', cta: 'Öffnen' })
+  );
+}
+
+function fillAdminFields() {
+  document.querySelectorAll('[data-set]').forEach(input => {
+    const key = input.getAttribute('data-set');
+    if (state[key] !== undefined) input.value = state[key];
+  });
+}
+function saveAdmin() {
+  document.querySelectorAll('[data-set]').forEach(input => {
+    const key = input.getAttribute('data-set');
+    let val = input.value;
+    if (input.type === 'number') val = parseFloat(val) || 0;
+    state[key] = val;
+  });
+
+  // Pull gallery items
+  state.gallery = [];
+  document.querySelectorAll('#galleryAdminList .admin-gallery-row').forEach(row => {
+    const url = row.querySelector('.g-url').value.trim();
+    const caption = row.querySelector('.g-caption').value.trim();
+    if (url) state.gallery.push({ url, caption });
+  });
+
+  // Pull FAQ items
+  state.faqs = [];
+  document.querySelectorAll('#faqAdminList .admin-faq-row').forEach(row => {
+    const q = row.querySelector('.faq-q-input').value.trim();
+    const a = row.querySelector('.faq-a-input').value.trim();
+    if (q && a) state.faqs.push({ q, a });
+  });
+
+  // Pull Service Links
+  state.service_links = [];
+  document.querySelectorAll('#serviceAdminList .admin-service-row').forEach(row => {
+    const icon = row.querySelector('.svc-icon').value;
+    const title = row.querySelector('.svc-title').value.trim();
+    const desc = row.querySelector('.svc-desc').value.trim();
+    const url = row.querySelector('.svc-url').value.trim();
+    const cta = row.querySelector('.svc-cta').value.trim() || 'Öffnen';
+    if (title && url) state.service_links.push({ icon, title, desc, url, cta });
+  });
+
+  // Pull Activities
+  ['winter', 'summer'].forEach(season => {
+    const arr = [];
+    document.querySelectorAll(`#${season}ActList .admin-activity-row`).forEach(row => {
+      const icon = row.querySelector('.act-icon').value;
+      const title = row.querySelector('.act-title').value.trim();
+      const desc = row.querySelector('.act-desc').value.trim();
+      const meta = row.querySelector('.act-meta').value.trim();
+      const image = row.querySelector('.act-image').value.trim();
+      if (title) arr.push({ icon, title, desc, meta, image });
+    });
+    state['activities_' + season] = arr;
+  });
+
+  saveState();
+  applyTexts();
+  applyImages();
+  buildGallery();
+  buildActivities(document.querySelector('.activity-tab.active').getAttribute('data-pane'));
+  buildService();
+  buildFAQ();
+  renderCalendar();
+  renderSummary();
+  showToast('Änderungen gespeichert.');
+}
+
+function renderBlocked() {
+  const list = document.getElementById('blockedList');
+  if (!state.blocked || !state.blocked.length) {
+    list.innerHTML = '<div class="admin-empty">Noch keine belegten Zeiträume.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  state.blocked.forEach((b, idx) => {
+    const row = document.createElement('div');
+    row.className = 'admin-row';
+    const start = fromISO(b.start);
+    const end = fromISO(b.end);
+    row.innerHTML = `
+      <div>
+        <div style="font-family:var(--font-serif);font-size:1.1rem;font-weight:500;">${formatDate(start)} → ${formatDate(end)}</div>
+        <div style="font-size:0.85rem;color:var(--ink-mute);margin-top:2px;">${escapeHtml(b.note || '')}</div>
+      </div>
+      <div class="row-actions">
+        <button class="icon-btn danger" onclick="removeBlocked(${idx})" aria-label="Entfernen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 14a2 2 0 002 2h8a2 2 0 002-2l1-14"/></svg>
+        </button>
+      </div>
+    `;
+    list.appendChild(row);
+  });
+}
+function addBlocked() {
+  const start = document.getElementById('newBlockStart').value;
+  const end = document.getElementById('newBlockEnd').value;
+  const note = document.getElementById('newBlockNote').value;
+  if (!start || !end) { showToast('Bitte beide Daten angeben.'); return; }
+  if (end <= start) { showToast('Abreise muss nach Anreise liegen.'); return; }
+  state.blocked = state.blocked || [];
+  state.blocked.push({ start, end, note });
+  saveState();
+  renderBlocked();
+  renderCalendar();
+  document.getElementById('newBlockStart').value = '';
+  document.getElementById('newBlockEnd').value = '';
+  document.getElementById('newBlockNote').value = '';
+  showToast('Zeitraum hinzugefügt.');
+}
+function removeBlocked(idx) {
+  state.blocked.splice(idx, 1);
+  saveState();
+  renderBlocked();
+  renderCalendar();
+}
+
+function renderRequests() {
+  const list = document.getElementById('requestsList');
+  if (!state.requests || !state.requests.length) {
+    list.innerHTML = '<div class="admin-empty">Noch keine Anfragen.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  state.requests.forEach((r, idx) => {
+    const card = document.createElement('div');
+    card.className = 'req-card';
+    const isContact = r.mode === 'contact';
+    const modeLabel = r.mode === 'instant' ? 'Sofortbuchung' : (r.mode === 'inquiry' ? 'Anfrage' : 'Kontaktnachricht');
+    card.innerHTML = `
+      <div class="req-card-head">
+        <div>
+          <div class="req-name">${escapeHtml(r.name)}</div>
+          <div style="font-size:0.78rem;color:var(--ink-mute);margin-top:2px;">${modeLabel} · ${new Date(r.created_at).toLocaleString('de-AT')}</div>
+        </div>
+        <div class="req-status ${r.status}">${r.status === 'pending' ? 'Offen' : r.status === 'confirmed' ? 'Bestätigt' : 'Abgelehnt'}</div>
+      </div>
+      ${!isContact ? `
+        <div class="req-meta">
+          <div class="req-meta-item"><label>Anreise</label><span>${formatDate(fromISO(r.start))}</span></div>
+          <div class="req-meta-item"><label>Abreise</label><span>${formatDate(fromISO(r.end))}</span></div>
+          <div class="req-meta-item"><label>Nächte</label><span>${r.nights}</span></div>
+          <div class="req-meta-item"><label>Personen</label><span>${r.persons}</span></div>
+          <div class="req-meta-item"><label>Gesamt</label><span>€${Math.round(r.total)}</span></div>
+        </div>
+      ` : ''}
+      <div class="req-meta">
+        <div class="req-meta-item"><label>E-Mail</label><span><a href="mailto:${escapeHtml(r.email)}" style="color:var(--gold);">${escapeHtml(r.email)}</a></span></div>
+        ${r.phone ? `<div class="req-meta-item"><label>Telefon</label><span><a href="tel:${escapeHtml(r.phone)}" style="color:var(--gold);">${escapeHtml(r.phone)}</a></span></div>` : ''}
+      </div>
+      ${r.message ? `<div class="req-msg">„${escapeHtml(r.message)}"</div>` : ''}
+      ${r.status === 'pending' ? `
+        <div class="req-actions">
+          ${!isContact ? `<button class="btn-confirm" onclick="confirmRequest(${idx})">Bestätigen</button>` : ''}
+          <button class="btn-reject" onclick="rejectRequest(${idx})">${isContact ? 'Erledigt' : 'Ablehnen'}</button>
+        </div>
+      ` : ''}
+    `;
+    list.appendChild(card);
+  });
+}
+
+function confirmRequest(idx) {
+  const r = state.requests[idx];
+  r.status = 'confirmed';
+  saveState();
+  renderRequests();
+  renderCalendar();
+  showToast('Buchung bestätigt und im Kalender als belegt eingetragen.');
+}
+function rejectRequest(idx) {
+  const r = state.requests[idx];
+  r.status = 'rejected';
+  saveState();
+  renderRequests();
+  renderCalendar();
+  showToast('Anfrage abgelehnt.');
+}
+
+function renderGalleryAdmin() {
+  const list = document.getElementById('galleryAdminList');
+  list.innerHTML = '';
+  state.gallery.forEach((g, idx) => {
+    list.appendChild(galleryRow(g, idx));
+  });
+}
+function galleryRow(g, idx) {
+  const row = document.createElement('div');
+  row.className = 'admin-row admin-gallery-row';
+  row.style.gridTemplateColumns = '80px 1fr 1fr auto';
+  row.innerHTML = `
+    <div style="width:80px;height:80px;border-radius:var(--r-sm);overflow:hidden;background:var(--line);">
+      <img src="${escapeHtml(g.url)}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.opacity=0.2" />
+    </div>
+    <input type="url" class="g-url" value="${escapeHtml(g.url)}" placeholder="Bild URL" oninput="this.closest('.admin-row').querySelector('img').src=this.value" />
+    <input type="text" class="g-caption" value="${escapeHtml(g.caption)}" placeholder="Beschriftung" />
+    <button class="icon-btn danger" onclick="this.closest('.admin-row').remove()" aria-label="Entfernen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 14a2 2 0 002 2h8a2 2 0 002-2l1-14"/></svg>
+    </button>
+  `;
+  return row;
+}
+function addGalleryItem() {
+  document.getElementById('galleryAdminList').appendChild(galleryRow({ url: '', caption: '' }, state.gallery.length));
+}
+
+function renderFaqAdmin() {
+  const list = document.getElementById('faqAdminList');
+  list.innerHTML = '';
+  state.faqs.forEach((f, idx) => {
+    list.appendChild(faqRow(f, idx));
+  });
+}
+function faqRow(f, idx) {
+  const row = document.createElement('div');
+  row.className = 'admin-row admin-faq-row';
+  row.style.gridTemplateColumns = '1fr auto';
+  row.style.alignItems = 'start';
+  row.innerHTML = `
+    <div style="display:flex;flex-direction:column;gap:var(--s-2);">
+      <input type="text" class="faq-q-input" value="${escapeHtml(f.q)}" placeholder="Frage" />
+      <textarea class="faq-a-input" placeholder="Antwort" style="min-height:80px;">${escapeHtml(f.a)}</textarea>
+    </div>
+    <button class="icon-btn danger" onclick="this.closest('.admin-row').remove()" aria-label="Entfernen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6M5 6l1 14a2 2 0 002 2h8a2 2 0 002-2l1-14"/></svg>
+    </button>
+  `;
+  return row;
+}
+function addFaqItem() {
+  document.getElementById('faqAdminList').appendChild(faqRow({ q: '', a: '' }, state.faqs.length));
+}
+
+/* ============================================================
+   EMAIL (EmailJS)
+   ============================================================ */
+function fillEmailFields() {
+  const cfg = state.email_config || {};
+  document.getElementById('emailPublicKey').value = cfg.public_key || '';
+  document.getElementById('emailServiceId').value = cfg.service_id || '';
+  document.getElementById('emailTemplateId').value = cfg.template_id || '';
+  document.getElementById('emailRecipient').value = cfg.recipient || state.contact_email || '';
+}
+function saveEmailConfig() {
+  state.email_config = {
+    public_key: document.getElementById('emailPublicKey').value.trim(),
+    service_id: document.getElementById('emailServiceId').value.trim(),
+    template_id: document.getElementById('emailTemplateId').value.trim(),
+    recipient: document.getElementById('emailRecipient').value.trim()
+  };
+  saveState();
+  showToast('E-Mail-Konfiguration gespeichert.');
+}
+function loadEmailJS() {
+  return new Promise((resolve, reject) => {
+    if (typeof emailjs !== 'undefined') return resolve();
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.async = true;
+    s.onload = resolve;
+    s.onerror = () => reject(new Error('EmailJS konnte nicht geladen werden'));
+    document.head.appendChild(s);
+  });
+}
+async function sendEmailNotification(req) {
+  const cfg = state.email_config || {};
+  if (!cfg.public_key || !cfg.service_id || !cfg.template_id) return false;
+  try {
+    await loadEmailJS();
+    emailjs.init({ publicKey: cfg.public_key });
+    const modeLabel = req.mode === 'instant' ? 'Sofortbuchung'
+      : req.mode === 'inquiry' ? 'Anfrage'
+      : 'Kontaktnachricht';
+    await emailjs.send(cfg.service_id, cfg.template_id, {
+      to_email: cfg.recipient || state.contact_email,
+      from_name: req.name,
+      from_email: req.email,
+      phone: req.phone || '—',
+      mode: modeLabel,
+      start: req.start ? formatDate(fromISO(req.start)) : '—',
+      end: req.end ? formatDate(fromISO(req.end)) : '—',
+      nights: req.nights || '—',
+      persons: req.persons || '—',
+      total: req.total ? Math.round(req.total) : '—',
+      message: req.message || '—',
+      created_at: new Date().toLocaleString('de-AT')
+    });
+    return true;
+  } catch (e) {
+    console.error('EmailJS send failed:', e);
+    return false;
+  }
+}
+async function testEmailSend() {
+  saveEmailConfig();
+  const cfg = state.email_config;
+  if (!cfg.public_key || !cfg.service_id || !cfg.template_id) {
+    showToast('Bitte zuerst Public Key, Service ID und Template ID eintragen.');
+    return;
+  }
+  showToast('Test-E-Mail wird gesendet…');
+  const ok = await sendEmailNotification({
+    name: 'Test-Gast',
+    email: 'test@beispiel.at',
+    phone: '+43 660 0000000',
+    mode: 'inquiry',
+    start: toISO(new Date()),
+    end: toISO(new Date(Date.now() + 3*24*60*60*1000)),
+    nights: 3,
+    persons: 2,
+    total: 1500,
+    message: 'Das ist eine Test-E-Mail vom Sonnenblick Admin-Panel.'
+  });
+  showToast(ok ? '✓ Test-E-Mail erfolgreich gesendet!' : '✗ Fehler — bitte Konfiguration prüfen (Konsole).');
+}
+
+function changePassword() {
+  const a = document.getElementById('newPw1').value;
+  const b = document.getElementById('newPw2').value;
+  if (!a || a.length < 6) { showToast('Mindestens 6 Zeichen.'); return; }
+  if (a !== b) { showToast('Passwörter stimmen nicht überein.'); return; }
+  state.password = a;
+  saveState();
+  document.getElementById('newPw1').value = '';
+  document.getElementById('newPw2').value = '';
+  showToast('Passwort gespeichert.');
+}
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+function bindEvents() {
+  // Calendar nav
+  document.getElementById('calPrev').onclick = () => {
+    viewMonth.setMonth(viewMonth.getMonth() - 1);
+    renderCalendar();
+  };
+  document.getElementById('calNext').onclick = () => {
+    viewMonth.setMonth(viewMonth.getMonth() + 1);
+    renderCalendar();
+  };
+
+  // Persons stepper
+  document.getElementById('personsMinus').onclick = () => {
+    if (selection.persons > 1) { selection.persons--; renderSummary(); }
+  };
+  document.getElementById('personsPlus').onclick = () => {
+    if (selection.persons < 6) { selection.persons++; renderSummary(); }
+  };
+
+  // Booking buttons
+  document.getElementById('btnInstantBook').onclick = () => openBookingDialog('instant');
+  document.getElementById('btnInquire').onclick = () => openBookingDialog('inquiry');
+
+  // Admin dot
+  document.getElementById('adminDot').onclick = openAdmin;
+
+  // Activity tabs
+  document.querySelectorAll('.activity-tab').forEach(btn => {
+    btn.onclick = () => {
+      const target = btn.getAttribute('data-pane');
+      document.querySelectorAll('.activity-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      buildActivities(target);
+    };
+  });
+
+  // Admin tabs
+  document.querySelectorAll('.admin-tab').forEach(btn => {
+    btn.onclick = () => {
+      const target = btn.getAttribute('data-tab');
+      document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.admin-section[data-section="${target}"]`).classList.add('active');
+    };
+  });
+
+  // Mobile nav toggle
+  document.getElementById('navToggle').onclick = () => {
+    document.getElementById('nav').classList.toggle('nav-mobile-open');
+  };
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.onclick = () => document.getElementById('nav').classList.remove('nav-mobile-open');
+  });
+
+  // Lightbox close on backdrop
+  document.getElementById('lightbox').onclick = (e) => {
+    if (e.target.id === 'lightbox') closeLightbox();
+  };
+
+  // Esc to close modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+      ['legalModal', 'bookingModal', 'confirmModal'].forEach(closeModal);
+    }
+    if (e.key === 'ArrowLeft' && document.getElementById('lightbox').classList.contains('open')) lightboxNav(-1);
+    if (e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('open')) lightboxNav(1);
+  });
+
+  // Modal backdrop click
+  document.querySelectorAll('.modal-backdrop').forEach(bd => {
+    bd.onclick = (e) => { if (e.target === bd) bd.classList.remove('open'), document.body.style.overflow = ''; };
+  });
+}
+
+/* ============================================================
+   REVEAL on scroll
+   ============================================================ */
+function setupReveal() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+/* ============================================================
+   NAV scroll
+   ============================================================ */
+function setupNavScroll() {
+  const nav = document.getElementById('nav');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    if (s > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    lastScroll = s;
+  }, { passive: true });
+}
+
+/* ============================================================
+   PARALLAX hero
+   ============================================================ */
+function setupParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const img = document.getElementById('heroImg');
+  if (!img) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < window.innerHeight) {
+          img.style.transform = `translateY(${y * 0.3}px) scale(${1 + y * 0.0002})`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ============================================================
+   UTIL
+   ============================================================ */
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude / local config
+.claude/
+.env
+.env.local
+
+# Logs
+*.log
