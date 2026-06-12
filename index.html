@@ -992,7 +992,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--bg-card);
   border-color: rgba(255, 255, 255, 0.06);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
 }
+.activities .activity-card h3 { color: var(--ink); }
+.activities .activity-card p { color: var(--ink-soft); }
+.activities .activity-card .activity-meta { color: var(--ink-mute); }
+.activities .activity-card .activity-icon-badge { color: var(--ink); }
 .activities-tabs {
   display: flex;
   justify-content: center;
@@ -3609,12 +3614,15 @@ async function loadBlockedFromDB() {
 }
 async function addBlockedToDB(start, end, note, type='manual', request_id=null) {
   if (!sb) return null;
+  // Client-side UUID so guest inserts don't need SELECT permission
+  const id = (crypto.randomUUID && crypto.randomUUID())
+    || ('blk-' + Date.now() + '-' + Math.random().toString(36).slice(2));
   try {
-    const { data, error } = await sb.from('blocked_dates').insert({
-      start_date: start, end_date: end, note, type, request_id
-    }).select().single();
+    const { error } = await sb.from('blocked_dates').insert({
+      id, start_date: start, end_date: end, note, type, request_id
+    });
     if (error) throw error;
-    return data;
+    return { id };
   } catch (e) { console.error('addBlocked:', e); return null; }
 }
 async function removeBlockedFromDB(id) {
@@ -3651,8 +3659,12 @@ async function loadRequestsFromDB() {
 }
 async function createRequestInDB(req) {
   if (!sb) return null;
+  // Client-side UUID so we don't need SELECT permission to read it back after insert
+  const id = (crypto.randomUUID && crypto.randomUUID())
+    || ('req-' + Date.now() + '-' + Math.random().toString(36).slice(2));
   try {
-    const { data, error } = await sb.from('requests').insert({
+    const { error } = await sb.from('requests').insert({
+      id,
       name: req.name,
       email: req.email,
       phone: req.phone || '',
@@ -3664,15 +3676,15 @@ async function createRequestInDB(req) {
       message: req.message || '',
       mode: req.mode,
       status: 'pending'
-    }).select().single();
+    });
     if (error) throw error;
 
     // For booking/inquiry: also add a blocked_dates entry so calendar reflects it
     if ((req.mode === 'instant' || req.mode === 'inquiry') && req.start && req.end) {
       const type = req.mode === 'instant' ? 'pending_instant' : 'pending_inquiry';
-      await addBlockedToDB(req.start, req.end, req.name, type, data.id);
+      await addBlockedToDB(req.start, req.end, req.name, type, id);
     }
-    return data;
+    return { id };
   } catch (e) { console.error('createRequest:', e); return null; }
 }
 async function updateRequestStatusInDB(id, status) {
