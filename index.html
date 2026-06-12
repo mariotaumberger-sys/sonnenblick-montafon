@@ -3127,19 +3127,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
             <input type="text" id="emailPublicKey" placeholder="z.B. AbCdEfGhIjKlMnOp" />
           </div>
           <div class="admin-field">
-            <label>Empfänger-E-Mail (an wen?)</label>
-            <input type="email" id="emailRecipient" placeholder="info@sonnenblick-montafon.at" />
+            <label>Service ID</label>
+            <input type="text" id="emailServiceId" placeholder="z.B. service_abc123" />
           </div>
         </div>
         <div class="admin-grid">
           <div class="admin-field">
-            <label>Service ID</label>
-            <input type="text" id="emailServiceId" placeholder="z.B. service_abc123" />
+            <label>Template-ID „Owner" (Mail an dich)</label>
+            <input type="text" id="emailTemplateIdOwner" placeholder="z.B. template_owner_abc" />
           </div>
           <div class="admin-field">
-            <label>Template ID</label>
-            <input type="text" id="emailTemplateId" placeholder="z.B. template_xyz789" />
+            <label>Template-ID „Customer" (Bestätigung an Gast)</label>
+            <input type="text" id="emailTemplateIdCustomer" placeholder="z.B. template_customer_xyz" />
           </div>
+        </div>
+        <div class="admin-field">
+          <label>Empfänger-E-Mail (Owner-Mail geht an dich)</label>
+          <input type="email" id="emailRecipient" placeholder="info@sonnenblick-montafon.at" />
         </div>
 
         <details style="margin-top:var(--s-5);background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-4) var(--s-5);">
@@ -3465,7 +3469,8 @@ Es gilt österreichisches Recht. Gerichtsstand ist Bludenz.`,
   email_config: {
     public_key: '',
     service_id: '',
-    template_id: '',
+    template_id_owner: '',     // sends details to operator
+    template_id_customer: '',  // sends confirmation to guest
     recipient: ''
   },
 
@@ -4441,14 +4446,17 @@ function fillEmailFields() {
   const cfg = state.email_config || {};
   document.getElementById('emailPublicKey').value = cfg.public_key || '';
   document.getElementById('emailServiceId').value = cfg.service_id || '';
-  document.getElementById('emailTemplateId').value = cfg.template_id || '';
+  // Backwards compat: old `template_id` becomes the owner template
+  document.getElementById('emailTemplateIdOwner').value = cfg.template_id_owner || cfg.template_id || '';
+  document.getElementById('emailTemplateIdCustomer').value = cfg.template_id_customer || '';
   document.getElementById('emailRecipient').value = cfg.recipient || state.contact_email || '';
 }
 function saveEmailConfig() {
   state.email_config = {
     public_key: document.getElementById('emailPublicKey').value.trim(),
     service_id: document.getElementById('emailServiceId').value.trim(),
-    template_id: document.getElementById('emailTemplateId').value.trim(),
+    template_id_owner: document.getElementById('emailTemplateIdOwner').value.trim(),
+    template_id_customer: document.getElementById('emailTemplateIdCustomer').value.trim(),
     recipient: document.getElementById('emailRecipient').value.trim()
   };
   saveState();
@@ -4467,27 +4475,53 @@ function loadEmailJS() {
 }
 async function sendEmailNotification(req) {
   const cfg = state.email_config || {};
-  if (!cfg.public_key || !cfg.service_id || !cfg.template_id) return false;
+  if (!cfg.public_key || !cfg.service_id) return false;
+  const hasOwner = !!cfg.template_id_owner;
+  const hasCustomer = !!cfg.template_id_customer;
+  if (!hasOwner && !hasCustomer) return false;
   try {
     await loadEmailJS();
     emailjs.init({ publicKey: cfg.public_key });
     const modeLabel = req.mode === 'instant' ? 'Sofortbuchung'
       : req.mode === 'inquiry' ? 'Anfrage'
       : 'Kontaktnachricht';
-    await emailjs.send(cfg.service_id, cfg.template_id, {
-      to_email: cfg.recipient || state.contact_email,
+    const modeAction = req.mode === 'instant' ? 'gebucht'
+      : req.mode === 'inquiry' ? 'angefragt'
+      : 'kontaktiert';
+    const baseParams = {
       from_name: req.name,
+      first_name: (req.name || '').split(' ')[0] || req.name,
       from_email: req.email,
       phone: req.phone || '—',
       mode: modeLabel,
+      mode_action: modeAction,
       start: req.start ? formatDate(fromISO(req.start)) : '—',
       end: req.end ? formatDate(fromISO(req.end)) : '—',
       nights: req.nights || '—',
       persons: req.persons || '—',
       total: req.total ? Math.round(req.total) : '—',
       message: req.message || '—',
-      created_at: new Date().toLocaleString('de-AT')
-    });
+      created_at: new Date().toLocaleString('de-AT'),
+      property_name: state.brand ? (state.brand + ' Montafon') : 'Sonnenblick Montafon',
+      property_address: state.address || 'Mateinaweg 8, 6781 Bartholomäberg',
+      property_phone: state.contact_phone || '',
+      property_mail: state.contact_email || ''
+    };
+
+    const sends = [];
+    if (hasOwner) {
+      sends.push(emailjs.send(cfg.service_id, cfg.template_id_owner, {
+        ...baseParams,
+        to_email: cfg.recipient || state.contact_email
+      }));
+    }
+    if (hasCustomer && req.email) {
+      sends.push(emailjs.send(cfg.service_id, cfg.template_id_customer, {
+        ...baseParams,
+        to_email: req.email
+      }));
+    }
+    await Promise.all(sends);
     return true;
   } catch (e) {
     console.error('EmailJS send failed:', e);
@@ -4497,14 +4531,19 @@ async function sendEmailNotification(req) {
 async function testEmailSend() {
   saveEmailConfig();
   const cfg = state.email_config;
-  if (!cfg.public_key || !cfg.service_id || !cfg.template_id) {
-    showToast('Bitte zuerst Public Key, Service ID und Template ID eintragen.');
+  if (!cfg.public_key || !cfg.service_id) {
+    showToast('Bitte zuerst Public Key und Service ID eintragen.');
     return;
   }
-  showToast('Test-E-Mail wird gesendet…');
+  if (!cfg.template_id_owner && !cfg.template_id_customer) {
+    showToast('Bitte mindestens eine Template-ID eintragen.');
+    return;
+  }
+  showToast('Test-E-Mails werden gesendet…');
+  // Use the recipient as the test "customer" email so both Owner + Customer test arrive in YOUR inbox
   const ok = await sendEmailNotification({
-    name: 'Test-Gast',
-    email: 'test@beispiel.at',
+    name: 'Test Gast',
+    email: cfg.recipient || state.contact_email || 'test@beispiel.at',
     phone: '+43 660 0000000',
     mode: 'inquiry',
     start: toISO(new Date()),
@@ -4514,7 +4553,7 @@ async function testEmailSend() {
     total: 1500,
     message: 'Das ist eine Test-E-Mail vom Sonnenblick Admin-Panel.'
   });
-  showToast(ok ? '✓ Test-E-Mail erfolgreich gesendet!' : '✗ Fehler — bitte Konfiguration prüfen (Konsole).');
+  showToast(ok ? '✓ Test-E-Mails versendet — Inbox prüfen!' : '✗ Fehler — Konsole prüfen.');
 }
 
 function changePassword() {
