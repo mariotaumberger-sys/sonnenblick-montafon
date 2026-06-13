@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C2419" />
+<meta name="description" content="Verfügbarkeit prüfen und Ferienwohnung Sonnenblick Montafon online buchen." />
+<title>Buchung &amp; Verfügbarkeit · Sonnenblick Montafon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body data-base="..">
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    <span data-text="brand">Sonnenblick</span>
+  </a>
+  <div class="nav-links">
+    <a href="../wohnung/">Wohnung</a>
+    <a href="../galerie/">Galerie</a>
+    <a href="../lage/">Lage</a>
+    <a href="../preise/">Preise</a>
+    <a href="../buchen/" class="active">Buchung</a>
+    <a href="../kontakt/">Kontakt</a>
+  </div>
+  <a href="../buchen/" class="btn btn-primary nav-cta">Jetzt buchen</a>
+  <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
+</nav>
+
+<header class="subpage-hero">
+  <div class="container">
+    <div class="eyebrow">Verfügbarkeit &amp; Buchung</div>
+    <h1>Wann möchten Sie kommen?</h1>
+    <p>Wählen Sie Anreise und Abreise direkt im Kalender. Der Preis berechnet sich automatisch nach Saison und Personenzahl.</p>
+  </div>
+</header>
+
+<main id="main">
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-wrap reveal">
+      <div class="calendar-card">
+        <div class="calendar-header">
+          <div class="calendar-title">Verfügbarer Zeitraum</div>
+          <div class="calendar-nav">
+            <button id="calPrev" aria-label="Vorheriger Monat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button id="calNext" aria-label="Nächster Monat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="calendar-months" id="calendarMonths"></div>
+        <div class="calendar-legend">
+          <div class="legend-item"><span class="legend-dot free"></span>Verfügbar</div>
+          <div class="legend-item"><span class="legend-dot selected"></span>Ausgewählt</div>
+          <div class="legend-item"><span class="legend-dot blocked"></span>Belegt</div>
+          <div class="legend-item"><span class="legend-dot requested"></span>Reserviert (in Bestätigung)</div>
+          <div class="legend-item"><span class="legend-dot inquiry"></span>In Anfrage (frei wählbar)</div>
+        </div>
+      </div>
+      <div class="summary-card" id="summaryCard">
+        <div class="summary-title">Ihr Aufenthalt</div>
+        <div class="summary-dates">
+          <div class="summary-date-box">
+            <div class="summary-date-label">Anreise · ab 14:00</div>
+            <div class="summary-date-value empty" id="sumStart">Datum wählen</div>
+          </div>
+          <div class="summary-date-box">
+            <div class="summary-date-label">Abreise · bis 10:00</div>
+            <div class="summary-date-value empty" id="sumEnd">Datum wählen</div>
+          </div>
+        </div>
+        <div class="summary-persons">
+          <div class="summary-persons-label">Gäste</div>
+          <div class="persons-stepper">
+            <button id="personsMinus" aria-label="Weniger Gäste">−</button>
+            <div class="persons-stepper-val" id="personsVal">4</div>
+            <button id="personsPlus" aria-label="Mehr Gäste">+</button>
+          </div>
+        </div>
+        <div id="summaryContent">
+          <div class="summary-empty">Wählen Sie Anreise und Abreise im Kalender.</div>
+        </div>
+        <div class="summary-actions" id="summaryActions" style="display:none;">
+          <button class="btn btn-gold" id="btnInstantBook">Buchung anfragen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <div class="summary-mode-note">
+            Verbindliche Buchungsanfrage — die Tage werden sofort für Sie reserviert. Wir bestätigen binnen 24 Stunden per E-Mail. Verträge entstehen erst durch unsere schriftliche Bestätigung.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-logo-mark"></span>
+          <span data-text="brand">Sonnenblick</span>
+        </div>
+        <p class="footer-tagline" data-text="footer_tagline"></p>
+      </div>
+      <div class="footer-col">
+        <h4>Entdecken</h4>
+        <ul>
+          <li><a href="../wohnung/">Die Wohnung</a></li>
+          <li><a href="../galerie/">Galerie</a></li>
+          <li><a href="../lage/">Lage</a></li>
+          <li><a href="../preise/">Preise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Buchen</h4>
+        <ul>
+          <li><a href="../buchen/">Verfügbarkeit</a></li>
+          <li><a href="../kontakt/">Anfrage</a></li>
+          <li><a href="../kontakt/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#" onclick="openLegal('impressum');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a></li>
+          <li><a href="#" onclick="openLegal('agb');return false;">AGB</a></li>
+          <li><a href="../kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="copyYear"></span> <span data-text="brand">Sonnenblick</span> Montafon. Alle Rechte vorbehalten.</span>
+      <span>Bartholomäberg · Vorarlberg · Österreich</span>
+    </div>
+  </div>
+</footer>
+
+<div class="admin-dot" id="adminDot" title=""></div>
+
+<!-- LEGAL MODAL -->
+<div class="modal-backdrop" id="legalModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="legalTitle"></h3>
+      <button class="modal-close" onclick="closeModal('legalModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="legal-content" id="legalContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING DIALOG -->
+<div class="modal-backdrop" id="bookingModal">
+  <div class="modal modal-narrow">
+    <div class="modal-header">
+      <h3 class="modal-title" id="bookingModalTitle">Buchung abschließen</h3>
+      <button class="modal-close" onclick="closeModal('bookingModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div id="bookingFormSummary" style="background: var(--bg-elev); padding: var(--s-4); border-radius: var(--r-md); margin-bottom: var(--s-5); font-size: 0.9rem;"></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vorname</label>
+            <input id="bf-first" type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Nachname</label>
+            <input id="bf-last" type="text" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>E-Mail</label>
+            <input id="bf-email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input id="bf-phone" type="tel" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nachricht (optional)</label>
+          <textarea id="bf-msg" placeholder="Besondere Wünsche, Ankunftszeit, …"></textarea>
+        </div>
+        <div class="form-group" style="display:flex;gap:var(--s-2);align-items:flex-start;font-size:0.85rem;color:var(--ink-soft);">
+          <input type="checkbox" id="bf-agree" required style="width:auto;margin-top:4px;" />
+          <label for="bf-agree" style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-soft);font-size:0.85rem;">
+            Ich akzeptiere die <a href="#" onclick="event.preventDefault();openLegal('agb');" style="text-decoration:underline;color:var(--ink);">AGB</a> und die <a href="#" onclick="event.preventDefault();openLegal('datenschutz');" style="text-decoration:underline;color:var(--ink);">Datenschutzerklärung</a>.
+          </label>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%; padding: var(--s-4);">Anfrage abschicken</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRMATION MODAL -->
+<div class="modal-backdrop" id="confirmModal">
+  <div class="modal modal-narrow">
+    <div class="modal-body">
+      <div class="booking-confirm">
+        <div class="booking-confirm-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 id="confirmTitle">Anfrage gesendet</h3>
+        <p id="confirmText"></p>
+        <button class="btn btn-primary" onclick="closeModal('confirmModal')">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../app.js"></script>
+</body>
+</html>

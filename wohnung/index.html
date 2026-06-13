@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C2419" />
+<meta name="description" content="Die Ferienwohnung Sonnenblick — 78 m², zwei Schlafzimmer, Südfront mit Bergblick. Detaillierte Beschreibung und vollständige Ausstattung." />
+<title>Die Wohnung · Sonnenblick Montafon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body data-base="..">
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    <span data-text="brand">Sonnenblick</span>
+  </a>
+  <div class="nav-links">
+    <a href="../wohnung/" class="active">Wohnung</a>
+    <a href="../galerie/">Galerie</a>
+    <a href="../lage/">Lage</a>
+    <a href="../preise/">Preise</a>
+    <a href="../buchen/">Buchung</a>
+    <a href="../kontakt/">Kontakt</a>
+  </div>
+  <a href="../buchen/" class="btn btn-primary nav-cta">Jetzt buchen</a>
+  <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
+</nav>
+
+<header class="subpage-hero">
+  <div class="container">
+    <div class="eyebrow">Die Wohnung</div>
+    <h1 data-text="about_title">78 m² stille Eleganz, eingebettet in das Panorama des Montafon.</h1>
+    <p data-text="about_lead"></p>
+  </div>
+</header>
+
+<main id="main">
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p data-text="about_p1"></p>
+        <p data-text="about_p2"></p>
+        <a href="../buchen/" class="btn btn-ghost" style="margin-top: var(--s-4);">Termin auswählen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="about-image reveal reveal-delay-2">
+        <img id="aboutImg" alt="Wohnbereich der Ferienwohnung" loading="lazy" />
+        <div class="about-image-badge">
+          <span style="width:6px;height:6px;background:var(--gold);border-radius:50%;"></span>
+          <span>Neubau 2025</span>
+        </div>
+      </div>
+    </div>
+    <div class="specs reveal">
+      <div class="spec"><div class="spec-val">78</div><div class="spec-label">m² Wohnfläche</div></div>
+      <div class="spec"><div class="spec-val">2</div><div class="spec-label">Schlafzimmer</div></div>
+      <div class="spec"><div class="spec-val">4–6</div><div class="spec-label">Gäste</div></div>
+      <div class="spec"><div class="spec-val">1.087</div><div class="spec-label">Höhenmeter</div></div>
+    </div>
+    <div class="amenities reveal">
+      <div class="amenities-title">Ausstattung</div>
+      <div class="amenities-grid">
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13M9 21V12h6v9"/></svg></div><div class="amenity-text">Bergblick · Südlage</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="9" rx="1"/><path d="M7 11V6a5 5 0 0110 0v5"/></svg></div><div class="amenity-text">Privater Parkplatz</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0M12 19.5h.01"/></svg></div><div class="amenity-text">WLAN 200 Mbit/s</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="amenity-text">Vollausgestattete Küche</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="6"/><path d="M9 3h6v3H9z"/><circle cx="12" cy="13" r="2"/></svg></div><div class="amenity-text">Waschmaschine</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 22h18M5 22V11a3 3 0 013-3h8a3 3 0 013 3v11M9 22V14h6v8"/></svg></div><div class="amenity-text">Modernes Badezimmer</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M3 17l9-9 9 9M5 21V9M19 21V9"/></svg></div><div class="amenity-text">Großer Balkon</div></div>
+        <div class="amenity"><div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M4.5 4.5l15 15"/></svg></div><div class="amenity-text">Nichtraucher</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service" id="service">
+  <div class="container">
+    <div class="service-head reveal">
+      <div class="eyebrow">Vor der Anreise</div>
+      <h3>Nützliches für Ihre Planung</h3>
+    </div>
+    <div class="service-grid reveal" id="serviceGrid"></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-logo-mark"></span>
+          <span data-text="brand">Sonnenblick</span>
+        </div>
+        <p class="footer-tagline" data-text="footer_tagline"></p>
+      </div>
+      <div class="footer-col">
+        <h4>Entdecken</h4>
+        <ul>
+          <li><a href="../wohnung/">Die Wohnung</a></li>
+          <li><a href="../galerie/">Galerie</a></li>
+          <li><a href="../lage/">Lage</a></li>
+          <li><a href="../preise/">Preise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Buchen</h4>
+        <ul>
+          <li><a href="../buchen/">Verfügbarkeit</a></li>
+          <li><a href="../kontakt/">Anfrage</a></li>
+          <li><a href="../kontakt/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#" onclick="openLegal('impressum');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a></li>
+          <li><a href="#" onclick="openLegal('agb');return false;">AGB</a></li>
+          <li><a href="../kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="copyYear"></span> <span data-text="brand">Sonnenblick</span> Montafon. Alle Rechte vorbehalten.</span>
+      <span>Bartholomäberg · Vorarlberg · Österreich</span>
+    </div>
+  </div>
+</footer>
+
+<div class="admin-dot" id="adminDot" title=""></div>
+
+<div class="modal-backdrop" id="legalModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="legalTitle"></h3>
+      <button class="modal-close" onclick="closeModal('legalModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="legal-content" id="legalContent"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../app.js"></script>
+</body>
+</html>

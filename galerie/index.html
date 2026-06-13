@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C2419" />
+<meta name="description" content="Galerie der Ferienwohnung Sonnenblick Montafon — Räume, Materialien und Aussicht." />
+<title>Galerie · Sonnenblick Montafon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body data-base="..">
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    <span data-text="brand">Sonnenblick</span>
+  </a>
+  <div class="nav-links">
+    <a href="../wohnung/">Wohnung</a>
+    <a href="../galerie/" class="active">Galerie</a>
+    <a href="../lage/">Lage</a>
+    <a href="../preise/">Preise</a>
+    <a href="../buchen/">Buchung</a>
+    <a href="../kontakt/">Kontakt</a>
+  </div>
+  <a href="../buchen/" class="btn btn-primary nav-cta">Jetzt buchen</a>
+  <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
+</nav>
+
+<header class="subpage-hero">
+  <div class="container">
+    <div class="eyebrow">Galerie</div>
+    <h1 data-text="gallery_title">Räume, die das Licht der Berge tragen.</h1>
+    <p data-text="gallery_subtitle"></p>
+  </div>
+</header>
+
+<main id="main">
+<section class="gallery" id="gallery" style="padding-top: var(--s-7);">
+  <div class="container">
+    <div class="gallery-grid reveal" id="galleryGrid"></div>
+  </div>
+</section>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildergalerie">
+  <button class="lightbox-close" aria-label="Schließen" onclick="closeLightbox()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <button class="lightbox-prev" aria-label="Vorheriges Bild" onclick="lightboxNav(-1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <img class="lightbox-img" id="lightboxImg" alt="" />
+  <button class="lightbox-next" aria-label="Nächstes Bild" onclick="lightboxNav(1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-logo-mark"></span>
+          <span data-text="brand">Sonnenblick</span>
+        </div>
+        <p class="footer-tagline" data-text="footer_tagline"></p>
+      </div>
+      <div class="footer-col">
+        <h4>Entdecken</h4>
+        <ul>
+          <li><a href="../wohnung/">Die Wohnung</a></li>
+          <li><a href="../galerie/">Galerie</a></li>
+          <li><a href="../lage/">Lage</a></li>
+          <li><a href="../preise/">Preise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Buchen</h4>
+        <ul>
+          <li><a href="../buchen/">Verfügbarkeit</a></li>
+          <li><a href="../kontakt/">Anfrage</a></li>
+          <li><a href="../kontakt/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#" onclick="openLegal('impressum');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a></li>
+          <li><a href="#" onclick="openLegal('agb');return false;">AGB</a></li>
+          <li><a href="../kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="copyYear"></span> <span data-text="brand">Sonnenblick</span> Montafon. Alle Rechte vorbehalten.</span>
+      <span>Bartholomäberg · Vorarlberg · Österreich</span>
+    </div>
+  </div>
+</footer>
+
+<div class="admin-dot" id="adminDot" title=""></div>
+
+<div class="modal-backdrop" id="legalModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="legalTitle"></h3>
+      <button class="modal-close" onclick="closeModal('legalModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="legal-content" id="legalContent"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../app.js"></script>
+</body>
+</html>

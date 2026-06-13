@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C2419" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="description" content="Verwaltung Sonnenblick Montafon" />
+<title>Verwaltung · Sonnenblick Montafon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body data-base="..">
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel open" id="adminPanel">
+  <div class="admin-header">
+    <h2>Sonnenblick · Verwaltung</h2>
+    <div class="admin-header-actions">
+      <button class="admin-close" onclick="adminLogout()">Abmelden</button>
+      <a class="admin-close" href="../" style="text-decoration:none;display:inline-flex;align-items:center;">Zur Website</a>
+    </div>
+  </div>
+
+  <div class="admin-login" id="adminLogin">
+    <div class="admin-login-card">
+      <h3>Anmelden</h3>
+      <p>Mit dem Supabase-Login eingeben.</p>
+      <div class="admin-field">
+        <label>E-Mail</label>
+        <input type="email" id="adminEmailInput" autocomplete="username" />
+      </div>
+      <div class="admin-field">
+        <label>Passwort</label>
+        <input type="password" id="adminPwInput" autocomplete="current-password" onkeypress="if(event.key==='Enter')adminLogin()" />
+      </div>
+      <button class="btn btn-primary" onclick="adminLogin()">Anmelden</button>
+      <div class="admin-login-err" id="adminLoginErr">Login fehlgeschlagen.</div>
+    </div>
+  </div>
+
+  <div class="admin-body" id="adminBody" style="display:none;">
+    <aside class="admin-tabs">
+      <button class="admin-tab active" data-tab="general">Allgemein</button>
+      <button class="admin-tab" data-tab="prices">Preise &amp; Saisons</button>
+      <button class="admin-tab" data-tab="blocked">Belegte Tage</button>
+      <button class="admin-tab" data-tab="requests">Anfragen</button>
+      <button class="admin-tab" data-tab="gallery">Bilder</button>
+      <button class="admin-tab" data-tab="activities">Aktivitäten</button>
+      <button class="admin-tab" data-tab="service">Service-Links</button>
+      <button class="admin-tab" data-tab="email">E-Mail</button>
+      <button class="admin-tab" data-tab="texts">Texte</button>
+      <button class="admin-tab" data-tab="faq">FAQ</button>
+      <button class="admin-tab" data-tab="legal">Rechtstexte</button>
+      <button class="admin-tab" data-tab="password">Passwort</button>
+    </aside>
+    <main class="admin-content">
+
+      <section class="admin-section active" data-section="general">
+        <h3>Allgemein</h3>
+        <p class="section-desc">Basisinfos, Hero-Bild und Kontaktdaten.</p>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Name / Markenname</label><input type="text" data-set="brand" /></div>
+          <div class="admin-field"><label>Slogan (Hero-Eyebrow)</label><input type="text" data-set="hero_eyebrow" /></div>
+        </div>
+        <div class="admin-field">
+          <label>Hero-Titel (HTML erlaubt: &lt;em&gt; für Akzent)</label>
+          <textarea data-set="hero_title" style="min-height:60px;"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Hero-Untertitel</label>
+          <textarea data-set="hero_subtitle"></textarea>
+        </div>
+        <div class="admin-field">
+          <label>Hero-Bild URL</label>
+          <input type="url" data-set="hero_image" id="heroImgUrlInput" />
+          <div style="display:flex;gap:var(--s-2);align-items:center;margin-top:var(--s-2);">
+            <input type="file" accept="image/*" style="display:none" id="heroImgFileInput" onchange="handleHeroImageUpload(this)" />
+            <button type="button" class="upload-btn" onclick="document.getElementById('heroImgFileInput').click()">📷 Hero-Bild hochladen</button>
+          </div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Adresse</label><input type="text" data-set="address" /></div>
+          <div class="admin-field"><label>Google Maps Link</label><input type="url" data-set="maps_url" /></div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field"><label>Check-in Zeit</label><input type="text" data-set="checkin" /></div>
+          <div class="admin-field"><label>Check-out Zeit</label><input type="text" data-set="checkout" /></div>
+          <div class="admin-field"><label>Footer-Untertitel</label><input type="text" data-set="footer_tagline" /></div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field"><label>E-Mail</label><input type="email" data-set="contact_email" /></div>
+          <div class="admin-field"><label>Telefon</label><input type="tel" data-set="contact_phone" /></div>
+          <div class="admin-field"><label>WhatsApp (Nummer ohne +)</label><input type="tel" data-set="contact_whatsapp" /></div>
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <section class="admin-section" data-section="prices">
+        <h3>Preise &amp; Saisons</h3>
+        <p class="section-desc">Grundpreis, Aufpreise, Saisonzeiten und Multiplikatoren.</p>
+        <div class="admin-grid-3">
+          <div class="admin-field"><label>Grundpreis (4 Pers.) €/Nacht</label><input type="number" data-set="base_price" min="0" step="10" /></div>
+          <div class="admin-field"><label>Aufpreis Person 5 €/Nacht</label><input type="number" data-set="person5_surcharge" min="0" step="5" /></div>
+          <div class="admin-field"><label>Aufpreis Person 6 €/Nacht</label><input type="number" data-set="person6_surcharge" min="0" step="5" /></div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field"><label>Multiplikator Nebensaison</label><input type="number" data-set="mult_low" min="0" step="0.05" /></div>
+          <div class="admin-field"><label>Multiplikator Sommer</label><input type="number" data-set="mult_summer" min="0" step="0.05" /></div>
+          <div class="admin-field"><label>Multiplikator Winter</label><input type="number" data-set="mult_winter" min="0" step="0.05" /></div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Endreinigung € (einmalig)</label><input type="number" data-set="cleaning_fee" min="0" step="5" /></div>
+          <div class="admin-field"><label>Kurtaxe €/Person/Nacht</label><input type="number" data-set="tourism_tax" min="0" step="0.10" /></div>
+        </div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;margin:var(--s-6) 0 var(--s-3);">Saisonzeiten</h4>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Sommer Start (TT-MM)</label><input type="text" data-set="summer_start" placeholder="15-06" /></div>
+          <div class="admin-field"><label>Sommer Ende (TT-MM)</label><input type="text" data-set="summer_end" placeholder="15-09" /></div>
+          <div class="admin-field"><label>Winter Start (TT-MM)</label><input type="text" data-set="winter_start" placeholder="01-12" /></div>
+          <div class="admin-field"><label>Winter Ende (TT-MM)</label><input type="text" data-set="winter_end" placeholder="15-04" /></div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Mindest-Nächte</label><input type="number" data-set="min_nights" min="1" step="1" /></div>
+          <div class="admin-field"><label>Höchst-Nächte</label><input type="number" data-set="max_nights" min="1" step="1" /></div>
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button>
+        </div>
+      </section>
+
+      <section class="admin-section" data-section="blocked">
+        <h3>Belegte Zeiträume</h3>
+        <p class="section-desc">Manuell eingetragene Belegungen erscheinen rot im Kalender und blockieren die Buchung.</p>
+        <div id="blockedList" class="admin-list"></div>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin-bottom:var(--s-3);">Neuen Zeitraum hinzufügen</h4>
+        <div class="admin-grid-3">
+          <div class="admin-field"><label>Von</label><input type="date" id="newBlockStart" /></div>
+          <div class="admin-field"><label>Bis (Abreise)</label><input type="date" id="newBlockEnd" /></div>
+          <div class="admin-field"><label>Notiz</label><input type="text" id="newBlockNote" placeholder="z.B. Eigennutzung" /></div>
+        </div>
+        <button class="add-btn" onclick="addBlocked()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Zeitraum hinzufügen
+        </button>
+      </section>
+
+      <section class="admin-section" data-section="requests">
+        <h3>Anfragen &amp; Buchungen</h3>
+        <p class="section-desc">Alle Gäste-Anfragen. Bestätigte Buchungen werden automatisch im Kalender als belegt markiert.</p>
+        <div id="requestsList"></div>
+      </section>
+
+      <section class="admin-section" data-section="gallery">
+        <h3>Galerie-Bilder</h3>
+        <p class="section-desc">URL und Beschriftung jedes Galerie-Bildes. Optimal sind 8 Bilder.</p>
+        <div id="galleryAdminList" class="admin-list"></div>
+        <button class="add-btn" onclick="addGalleryItem()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Bild hinzufügen
+        </button>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button></div>
+      </section>
+
+      <section class="admin-section" data-section="activities">
+        <h3>Aktivitäten</h3>
+        <p class="section-desc">Winter- und Sommer-Aktivitäten im Montafon, frei editierbar.</p>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-4) 0 var(--s-3);">Winter</h4>
+        <div id="winterActList" class="admin-list"></div>
+        <button class="add-btn" onclick="addActivity('winter')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Winter-Aktivität hinzufügen
+        </button>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-7) 0 var(--s-3);">Sommer</h4>
+        <div id="summerActList" class="admin-list"></div>
+        <button class="add-btn" onclick="addActivity('summer')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Sommer-Aktivität hinzufügen
+        </button>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button></div>
+      </section>
+
+      <section class="admin-section" data-section="email">
+        <h3>E-Mail-Benachrichtigung</h3>
+        <p class="section-desc">Wenn ein Gast bucht oder anfragt, bekommst du sofort eine E-Mail. Verwendet EmailJS.</p>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Public Key</label><input type="text" id="emailPublicKey" placeholder="z.B. AbCdEfGhIjKlMnOp" /></div>
+          <div class="admin-field"><label>Service ID</label><input type="text" id="emailServiceId" placeholder="z.B. service_abc123" /></div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-field"><label>Template-ID „Owner"</label><input type="text" id="emailTemplateIdOwner" placeholder="z.B. template_owner_abc" /></div>
+          <div class="admin-field"><label>Template-ID „Customer"</label><input type="text" id="emailTemplateIdCustomer" placeholder="z.B. template_customer_xyz" /></div>
+        </div>
+        <div class="admin-field">
+          <label>Empfänger-E-Mail (Owner-Mail geht an dich)</label>
+          <input type="email" id="emailRecipient" placeholder="info@sonnenblick-montafon.at" />
+        </div>
+        <div class="admin-actions">
+          <button class="btn btn-ghost" onclick="testEmailSend()">Test-E-Mail senden</button>
+          <button class="btn btn-primary" onclick="saveEmailConfig()">Speichern</button>
+        </div>
+      </section>
+
+      <section class="admin-section" data-section="service">
+        <h3>Service-Links</h3>
+        <p class="section-desc">Externe Links (Wetter, Ausflugstipps, Webcams).</p>
+        <div id="serviceAdminList" class="admin-list"></div>
+        <button class="add-btn" onclick="addServiceLink()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Link hinzufügen
+        </button>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button></div>
+      </section>
+
+      <section class="admin-section" data-section="texts">
+        <h3>Seitentexte</h3>
+        <p class="section-desc">Alle Headlines und Beschreibungstexte der Webseite.</p>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-4) 0 var(--s-3);">Über die Wohnung</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="about_title" /></div>
+        <div class="admin-field"><label>Lead (kursiv)</label><textarea data-set="about_lead"></textarea></div>
+        <div class="admin-field"><label>Absatz 1</label><textarea data-set="about_p1"></textarea></div>
+        <div class="admin-field"><label>Absatz 2</label><textarea data-set="about_p2"></textarea></div>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-6) 0 var(--s-3);">Galerie</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="gallery_title" /></div>
+        <div class="admin-field"><label>Untertitel</label><input type="text" data-set="gallery_subtitle" /></div>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-6) 0 var(--s-3);">Lage</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="location_title" /></div>
+        <div class="admin-field"><label>Lead (kursiv)</label><textarea data-set="location_lead"></textarea></div>
+        <div class="admin-field"><label>Absatz</label><textarea data-set="location_p1"></textarea></div>
+        <h4 style="font-family:var(--font-serif);font-size:1.15rem;margin:var(--s-6) 0 var(--s-3);">Aktivitäten</h4>
+        <div class="admin-field"><label>Titel</label><input type="text" data-set="activities_title" /></div>
+        <div class="admin-field"><label>Untertitel</label><textarea data-set="activities_subtitle"></textarea></div>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button></div>
+      </section>
+
+      <section class="admin-section" data-section="faq">
+        <h3>FAQ</h3>
+        <p class="section-desc">Häufige Fragen und Antworten.</p>
+        <div id="faqAdminList" class="admin-list"></div>
+        <button class="add-btn" onclick="addFaqItem()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Frage hinzufügen
+        </button>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button></div>
+      </section>
+
+      <section class="admin-section" data-section="legal">
+        <h3>Rechtstexte</h3>
+        <p class="section-desc">Impressum, Datenschutzerklärung und AGB.</p>
+        <div class="admin-field"><label>Impressum</label><textarea data-set="impressum" style="min-height:200px;font-family:var(--font-sans);"></textarea></div>
+        <div class="admin-field"><label>Datenschutzerklärung</label><textarea data-set="datenschutz" style="min-height:200px;font-family:var(--font-sans);"></textarea></div>
+        <div class="admin-field"><label>AGB / Stornobedingungen</label><textarea data-set="agb" style="min-height:200px;font-family:var(--font-sans);"></textarea></div>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="saveAdmin()">Änderungen speichern</button></div>
+      </section>
+
+      <section class="admin-section" data-section="password">
+        <h3>Passwort ändern</h3>
+        <p class="section-desc">Neues Verwaltungs-Passwort festlegen.</p>
+        <div class="admin-field"><label>Neues Passwort</label><input type="password" id="newPw1" /></div>
+        <div class="admin-field"><label>Passwort wiederholen</label><input type="password" id="newPw2" /></div>
+        <div class="admin-actions"><button class="btn btn-primary" onclick="changePassword()">Passwort speichern</button></div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../app.js"></script>
+<script>
+// Auto-open admin on this page
+window.addEventListener('load', () => {
+  if (typeof openAdmin === 'function') openAdmin();
+});
+</script>
+</body>
+</html>

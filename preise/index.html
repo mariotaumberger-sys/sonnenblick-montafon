@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1C2419" />
+<meta name="description" content="Transparente Preise der Ferienwohnung Sonnenblick Montafon — Saisonpreise, Endreinigung und Kurtaxe." />
+<title>Preise · Sonnenblick Montafon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body data-base="..">
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    <span data-text="brand">Sonnenblick</span>
+  </a>
+  <div class="nav-links">
+    <a href="../wohnung/">Wohnung</a>
+    <a href="../galerie/">Galerie</a>
+    <a href="../lage/">Lage</a>
+    <a href="../preise/" class="active">Preise</a>
+    <a href="../buchen/">Buchung</a>
+    <a href="../kontakt/">Kontakt</a>
+  </div>
+  <a href="../buchen/" class="btn btn-primary nav-cta">Jetzt buchen</a>
+  <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
+</nav>
+
+<header class="subpage-hero">
+  <div class="container">
+    <div class="eyebrow">Transparente Preise</div>
+    <h1>Was Ihr Aufenthalt kostet.</h1>
+    <p>Klar kalkuliert · keine versteckten Gebühren · nur das Datum bestimmt den Preis.</p>
+  </div>
+</header>
+
+<main id="main">
+<section class="prices" id="prices">
+  <div class="container">
+    <div class="prices-table reveal">
+      <div class="price-row header">
+        <div class="price-name">Zeitraum</div>
+        <div class="price-period">Multiplikator</div>
+        <div class="price-amount">Pro Nacht (4 Pers.)</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Nebensaison</div>
+        <div class="price-period" id="rowLowPeriod">Außerhalb Sommer &amp; Winter</div>
+        <div class="price-amount" id="rowLowAmount">€400</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Sommer</div>
+        <div class="price-period" id="rowSummerPeriod">15. Juni – 15. September</div>
+        <div class="price-amount" id="rowSummerAmount">€480</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Winter</div>
+        <div class="price-period" id="rowWinterPeriod">1. Dezember – 15. April</div>
+        <div class="price-amount" id="rowWinterAmount">€520</div>
+      </div>
+      <div class="price-row" style="background: rgba(255,255,255,0.02);">
+        <div class="price-name">Person 5</div>
+        <div class="price-period">Aufpreis pro Nacht</div>
+        <div class="price-amount" id="rowP5">+€100</div>
+      </div>
+      <div class="price-row" style="background: rgba(255,255,255,0.02);">
+        <div class="price-name">Person 6</div>
+        <div class="price-period">Aufpreis pro Nacht</div>
+        <div class="price-amount" id="rowP6">+€100</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Endreinigung</div>
+        <div class="price-period">einmalig</div>
+        <div class="price-amount" id="rowClean">€90</div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Kurtaxe</div>
+        <div class="price-period">pro Person &amp; Nacht</div>
+        <div class="price-amount" id="rowTax">€2,20</div>
+      </div>
+    </div>
+    <p class="price-fine">Der Grundpreis von €400/Nacht gilt für 4 Personen. Person 5 und 6 jeweils mit Aufpreis. Die Saison wird pro Nacht abgerechnet — der Kalender auf der Buchungsseite zeigt Ihnen den exakten Preis für jedes Datum.</p>
+    <div style="text-align:center; margin-top: var(--s-7);">
+      <a href="../buchen/" class="btn btn-gold">Verfügbarkeit prüfen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="nav-logo-mark"></span>
+          <span data-text="brand">Sonnenblick</span>
+        </div>
+        <p class="footer-tagline" data-text="footer_tagline"></p>
+      </div>
+      <div class="footer-col">
+        <h4>Entdecken</h4>
+        <ul>
+          <li><a href="../wohnung/">Die Wohnung</a></li>
+          <li><a href="../galerie/">Galerie</a></li>
+          <li><a href="../lage/">Lage</a></li>
+          <li><a href="../preise/">Preise</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Buchen</h4>
+        <ul>
+          <li><a href="../buchen/">Verfügbarkeit</a></li>
+          <li><a href="../kontakt/">Anfrage</a></li>
+          <li><a href="../kontakt/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#" onclick="openLegal('impressum');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a></li>
+          <li><a href="#" onclick="openLegal('agb');return false;">AGB</a></li>
+          <li><a href="../kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="copyYear"></span> <span data-text="brand">Sonnenblick</span> Montafon. Alle Rechte vorbehalten.</span>
+      <span>Bartholomäberg · Vorarlberg · Österreich</span>
+    </div>
+  </div>
+</footer>
+
+<div class="admin-dot" id="adminDot" title=""></div>
+
+<div class="modal-backdrop" id="legalModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="legalTitle"></h3>
+      <button class="modal-close" onclick="closeModal('legalModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="legal-content" id="legalContent"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../app.js"></script>
+</body>
+</html>
