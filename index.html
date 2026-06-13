@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#23271F" />
+<meta name="theme-color" content="#1C2419" />
 <meta name="description" content="Sonnenblick Montafon — Luxus-Ferienwohnung in Bartholomäberg, Vorarlberg. 78 m², 2 Schlafzimmer, Bergblick und Südlage im Herzen des Montafon." />
-<title>Sonnenblick Montafon · Luxus-Ferienwohnung in Bartholomäberg</title>
+<title>Sonnenblick · Bartholomäberg Mountain Retreat</title>
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_AT" />
-<meta property="og:title" content="Sonnenblick Montafon · Luxus-Ferienwohnung in Bartholomäberg" />
+<meta property="og:title" content="Sonnenblick · Bartholomäberg Mountain Retreat" />
 <meta property="og:description" content="78 m², 2 Schlafzimmer, Südlage und Panoramablick. Eine neue Luxus-Ferienwohnung im Herzen des Montafon." />
-<meta property="og:site_name" content="Sonnenblick Montafon" />
+<meta property="og:site_name" content="Sonnenblick" />
 <meta property="og:image" content="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,12 +20,12 @@
 <link rel="stylesheet" href="styles.css" />
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
-<body data-base=".">
+<body data-base="." class="home-min">
 
 <a href="#main" class="skip-link">Zum Inhalt springen</a>
 
-<!-- NAVIGATION -->
-<nav class="nav" id="nav">
+<!-- TRANSPARENT NAV -->
+<nav class="nav nav-transparent" id="nav">
   <a href="./" class="nav-logo">
     <span class="nav-logo-mark"></span>
     <span data-text="brand">Sonnenblick</span>
@@ -43,171 +43,41 @@
   <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
 </nav>
 
-<!-- HERO -->
-<header class="hero" id="top">
+<!-- HERO ONLY -->
+<header class="hero" id="main">
   <div class="hero-media" id="heroMedia">
     <img id="heroImg" alt="Alpenpanorama Bartholomäberg im Montafon" loading="eager" />
   </div>
   <div class="hero-content">
-    <div class="hero-eyebrow reveal" data-text="hero_eyebrow">Bartholomäberg · Montafon · Vorarlberg</div>
-    <h1 class="reveal reveal-delay-1" id="heroTitle"></h1>
-    <p class="hero-sub reveal reveal-delay-2" data-text="hero_subtitle"></p>
-    <div class="hero-ctas reveal reveal-delay-3">
+    <div class="brand-stack reveal">
+      <svg class="brand-mark" viewBox="0 0 240 130" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- Sun -->
+        <circle cx="120" cy="58" r="22" />
+        <!-- Left peak -->
+        <path d="M10 115 L48 60 L88 115" />
+        <path d="M48 60 L65 115" stroke-opacity="0.55" />
+        <!-- Center peak (tallest) -->
+        <path d="M68 115 L118 24 L168 115" />
+        <path d="M118 24 L144 115" stroke-opacity="0.55" />
+        <!-- Right peak -->
+        <path d="M152 115 L188 50 L226 115" />
+        <path d="M188 50 L207 115" stroke-opacity="0.55" />
+        <!-- Baseline -->
+        <path d="M0 120 L240 120" stroke-opacity="0.32" />
+      </svg>
+      <div class="brand-name">SONNENBLICK</div>
+      <div class="brand-sub">Bartholomäberg Mountain Retreat</div>
+    </div>
+    <div class="hero-cta-only reveal reveal-delay-2">
       <a href="buchen/" class="btn btn-gold">Verfügbarkeit prüfen
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <a href="galerie/" class="btn btn-light">Galerie ansehen</a>
-    </div>
-  </div>
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-      <span>78 m² · 2 Schlafzimmer</span>
-    </div>
-    <div class="hero-scroll">
-      <span>Entdecken</span>
-      <div class="hero-scroll-line"></div>
-    </div>
-    <div class="hero-meta-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a7 7 0 017 7c0 5-7 13-7 13S5 13 5 8a7 7 0 017-7z"/><circle cx="12" cy="8" r="2.5"/></svg>
-      <span>1.087 m über dem Meer</span>
     </div>
   </div>
 </header>
 
-<!-- HOME OVERVIEW: minimal, editorial teaser to subpages -->
-<main id="main">
-<section class="about" style="padding-bottom: var(--s-7);">
-  <div class="container">
-    <div class="section-head reveal" style="margin-bottom: var(--s-7);">
-      <div class="divider"></div>
-      <div class="eyebrow">Übersicht</div>
-      <h2>Eine Ferienwohnung. Ein Ort. Ein Versprechen von Ruhe.</h2>
-      <p>Entdecken Sie alles, was den Sonnenblick ausmacht — in eigenen, ruhig gestalteten Kapiteln.</p>
-    </div>
-
-    <div class="home-tiles reveal">
-      <a class="home-tile" href="wohnung/">
-        <div class="home-tile-num">01</div>
-        <h3>Die Wohnung</h3>
-        <p>78 m², zwei Schlafzimmer, offener Wohnraum mit Südfront.</p>
-        <span class="home-tile-cta">Ansehen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a class="home-tile" href="galerie/">
-        <div class="home-tile-num">02</div>
-        <h3>Galerie</h3>
-        <p>Räume, Materialien, das Licht der Berge — in Bildern.</p>
-        <span class="home-tile-cta">Ansehen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a class="home-tile" href="lage/">
-        <div class="home-tile-num">03</div>
-        <h3>Der Ort</h3>
-        <p>Bartholomäberg, das Montafon und seine Stille.</p>
-        <span class="home-tile-cta">Ansehen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a class="home-tile" href="aktivitaeten/">
-        <div class="home-tile-num">04</div>
-        <h3>Aktivitäten</h3>
-        <p>Skigebiete, Wanderwege, Touren — Winter und Sommer.</p>
-        <span class="home-tile-cta">Ansehen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a class="home-tile" href="preise/">
-        <div class="home-tile-num">05</div>
-        <h3>Preise</h3>
-        <p>Klar kalkuliert. Keine versteckten Gebühren.</p>
-        <span class="home-tile-cta">Ansehen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a class="home-tile home-tile-feature" href="buchen/">
-        <div class="home-tile-num">06</div>
-        <h3>Jetzt buchen</h3>
-        <p>Verfügbarkeit prüfen und Aufenthalt anfragen.</p>
-        <span class="home-tile-cta">Zum Kalender
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-      <a class="home-tile" href="kontakt/">
-        <div class="home-tile-num">07</div>
-        <h3>Kontakt &amp; FAQ</h3>
-        <p>Persönliche Beratung und Antworten auf häufige Fragen.</p>
-        <span class="home-tile-cta">Ansehen
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <span class="nav-logo-mark"></span>
-          <span data-text="brand">Sonnenblick</span>
-        </div>
-        <p class="footer-tagline" data-text="footer_tagline"></p>
-      </div>
-      <div class="footer-col">
-        <h4>Entdecken</h4>
-        <ul>
-          <li><a href="wohnung/">Die Wohnung</a></li>
-          <li><a href="galerie/">Galerie</a></li>
-          <li><a href="lage/">Ort</a></li>
-          <li><a href="preise/">Preise</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Buchen</h4>
-        <ul>
-          <li><a href="buchen/">Verfügbarkeit</a></li>
-          <li><a href="kontakt/">Anfrage</a></li>
-          <li><a href="kontakt/#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="#" onclick="openLegal('impressum');return false;">Impressum</a></li>
-          <li><a href="#" onclick="openLegal('datenschutz');return false;">Datenschutz</a></li>
-          <li><a href="#" onclick="openLegal('agb');return false;">AGB</a></li>
-          <li><a href="kontakt/">Kontakt</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="copyYear"></span> <span data-text="brand">Sonnenblick</span> Montafon. Alle Rechte vorbehalten.</span>
-      <span>Bartholomäberg · Vorarlberg · Österreich</span>
-    </div>
-  </div>
-</footer>
-
 <!-- Hidden admin dot -->
 <div class="admin-dot" id="adminDot" title=""></div>
-
-<!-- LEGAL MODAL -->
-<div class="modal-backdrop" id="legalModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title" id="legalTitle"></h3>
-      <button class="modal-close" onclick="closeModal('legalModal')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    </div>
-    <div class="modal-body">
-      <div class="legal-content" id="legalContent"></div>
-    </div>
-  </div>
-</div>
 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
