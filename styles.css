@@ -3,28 +3,28 @@
    Alpine Luxury / Editorial
    ============================================================ */
 :root {
-  /* Palette — warm, deep, editorial */
-  --bg: #ECE3D0;
-  --bg-elev: #F4ECD9;
-  --bg-deep: #DDD0B3;
-  --bg-card: #F9F2DF;
-  --ink: #1C2419;
-  --ink-soft: #3A4339;
-  --ink-mute: #6B7163;
-  --line: #D5C9AC;
-  --line-soft: #E3D9BE;
-  --forest: #2D4A3E;
-  --forest-deep: #1B3027;
-  --wood: #6B5840;
-  --gold: #B8893A;
-  --gold-soft: #D4AC6A;
-  --gold-tint: rgba(184, 137, 58, 0.14);
+  /* Palette — Alpine Stein: cool off-white, slate ink, sage accent */
+  --bg: #F0EFEC;
+  --bg-elev: #E8E7E2;
+  --bg-deep: #D6D5D0;
+  --bg-card: #FAFAF8;
+  --ink: #2C2E30;
+  --ink-soft: #4A4D50;
+  --ink-mute: #7A7D80;
+  --line: #D5D4CF;
+  --line-soft: #E5E4DF;
+  --forest: #3A4138;
+  --forest-deep: #23271F;
+  --wood: #6B6760;
+  --gold: #7B8267;
+  --gold-soft: #98A084;
+  --gold-tint: rgba(123, 130, 103, 0.12);
   --red: #A53A2A;
   --red-soft: rgba(165, 58, 42, 0.10);
-  --shadow-sm: 0 1px 2px rgba(28, 36, 25, 0.04), 0 1px 3px rgba(28, 36, 25, 0.06);
-  --shadow-md: 0 4px 12px rgba(28, 36, 25, 0.06), 0 2px 4px rgba(28, 36, 25, 0.04);
-  --shadow-lg: 0 16px 40px rgba(28, 36, 25, 0.10), 0 4px 12px rgba(28, 36, 25, 0.06);
-  --shadow-xl: 0 32px 80px rgba(28, 36, 25, 0.16);
+  --shadow-sm: 0 1px 2px rgba(28, 30, 32, 0.03), 0 1px 3px rgba(28, 30, 32, 0.05);
+  --shadow-md: 0 4px 12px rgba(28, 30, 32, 0.05), 0 2px 4px rgba(28, 30, 32, 0.04);
+  --shadow-lg: 0 16px 40px rgba(28, 30, 32, 0.08), 0 4px 12px rgba(28, 30, 32, 0.05);
+  --shadow-xl: 0 32px 80px rgba(28, 30, 32, 0.13);
 
   /* Typography */
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5 {
   margin: 0;
   line-height: 1.15;
 }
-h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h1 { font-size: clamp(2.75rem, 7vw, 5.25rem); line-height: 1.02; }
 h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); }
 h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
 p { margin: 0; }
@@ -150,9 +150,9 @@ section {
   font-size: 1.05rem;
 }
 .divider {
-  width: 48px;
+  width: 32px;
   height: 1px;
-  background: var(--gold);
+  background: var(--line);
   margin: 0 auto var(--s-4);
 }
 
@@ -212,33 +212,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-items: center;
   justify-content: center;
   gap: var(--s-2);
-  padding: var(--s-4) var(--s-6);
-  border-radius: var(--r-full);
+  padding: var(--s-3) var(--s-5);
+  border-radius: 2px;
   font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: transform var(--d-fast) var(--ease-out),
               background-color var(--d-fast) var(--ease-out),
               color var(--d-fast) var(--ease-out),
+              border-color var(--d-fast) var(--ease-out),
               box-shadow var(--d-fast) var(--ease-out);
   cursor: pointer;
   white-space: nowrap;
 }
 .btn-primary {
   background: var(--ink);
-  color: var(--bg-elev);
+  color: var(--bg);
 }
 .btn-primary:hover {
   background: var(--forest-deep);
-  box-shadow: 0 8px 24px rgba(28, 36, 25, 0.18);
 }
 .btn-gold {
-  background: var(--gold);
-  color: #fff;
+  background: var(--ink);
+  color: var(--bg);
 }
 .btn-gold:hover {
-  background: #A37A30;
-  box-shadow: 0 8px 24px rgba(184, 137, 58, 0.32);
+  background: var(--forest-deep);
 }
 .btn-ghost {
   background: transparent;
@@ -247,12 +247,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .btn-ghost:hover {
   background: var(--ink);
-  color: var(--bg-elev);
+  color: var(--bg);
 }
 .btn-light {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(250, 250, 248, 0.95);
   color: var(--ink);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 .btn-light:hover {
   background: #fff;
@@ -281,7 +282,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   left: var(--s-4);
   right: var(--s-4);
   z-index: 100;
-  background: rgba(236, 227, 208, 0.78);
+  background: rgba(240, 239, 236, 0.78);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   border: 1px solid rgba(213, 201, 172, 0.6);
@@ -446,8 +447,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(28, 36, 25, 0.45) 0%, rgba(28, 36, 25, 0.15) 35%, rgba(28, 36, 25, 0.65) 100%),
-    radial-gradient(ellipse at 50% 65%, rgba(28, 36, 25, 0) 40%, rgba(28, 36, 25, 0.35) 100%);
+    linear-gradient(180deg, rgba(28, 30, 32, 0.45) 0%, rgba(28, 30, 32, 0.15) 35%, rgba(28, 30, 32, 0.65) 100%),
+    radial-gradient(ellipse at 50% 65%, rgba(28, 30, 32, 0) 40%, rgba(28, 30, 32, 0.35) 100%);
 }
 .hero-content {
   position: relative;
@@ -476,22 +477,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: rgba(255, 255, 255, 0.7);
 }
 .hero h1 {
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--s-5);
-  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--s-6);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
 }
 .hero h1 em {
   font-style: italic;
-  color: var(--gold-soft);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
 }
 .hero-sub {
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   font-weight: 300;
   max-width: 540px;
   margin: 0 auto var(--s-7);
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  letter-spacing: 0.005em;
 }
 .hero-ctas {
   display: flex;
@@ -558,7 +561,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    ============================================================ */
 .about {
   background:
-    radial-gradient(ellipse at 80% 20%, rgba(184, 137, 58, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(123, 130, 103, 0.06) 0%, transparent 55%),
     var(--bg);
 }
 .about-grid {
@@ -720,7 +723,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(28, 36, 25, 0.55) 100%);
+  background: linear-gradient(180deg, transparent 50%, rgba(28, 30, 32, 0.55) 100%);
   opacity: 0;
   transition: opacity var(--d-fast) var(--ease-out);
 }
@@ -941,27 +944,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    Activities
    ============================================================ */
 .activities {
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(184, 137, 58, 0.08) 0%, transparent 60%),
-    var(--forest-deep);
-  color: var(--bg);
+  background: var(--bg);
+  color: var(--ink);
   position: relative;
   overflow: hidden;
 }
-.activities h2 { color: var(--bg); }
-.activities .eyebrow { color: var(--gold-soft); }
-.activities .section-head p { color: rgba(245, 241, 234, 0.65); }
-.activities .divider { background: var(--gold-soft); }
-.activities .activity-tab { color: rgba(245, 241, 234, 0.55); }
-.activities .activity-tab:hover { color: var(--bg); }
+.activities h2 { color: var(--ink); }
+.activities .eyebrow { color: var(--ink-mute); }
+.activities .section-head p { color: var(--ink-soft); }
+.activities .activity-tab { color: var(--ink-mute); }
+.activities .activity-tab:hover { color: var(--ink); }
 .activities .activity-tab.active {
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
 }
 .activities .activity-card {
   background: var(--bg-card);
-  border-color: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--line-soft);
+  box-shadow: none;
   color: var(--ink);
 }
 .activities .activity-card h3 { color: var(--ink); }
@@ -976,11 +976,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .activity-tab {
   padding: var(--s-3) var(--s-6);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  border-radius: var(--r-full);
+  border-radius: 2px;
   color: var(--ink-mute);
   transition: background var(--d-fast) var(--ease-out), color var(--d-fast) var(--ease-out);
   cursor: pointer;
@@ -1011,7 +1011,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .activity-card {
   background: var(--bg-card);
   border: 1px solid var(--line-soft);
-  border-radius: var(--r-lg);
+  border-radius: 2px;
   overflow: hidden;
   transition: transform var(--d-med) var(--ease-out),
               box-shadow var(--d-med) var(--ease-out),
@@ -1043,7 +1043,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(28,36,25,0) 60%, rgba(28,36,25,0.18) 100%);
+  background: linear-gradient(180deg, rgba(28, 30, 32,0) 60%, rgba(28, 30, 32,0.18) 100%);
   pointer-events: none;
 }
 .activity-icon-badge {
@@ -1222,12 +1222,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    ============================================================ */
 .prices {
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(184, 137, 58, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(123, 130, 103, 0.06) 0%, transparent 60%),
     var(--forest-deep);
   color: var(--bg);
 }
 .prices h2 { color: var(--bg); }
-.prices .section-head p { color: rgba(245, 241, 234, 0.7); }
+.prices .section-head p { color: rgba(240, 239, 236, 0.7); }
 .prices-table {
   background: rgba(255, 255, 255, 0.04);
   border-radius: var(--r-lg);
@@ -1250,7 +1250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.55);
+  color: rgba(240, 239, 236, 0.55);
 }
 .price-name {
   font-family: var(--font-serif);
@@ -1260,7 +1260,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .price-row.header .price-name { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; }
 .price-period {
   font-size: 0.85rem;
-  color: rgba(245, 241, 234, 0.6);
+  color: rgba(240, 239, 236, 0.6);
   text-align: right;
 }
 .price-amount {
@@ -1271,13 +1271,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   text-align: right;
   white-space: nowrap;
 }
-.price-row.header .price-amount { font-family: var(--font-sans); font-size: 0.78rem; color: rgba(245, 241, 234, 0.55); font-weight: 500; }
+.price-row.header .price-amount { font-family: var(--font-sans); font-size: 0.78rem; color: rgba(240, 239, 236, 0.55); font-weight: 500; }
 .price-fine {
   max-width: 880px;
   margin: var(--s-6) auto 0;
   text-align: center;
   font-size: 0.85rem;
-  color: rgba(245, 241, 234, 0.55);
+  color: rgba(240, 239, 236, 0.55);
   line-height: 1.7;
 }
 
@@ -1292,7 +1292,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    ============================================================ */
 .booking {
   background:
-    radial-gradient(ellipse at 20% 30%, rgba(184, 137, 58, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 30%, rgba(123, 130, 103, 0.06) 0%, transparent 50%),
     var(--bg);
 }
 .booking-wrap {
@@ -1787,7 +1787,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    ============================================================ */
 .footer {
   background: var(--ink);
-  color: rgba(245, 241, 234, 0.7);
+  color: rgba(240, 239, 236, 0.7);
   padding: var(--s-9) 0 var(--s-5);
 }
 .footer-grid {
@@ -1833,7 +1833,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .footer-col a:hover { color: var(--gold-soft); }
 .footer-bottom {
-  border-top: 1px solid rgba(245, 241, 234, 0.12);
+  border-top: 1px solid rgba(240, 239, 236, 0.12);
   padding-top: var(--s-5);
   display: flex;
   justify-content: space-between;
@@ -1859,7 +1859,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(245, 241, 234, 0.3);
+  background: rgba(240, 239, 236, 0.3);
   z-index: 80;
   cursor: pointer;
   transition: background var(--d-fast), transform var(--d-fast);
@@ -2344,28 +2344,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 280px;
-  padding: var(--s-6);
+  min-height: 320px;
+  padding: var(--s-7) var(--s-6);
   background: var(--bg-card);
   border: 1px solid var(--line-soft);
-  border-radius: var(--r-lg);
+  border-radius: 2px;
   color: var(--ink);
   text-decoration: none;
   transition: border-color var(--d-med) var(--ease-out),
-              transform var(--d-med) var(--ease-out),
-              box-shadow var(--d-med) var(--ease-out),
               background var(--d-med) var(--ease-out);
 }
 .home-tile:hover {
-  border-color: var(--gold);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--ink);
+  background: var(--bg-elev);
 }
 .home-tile-num {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
-  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
 }
 .home-tile h3 {
   font-family: var(--font-serif);
@@ -2386,15 +2385,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   align-items: center;
   gap: var(--s-2);
   margin-top: var(--s-5);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink);
   font-weight: 500;
+  align-self: flex-start;
 }
 .home-tile-cta svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   transition: transform var(--d-med) var(--ease-out);
 }
 .home-tile:hover .home-tile-cta svg {
@@ -2409,15 +2411,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .home-tile-feature .home-tile-cta {
   color: var(--bg);
 }
+.home-tile-feature .home-tile-cta {
+  border-bottom-color: var(--bg);
+}
 .home-tile-feature p {
-  color: rgba(236, 227, 208, 0.78);
+  color: rgba(240, 239, 236, 0.75);
 }
 .home-tile-feature .home-tile-num {
   color: var(--gold-soft);
 }
 .home-tile-feature:hover {
   background: var(--forest-deep);
-  border-color: var(--gold);
+  border-color: var(--forest-deep);
 }
 @media (max-width: 900px) {
   .home-tiles { grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
@@ -2436,7 +2441,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--bg-elev);
   border-bottom: 1px solid var(--line-soft);
 }
-.subpage-hero .eyebrow { color: var(--gold); }
+.subpage-hero .eyebrow { color: var(--ink-mute); }
 .subpage-hero h1 {
   font-family: var(--font-serif);
   font-weight: 500;

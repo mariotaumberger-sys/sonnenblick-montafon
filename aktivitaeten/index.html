@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#23271F" />
-<meta name="description" content="Bartholomäberg im Montafon — Lage der Ferienwohnung Sonnenblick mit Bergbahnen, Wanderwegen und Skigebieten in der Nähe." />
-<title>Der Ort · Sonnenblick Montafon</title>
+<meta name="description" content="Aktivitäten im Montafon — Winter und Sommer rund um die Ferienwohnung Sonnenblick in Bartholomäberg." />
+<title>Aktivitäten · Sonnenblick Montafon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -24,8 +24,8 @@
   <div class="nav-links">
     <a href="../wohnung/">Wohnung</a>
     <a href="../galerie/">Galerie</a>
-    <a href="../lage/" class="active">Ort</a>
-    <a href="../aktivitaeten/">Aktivitäten</a>
+    <a href="../lage/">Ort</a>
+    <a href="../aktivitaeten/" class="active">Aktivitäten</a>
     <a href="../preise/">Preise</a>
     <a href="../buchen/">Buchen</a>
     <a href="../kontakt/">Kontakt</a>
@@ -36,47 +36,26 @@
 
 <header class="subpage-hero">
   <div class="container">
-    <div class="eyebrow">Der Ort</div>
-    <h1 data-text="location_title">Im stillen Herzen des Montafon.</h1>
-    <p data-text="location_lead"></p>
+    <div class="eyebrow">Aktivitäten</div>
+    <h1 data-text="activities_title">Was vor der Haustür wartet.</h1>
+    <p data-text="activities_subtitle"></p>
   </div>
 </header>
 
 <main id="main">
-<section class="location" id="location">
+<section class="activities" id="activities" style="padding-top: var(--s-7);">
   <div class="container">
-    <div class="location-grid">
-      <div class="location-text reveal">
-        <p data-text="location_p1"></p>
-        <div class="location-features">
-          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Hochjoch Bahn</strong><span>5 km · 8 Min · direkt nebenan in Schruns</span></div></div>
-          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Golm Bergbahnen</strong><span>10 km · 15 Min · Sommer &amp; Winter</span></div></div>
-          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Silvretta Montafon</strong><span>140 km Pisten · in 12 Min erreichbar</span></div></div>
-          <div class="loc-feature"><div class="loc-feature-dot"></div><div class="loc-feature-text"><strong>Wanderwege</strong><span>direkt ab Haustür</span></div></div>
-        </div>
-        <a class="btn btn-primary" id="mapsLink" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a7 7 0 017 7c0 5-7 13-7 13S5 13 5 8a7 7 0 017-7z"/><circle cx="12" cy="8" r="2.5"/></svg>
-          In Google Maps öffnen
-        </a>
-      </div>
-      <div class="location-map reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80" alt="Alpenlandschaft Montafon" loading="lazy" />
-        <div class="location-pin">
-          <div class="location-pin-label">Sonnenblick</div>
-          <div class="location-pin-marker"></div>
-        </div>
-      </div>
+    <div class="activities-tabs reveal">
+      <button class="activity-tab active" data-pane="winter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4 4l16 16M20 4L4 20"/></svg>
+        Winter
+      </button>
+      <button class="activity-tab" data-pane="summer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        Sommer
+      </button>
     </div>
-  </div>
-</section>
-
-<section style="padding-bottom: var(--s-8);">
-  <div class="container" style="text-align:center;">
-    <div class="divider"></div>
-    <div class="eyebrow" style="margin-bottom: var(--s-3);">Mehr entdecken</div>
-    <a href="../aktivitaeten/" class="btn btn-ghost">Aktivitäten im Montafon
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
+    <div class="activities-grid reveal" id="activitiesGrid"></div>
   </div>
 </section>
 </main>
