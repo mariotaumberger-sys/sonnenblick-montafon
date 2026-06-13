@@ -2466,102 +2466,149 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ============================================================
-   HOME — minimal hero-only layout
+   HOME — split: cream + brand on left, photo on right
    ============================================================ */
 .home-min { overflow: hidden; }
-.home-min .hero { min-height: 100vh; height: 100dvh; }
-.home-min .hero-content {
+.home-min body, body.home-min { overflow: hidden; }
+
+.home-split {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+}
+.home-split-content {
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: var(--s-8) var(--s-6);
   text-align: center;
-  gap: var(--s-7);
-  padding: 0 var(--s-5);
+  position: relative;
 }
-.home-min .hero-media::after {
-  background: linear-gradient(180deg, rgba(28, 36, 25, 0.30) 0%, rgba(28, 36, 25, 0.55) 100%);
+.home-split-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+.home-split-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.home-split-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(28, 36, 25, 0.08) 0%, rgba(28, 36, 25, 0.18) 100%);
+  pointer-events: none;
 }
 
-/* Brand stack: mark + name + tagline */
+/* Brand stack — on cream */
 .brand-stack {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--bg);
+  color: var(--ink);
+  max-width: 480px;
 }
 .brand-mark {
-  width: clamp(160px, 22vw, 240px);
+  width: clamp(110px, 16vw, 180px);
   height: auto;
-  color: rgba(245, 241, 234, 0.95);
+  color: var(--ink);
   margin-bottom: var(--s-5);
-  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.18));
 }
+.brand-mark .sun-disc { fill: var(--gold); }
 .brand-name {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: clamp(2.6rem, 7.5vw, 5.5rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
   line-height: 1;
   letter-spacing: 0.22em;
-  color: var(--bg);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+  color: var(--ink);
   text-indent: 0.22em;
 }
 .brand-sub {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(0.7rem, 1vw, 0.82rem);
+  font-size: clamp(0.68rem, 0.9vw, 0.78rem);
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.78);
+  color: var(--ink-mute);
   margin-top: var(--s-4);
   text-indent: 0.32em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .brand-sub::before, .brand-sub::after {
   content: "";
   display: inline-block;
   width: 22px;
   height: 1px;
-  background: rgba(245, 241, 234, 0.5);
-  vertical-align: middle;
+  background: var(--line);
   margin: 0 var(--s-3);
 }
-.home-min .hero-cta-only {
+.home-split-cta {
   display: flex;
   justify-content: center;
+  margin-top: var(--s-8);
 }
-.home-min .hero-cta-only .btn {
+.home-split-cta .btn {
   padding: var(--s-4) var(--s-7);
   font-size: 0.82rem;
   letter-spacing: 0.18em;
 }
-@media (max-width: 600px) {
-  .brand-sub::before, .brand-sub::after { width: 14px; margin: 0 var(--s-2); }
-  .home-min .hero-content { gap: var(--s-6); }
+
+/* Decorative location chip at bottom-left of cream side */
+.home-loc-chip {
+  position: absolute;
+  bottom: var(--s-6);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
 }
 
-/* Transparent nav variant for the minimal home */
+@media (max-width: 900px) {
+  .home-split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 38vh 1fr;
+  }
+  .home-split-image { order: -1; }
+  .home-split-content { padding: var(--s-6) var(--s-5); }
+  .home-loc-chip { bottom: var(--s-5); }
+}
+@media (max-width: 600px) {
+  .brand-sub::before, .brand-sub::after { width: 14px; margin: 0 var(--s-2); }
+  .home-split { grid-template-rows: 32vh 1fr; }
+}
+
+/* Transparent nav variant — over cream + photo split */
 .nav-transparent {
   background: transparent;
   border-bottom: none;
 }
 .nav-transparent .nav-logo,
-.nav-transparent .nav-links a,
-.nav-transparent .nav-cta {
-  color: var(--bg);
-}
-.nav-transparent .nav-links a:hover { color: var(--gold-soft); }
-.nav-transparent .nav-cta {
-  background: rgba(245, 241, 234, 0.12);
-  border: 1px solid rgba(245, 241, 234, 0.35);
-  color: var(--bg);
-  backdrop-filter: blur(10px);
-}
-.nav-transparent .nav-cta:hover {
-  background: var(--bg);
+.nav-transparent .nav-links a {
   color: var(--ink);
 }
+.nav-transparent .nav-links a:hover { color: var(--gold); }
+.nav-transparent .nav-cta {
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: var(--bg);
+}
+.nav-transparent .nav-cta:hover {
+  background: var(--forest-deep);
+}
 .nav-transparent.scrolled {
-  background: rgba(28, 36, 25, 0.85);
+  background: rgba(236, 227, 208, 0.92);
   backdrop-filter: blur(12px);
 }

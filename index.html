@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#1C2419" />
+<meta name="theme-color" content="#ECE3D0" />
 <meta name="description" content="Sonnenblick Montafon — Luxus-Ferienwohnung in Bartholomäberg, Vorarlberg. 78 m², 2 Schlafzimmer, Bergblick und Südlage im Herzen des Montafon." />
 <title>Sonnenblick · Bartholomäberg Mountain Retreat</title>
 
@@ -43,38 +43,37 @@
   <button class="nav-toggle" aria-label="Menü öffnen" id="navToggle"><span></span></button>
 </nav>
 
-<!-- HERO ONLY -->
-<header class="hero" id="main">
-  <div class="hero-media" id="heroMedia">
-    <img id="heroImg" alt="Alpenpanorama Bartholomäberg im Montafon" loading="eager" />
-  </div>
-  <div class="hero-content">
+<!-- SPLIT HERO -->
+<main class="home-split" id="main">
+  <!-- Left: brand on cream -->
+  <section class="home-split-content">
     <div class="brand-stack reveal">
-      <svg class="brand-mark" viewBox="0 0 240 130" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <!-- Sun -->
-        <circle cx="120" cy="58" r="22" />
-        <!-- Left peak -->
-        <path d="M10 115 L48 60 L88 115" />
-        <path d="M48 60 L65 115" stroke-opacity="0.55" />
-        <!-- Center peak (tallest) -->
-        <path d="M68 115 L118 24 L168 115" />
-        <path d="M118 24 L144 115" stroke-opacity="0.55" />
-        <!-- Right peak -->
-        <path d="M152 115 L188 50 L226 115" />
-        <path d="M188 50 L207 115" stroke-opacity="0.55" />
-        <!-- Baseline -->
-        <path d="M0 120 L240 120" stroke-opacity="0.32" />
+      <svg class="brand-mark" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Sun: filled gold disc, partially behind central peak -->
+        <circle class="sun-disc" cx="130" cy="48" r="26" />
+        <!-- 3 mountain peaks: solid filled silhouettes (center shorter so sun shows) -->
+        <path d="M14 118 L66 62 L114 118 Z" fill="currentColor" />
+        <path d="M78 118 L130 34 L186 118 Z" fill="currentColor" />
+        <path d="M156 118 L204 56 L246 118 Z" fill="currentColor" />
+        <!-- Thin baseline -->
+        <line x1="0" y1="124" x2="260" y2="124" stroke="currentColor" stroke-width="1" stroke-opacity="0.3" />
       </svg>
       <div class="brand-name">SONNENBLICK</div>
-      <div class="brand-sub">Bartholomäberg Mountain Retreat</div>
+      <div class="brand-sub"><span>Bartholomäberg Mountain Retreat</span></div>
     </div>
-    <div class="hero-cta-only reveal reveal-delay-2">
+    <div class="home-split-cta reveal reveal-delay-2">
       <a href="buchen/" class="btn btn-gold">Verfügbarkeit prüfen
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
-  </div>
-</header>
+    <div class="home-loc-chip">Montafon · Vorarlberg · Österreich</div>
+  </section>
+
+  <!-- Right: mountain photo -->
+  <aside class="home-split-image">
+    <img id="heroImg" alt="Alpenpanorama Bartholomäberg im Montafon" loading="eager" />
+  </aside>
+</main>
 
 <!-- Hidden admin dot -->
 <div class="admin-dot" id="adminDot" title=""></div>
