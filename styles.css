@@ -2498,6 +2498,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   height: 100%;
   object-fit: cover;
   display: block;
+  animation: kenBurns 32s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+@keyframes kenBurns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1.2%, -1.2%); }
 }
 .home-split-image::after {
   content: "";
@@ -2521,7 +2527,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--ink);
   margin-bottom: var(--s-5);
 }
-.brand-mark .sun-disc { fill: var(--gold); }
+.brand-mark .sun-disc {
+  fill: var(--gold);
+  transform-box: view-box;
+  transform-origin: center;
+  animation: sunrise 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+@keyframes sunrise {
+  0%   { transform: translateY(48px); opacity: 0; }
+  40%  { opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 .brand-name {
   font-family: var(--font-serif);
   font-weight: 500;
